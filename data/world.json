@@ -1,0 +1,36 @@
+{
+  "disclaimer": "All names, tasks and results are fictional. Never connect these records to real production authority.",
+  "world": "The Synthetic Archipelago",
+  "crossings": [
+    {
+      "id": "source",
+      "title": "Source evidence",
+      "requires": [],
+      "proof": "source-origin-fixture"
+    },
+    {
+      "id": "judgment",
+      "title": "Judgment boundary",
+      "requires": [
+        "source"
+      ],
+      "proof": "authority-separation-test"
+    },
+    {
+      "id": "history",
+      "title": "Decision history",
+      "requires": [
+        "judgment"
+      ],
+      "proof": "replay-conflict-test"
+    },
+    {
+      "id": "release",
+      "title": "Release assurance",
+      "requires": [
+        "history"
+      ],
+      "proof": "negative-path-gate-test"
+    }
+  ]
+}
