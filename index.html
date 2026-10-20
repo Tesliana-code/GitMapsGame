@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GitMapsGame — Cooperative Engineering Playground</title>
+<style>
+:root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#ebf1ff;background:#090d1b}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 60% 0,#172a48 0,transparent 42%),#090d1b}
+main{max-width:1080px;margin:auto;padding:36px 22px}h1{font-size:clamp(2.4rem,6vw,4.2rem);margin:12px 0}h2{margin:0 0 13px}h3{margin:0 0 10px}.eyebrow{text-transform:uppercase;letter-spacing:.18em;color:#73e4d2;font-size:12px;font-weight:700}p{color:#b5c3dd;line-height:1.6}header{margin-bottom:30px}header p{max-width:720px}a{color:#8bdad1}button{cursor:pointer;border:1px solid #45617c;border-radius:12px;background:#233652;color:#eaf7ff;padding:10px 14px;font-weight:700}button:hover:not(:disabled){background:#315073}button:disabled{cursor:not-allowed;opacity:.45}button.primary{background:#18bba7;color:#03181e;border-color:#18bba7}button.danger{background:#613446}button:focus-visible{outline:3px solid #8ae9d9;outline-offset:2px}.actions{display:flex;gap:8px;flex-wrap:wrap}.layout{display:grid;grid-template-columns:1.45fr 1fr;gap:18px}.panel{background:#111a2e;border:1px solid #293c5c;border-radius:18px;padding:23px;box-shadow:0 14px 44px #0002}.map{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.crossing{border:1px solid #314465;border-radius:14px;background:#17243b;padding:17px;min-height:180px}.crossing[aria-current="true"]{border-color:#7beadd;box-shadow:0 0 0 1px #7beadd}.state{display:inline-block;font-size:11px;letter-spacing:.06em;font-weight:800;border:1px solid #647590;border-radius:100px;padding:5px 9px;color:#d9e8ff}.state.proven,.state.unlocked{color:#85efd4;border-color:#347e78}.state.locked{color:#e5b981;border-color:#8d6c41}.crossing small{color:#a8b6d2}.crossing h3{margin-top:12px}.crossing p{font-size:13px;margin-bottom:0}.panel ol{padding-left:18px;color:#c4d2e7;line-height:1.85}#log{white-space:pre-wrap;background:#090f1d;border-radius:12px;padding:14px;min-height:115px;font:12px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;color:#b2f4dd;overflow-wrap:anywhere}.chip{color:#80e7d7;font-size:12px}.foot{margin-top:23px;color:#8da0c3;font-size:12px}.muted{color:#91a2bf}@media(max-width:760px){.layout{grid-template-columns:1fr}.map{grid-template-columns:1fr}main{padding:25px 14px}}
+</style></head><body><main>
+<header><span class="eyebrow">Synthetic world · Real engineering ideas</span><h1>GitMapsGame <span aria-hidden="true">✦</span></h1>
+<p>Explore a cooperative development world. Claim a crossing, complete evidence checks, unlock the next region — and learn why a green build is not permission to ship.</p>
+<div class="actions"><button id="reset">↻ Reset world</button><a href="docs/ARCHITECTURE.md">Read architecture ↗</a></div></header>
+<div class="layout"><section class="panel"><h2>World map</h2><p>Each region depends on proven work. Select a crossing to inspect it.</p><div id="map" class="map" aria-label="Synthetic engineering map"></div></section>
+<div><section class="panel" style="margin-bottom:18px"><h2>Selected crossing</h2><div id="details" aria-live="polite"></div></section>
+<section class="panel"><h2>Release simulator</h2><p>Separate release eligibility from map progression. These checks are illustrative; no deployment or network request occurs.</p>
+<div class="actions"><button id="ci" class="primary">Run mock CI</button><button id="fail" class="danger">Simulate CI failure</button><button id="approve">Grant mock approval</button><button id="ship">Attempt mock release</button></div>
+<p class="chip" id="release-state">No release authorized</p><div id="log" role="status" aria-live="polite">Select a crossing to begin.</div></section></div></div>
+<p class="foot">Fictional work, fictional contributors, mock checks and releases only. Nothing here connects to GitHub, deployment infrastructure or TriageAI private systems.</p>
+</main>
+<script>
+const seed=[
+{id:"source",name:"Source evidence",summary:"Preserve what an upstream system actually reported.",deps:[],proof:"Fixture and origin checks"},
+{id:"judgment",name:"Judgment boundary",summary:"Keep operator, source and derived claims distinct.",deps:["source"],proof:"Authority separation tests"},
+{id:"history",name:"Decision history",summary:"Record immutable looks without rewriting prior evidence.",deps:["judgment"],proof:"Exact replay and conflict tests"},
+{id:"release",name:"Release assurance",summary:"Demonstrate approval and verification before promotion.",deps:["history"],proof:"Negative-path release tests"}
+];
+let state,selected="source",ci=false,approval=false,release=false;
+const $=id=>document.getElementById(id);
+function initial(){return Object.fromEntries(seed.map(c=>[c.id,{claimed:false,proven:false}]));}
+function eligible(c){return c.deps.every(d=>state[d].proven);}
+function status(c){return state[c.id].proven?"PROVEN":state[c.id].claimed?"CLAIMED":eligible(c)?"DISCOVERED":"LOCKED";}
+function reset(){state=initial();selected="source";ci=false;approval=false;release=false;render();log("World reset. No checks or approvals are active.");}
+function log(message){$("log").textContent=message;}
+function render(){const map=$("map");map.replaceChildren();seed.forEach(c=>{const st=status(c),b=document.createElement("button");b.className="crossing";b.style.textAlign="left";b.setAttribute("aria-current",String(selected===c.id));b.innerHTML='<span class="state '+st.toLowerCase()+'">'+st+'</span><h3></h3><small></small><p></p>';b.querySelector("h3").textContent=c.name;b.querySelector("small").textContent=c.deps.length?"Requires: "+c.deps.join(", "):"Starting terrain";b.querySelector("p").textContent=c.summary;b.addEventListener("click",()=>{selected=c.id;render();});map.appendChild(b);});
+const c=seed.find(x=>x.id===selected),s=state[c.id];$("details").replaceChildren();const title=document.createElement("h3");title.textContent=c.name;const desc=document.createElement("p");desc.textContent="Proof: "+c.proof;const body=document.createElement("p");body.className="muted";body.textContent="State: "+status(c);$("details").append(title,desc,body);
+const buttons=document.createElement("div");buttons.className="actions";
+const claim=document.createElement("button");claim.textContent="Claim crossing";claim.disabled=!eligible(c)||s.claimed||s.proven;claim.onclick=()=>{s.claimed=true;render();log("CLAIMED "+c.id+" — work isolated, evidence pending.");};
+const prove=document.createElement("button");prove.className="primary";prove.textContent="Submit mock proof";prove.disabled=!s.claimed||s.proven;prove.onclick=()=>{s.proven=true;ci=false;approval=false;release=false;render();log("PROVEN "+c.id+" (synthetic evidence). New dependencies may be unlocked. Release checks reset.");};
+buttons.append(claim,prove);$("details").append(buttons);
+$("release-state").textContent=release?"MOCK RELEASE VERIFIED":approval?"Mock founder approval recorded":ci?"Mock CI passed; approval required":"No release authorized";
+}
+function allProven(){return seed.every(c=>state[c.id].proven);}
+$("ci").onclick=()=>{ci=allProven();approval=false;release=false;render();log(ci?"PASS: synthetic CI checks passed. Approval still required.":"BLOCKED: prove all four crossings before running the final mock CI.");};
+$("fail").onclick=()=>{ci=false;approval=false;release=false;render();log("FAIL: simulated CI regression. Any previous approval invalidated.");};
+$("approve").onclick=()=>{if(!ci){log("DENIED: approval cannot authorize a failed/unrun CI.");return;}approval=true;render();log("APPROVED: mock founder authorization bound to the validated simulation.");};
+$("ship").onclick=()=>{if(!ci||!approval){log("DENIED: release requires passing CI AND explicit mock approval.");return;}release=true;render();log("MOCK RELEASE VERIFIED. No real deployment happened. 🎮");};
+$("reset").onclick=reset;reset();
+</script></body></html>
