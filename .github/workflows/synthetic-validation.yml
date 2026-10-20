@@ -1,0 +1,21 @@
+name: Synthetic playground checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  mock-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run deterministic, offline simulation tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Run refused-release scenarios
+        run: |
+          python3 scripts/mock_pipeline.py --scenario ci-failure
+          python3 scripts/mock_pipeline.py --scenario stale-approval
+          python3 scripts/mock_pipeline.py --scenario missing-approval
+# There are no deployment jobs, repository secrets or production permissions.
