@@ -1,0 +1,58 @@
+name: GitMaps map
+
+# Every trigger runs in the default-branch context. No trigger checks out or runs pull request code.
+on:
+  issues:
+    types: [opened, edited, deleted, transferred, closed, reopened, assigned, unassigned, labeled, unlabeled]
+  workflow_run:
+    # Add the exact `name:` of each CI workflow whose results should refresh the map.
+    workflows: ["GitMaps trigger"]
+    types: [completed]
+  push:
+    branches: [main] # your default branch
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: gitmaps-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: read
+      pull-requests: read
+      checks: read
+      statuses: read
+    steps:
+      # No checkout: the map is built from the GitHub API, never from repository files.
+      - name: Build map
+        id: map
+        # PRE-RELEASE: the v1 tag does not exist yet; this line fails until it is published.
+        uses: Tesliana-code/GitMapsGame@v1 # pin to the v1 release commit SHA for stronger guarantees
+        with:
+          label: gitmaps:crossing
+          out: _site
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

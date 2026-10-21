@@ -21,4 +21,4 @@ The program does **not** use subprocess, network, CI credentials, GitHub tokens 
 
 The browser UI separately models prerequisite unlocking. It is purposefully not a trustworthy authorization service.
 
-The GitHub Actions workflow runs tests on pull requests and pushes to main. It contains no production dispatch.
+The `Synthetic playground checks` workflow runs tests on pull requests and pushes to main. It contains no production dispatch. The separate real-mode `GitMaps map` workflow only publishes a read-only map to GitHub Pages; see [INSTALL.md](INSTALL.md).

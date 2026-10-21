@@ -1,0 +1,1409 @@
+{
+  "issues": [
+    {
+      "assignees": [],
+      "assignees_complete": true,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "closed_at": "2026-10-21T08:50:06Z",
+      "closed_event": {
+        "actor": "babakks",
+        "closer": {
+          "number": 14148,
+          "repository": "cli/cli",
+          "type": "pull_request"
+        },
+        "created_at": "2026-10-21T08:50:06Z",
+        "state_reason": "completed"
+      },
+      "created_at": "2021-05-25T21:32:51Z",
+      "linked_pull_requests": [
+        {
+          "number": 14148,
+          "repository": "cli/cli"
+        }
+      ],
+      "linked_pull_requests_complete": true,
+      "number": 3718,
+      "requires": {
+        "refs": [],
+        "unresolved": []
+      },
+      "state": "closed",
+      "state_reason": "completed",
+      "title": "Auto-detected links with new lines result in 404s when clicked",
+      "updated_at": "2026-10-21T08:50:06Z",
+      "url": "https://github.com/cli/cli/issues/3718"
+    },
+    {
+      "assignees": [],
+      "assignees_complete": true,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "closed_at": null,
+      "closed_event": null,
+      "created_at": "2025-07-08T04:44:15Z",
+      "linked_pull_requests": [
+        {
+          "number": 12622,
+          "repository": "cli/cli"
+        },
+        {
+          "number": 12728,
+          "repository": "cli/cli"
+        },
+        {
+          "number": 13348,
+          "repository": "cli/cli"
+        },
+        {
+          "number": 13693,
+          "repository": "cli/cli"
+        },
+        {
+          "number": 13798,
+          "repository": "cli/cli"
+        },
+        {
+          "number": 13918,
+          "repository": "cli/cli"
+        },
+        {
+          "number": 13954,
+          "repository": "cli/cli"
+        },
+        {
+          "number": 14713,
+          "repository": "cli/cli"
+        },
+        {
+          "number": 14765,
+          "repository": "cli/cli"
+        }
+      ],
+      "linked_pull_requests_complete": true,
+      "number": 11247,
+      "requires": {
+        "refs": [],
+        "unresolved": []
+      },
+      "state": "open",
+      "state_reason": null,
+      "title": "Add `--json` and `--jq` to `gh pr create`",
+      "updated_at": "2026-09-01T10:33:17Z",
+      "url": "https://github.com/cli/cli/issues/11247"
+    },
+    {
+      "assignees": [],
+      "assignees_complete": true,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "closed_at": null,
+      "closed_event": null,
+      "created_at": "2026-07-01T20:23:46Z",
+      "linked_pull_requests": [
+        {
+          "number": 13781,
+          "repository": "cli/cli"
+        }
+      ],
+      "linked_pull_requests_complete": true,
+      "number": 13768,
+      "requires": {
+        "refs": [],
+        "unresolved": []
+      },
+      "state": "open",
+      "state_reason": null,
+      "title": "Better multi-account `gh` account usage",
+      "updated_at": "2026-10-15T21:18:07Z",
+      "url": "https://github.com/cli/cli/issues/13768"
+    },
+    {
+      "assignees": [],
+      "assignees_complete": true,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "closed_at": "2026-10-16T12:23:49Z",
+      "closed_event": {
+        "actor": "williammartin",
+        "closer": null,
+        "created_at": "2026-10-16T12:23:49Z",
+        "state_reason": "completed"
+      },
+      "created_at": "2026-10-14T16:25:21Z",
+      "linked_pull_requests": [
+        {
+          "number": 14710,
+          "repository": "cli/cli"
+        }
+      ],
+      "linked_pull_requests_complete": true,
+      "number": 14692,
+      "requires": {
+        "refs": [],
+        "unresolved": []
+      },
+      "state": "closed",
+      "state_reason": "completed",
+      "title": "gh issue view --comments omits the issue body when stdout is not a TTY",
+      "updated_at": "2026-10-16T12:23:49Z",
+      "url": "https://github.com/cli/cli/issues/14692"
+    },
+    {
+      "assignees": [],
+      "assignees_complete": true,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "closed_at": null,
+      "closed_event": null,
+      "created_at": "2026-10-15T13:31:49Z",
+      "linked_pull_requests": [
+        {
+          "number": 14727,
+          "repository": "cli/cli"
+        }
+      ],
+      "linked_pull_requests_complete": true,
+      "number": 14703,
+      "requires": {
+        "refs": [],
+        "unresolved": []
+      },
+      "state": "open",
+      "state_reason": null,
+      "title": "`gh issue create --type` creates the issue, then exits 1 with `type \"X\" not found` without printing its URL (causes duplicates on retry)",
+      "updated_at": "2026-10-17T22:37:25Z",
+      "url": "https://github.com/cli/cli/issues/14703"
+    },
+    {
+      "assignees": [],
+      "assignees_complete": true,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "closed_at": "2026-10-20T10:37:08Z",
+      "closed_event": {
+        "actor": "williammartin",
+        "closer": null,
+        "created_at": "2026-10-20T10:37:08Z",
+        "state_reason": "completed"
+      },
+      "created_at": "2026-10-16T01:11:44Z",
+      "linked_pull_requests": [],
+      "linked_pull_requests_complete": true,
+      "number": 14711,
+      "requires": {
+        "refs": [],
+        "unresolved": []
+      },
+      "state": "closed",
+      "state_reason": "completed",
+      "title": "gh pr merge reports a bogus \"invalid email address\"",
+      "updated_at": "2026-10-21T07:43:16Z",
+      "url": "https://github.com/cli/cli/issues/14711"
+    },
+    {
+      "assignees": [],
+      "assignees_complete": true,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "closed_at": "2026-10-19T18:28:47Z",
+      "closed_event": {
+        "actor": "BagToad",
+        "closer": {
+          "number": 14719,
+          "repository": "cli/cli",
+          "type": "pull_request"
+        },
+        "created_at": "2026-10-19T18:28:47Z",
+        "state_reason": "completed"
+      },
+      "created_at": "2026-10-16T15:54:05Z",
+      "linked_pull_requests": [
+        {
+          "number": 14719,
+          "repository": "cli/cli"
+        }
+      ],
+      "linked_pull_requests_complete": true,
+      "number": 14718,
+      "requires": {
+        "refs": [],
+        "unresolved": []
+      },
+      "state": "closed",
+      "state_reason": "completed",
+      "title": "Help text for `gh ruleset view` and `gh search issues`/`prs` refers to flags these commands do not have",
+      "updated_at": "2026-10-21T01:21:21Z",
+      "url": "https://github.com/cli/cli/issues/14718"
+    },
+    {
+      "assignees": [],
+      "assignees_complete": true,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "closed_at": null,
+      "closed_event": null,
+      "created_at": "2026-10-19T21:56:16Z",
+      "linked_pull_requests": [],
+      "linked_pull_requests_complete": true,
+      "number": 14755,
+      "requires": {
+        "refs": [],
+        "unresolved": []
+      },
+      "state": "open",
+      "state_reason": null,
+      "title": "Support persistent command defaults without requiring custom aliases",
+      "updated_at": "2026-10-19T22:07:47Z",
+      "url": "https://github.com/cli/cli/issues/14755"
+    },
+    {
+      "assignees": [],
+      "assignees_complete": true,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "closed_at": "2026-10-21T00:36:00Z",
+      "closed_event": {
+        "actor": "github-actions",
+        "closer": null,
+        "created_at": "2026-10-21T00:36:00Z",
+        "state_reason": "not_planned"
+      },
+      "created_at": "2026-10-21T00:30:43Z",
+      "linked_pull_requests": [],
+      "linked_pull_requests_complete": true,
+      "number": 14780,
+      "requires": {
+        "refs": [],
+        "unresolved": []
+      },
+      "state": "closed",
+      "state_reason": "not_planned",
+      "title": "gh issue view --comments returns empty output for an existing issue",
+      "updated_at": "2026-10-21T00:36:00Z",
+      "url": "https://github.com/cli/cli/issues/14780"
+    }
+  ],
+  "pull_requests": [
+    {
+      "author": "LouisLau-art",
+      "ci": {
+        "commit": "42ed61f9c6fb0555086768588a1b267ac7da9b66",
+        "contexts": [
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "CodeQL",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "CodeQL-Build (actions)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "CodeQL-Build (go)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "build (macos-latest)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "build (ubuntu-latest)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "build (windows-latest)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "govulncheck",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "integration-tests (macos-latest)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "integration-tests (ubuntu-latest)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "integration-tests (windows-latest)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "lint",
+            "status": "completed"
+          }
+        ],
+        "contexts_complete": true,
+        "fetch_error": false,
+        "rollup": "success"
+      },
+      "created_at": "2026-02-06T02:28:44Z",
+      "fetch_errors": [],
+      "head_oid": "42ed61f9c6fb0555086768588a1b267ac7da9b66",
+      "merge_commit_oid": null,
+      "merged": false,
+      "merged_at": null,
+      "number": 12622,
+      "repository": "cli/cli",
+      "reviews": [
+        {
+          "author": "babakks",
+          "commit": "42ed61f9c6fb0555086768588a1b267ac7da9b66",
+          "state": "changes_requested",
+          "submitted_at": "2026-03-04T15:40:09Z"
+        }
+      ],
+      "state": "closed",
+      "title": "feat(pr create): add --json and --jq output",
+      "updated_at": "2026-05-13T12:19:00Z",
+      "url": "https://github.com/cli/cli/pull/12622"
+    },
+    {
+      "author": "yuvrajangadsingh",
+      "ci": {
+        "commit": "9d38b5de87a2bf883826d99ca43e51e611a710d0",
+        "contexts": [
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "check-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "check-requirements / check-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "check-requirements / close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-from-default-branch",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-from-default-branch / close-from-default-branch",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-no-help-wanted",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-no-help-wanted",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "label-external",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "label-external / label_issues",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "ready-for-review",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "ready-for-review",
+            "status": "completed"
+          }
+        ],
+        "contexts_complete": true,
+        "fetch_error": false,
+        "rollup": "success"
+      },
+      "created_at": "2026-02-20T08:36:47Z",
+      "fetch_errors": [],
+      "head_oid": "9d38b5de87a2bf883826d99ca43e51e611a710d0",
+      "merge_commit_oid": null,
+      "merged": false,
+      "merged_at": null,
+      "number": 12728,
+      "repository": "cli/cli",
+      "reviews": [],
+      "state": "closed",
+      "title": "feat(pr create): add --json and --jq flags for structured output",
+      "updated_at": "2026-02-20T08:40:48Z",
+      "url": "https://github.com/cli/cli/pull/12728"
+    },
+    {
+      "author": "SebTardif",
+      "ci": {
+        "commit": "2cd48dc3741585389ca1a788cb5969720ce2d2a7",
+        "contexts": [
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "check-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-from-default-branch",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-no-help-wanted / close-no-help-wanted",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "discuss",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "label-external",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "ready-for-review / ready-for-review",
+            "status": "completed"
+          }
+        ],
+        "contexts_complete": true,
+        "fetch_error": false,
+        "rollup": "success"
+      },
+      "created_at": "2026-05-04T20:11:52Z",
+      "fetch_errors": [],
+      "head_oid": "2cd48dc3741585389ca1a788cb5969720ce2d2a7",
+      "merge_commit_oid": null,
+      "merged": false,
+      "merged_at": null,
+      "number": 13348,
+      "repository": "cli/cli",
+      "reviews": [
+        {
+          "author": "copilot-pull-request-reviewer",
+          "commit": "1df86edefca0aa6116e3d36d31a80e2e2194e369",
+          "state": "commented",
+          "submitted_at": "2026-05-04T20:17:47Z"
+        }
+      ],
+      "state": "open",
+      "title": "Add `--json` and `--jq` flags to `gh pr create`",
+      "updated_at": "2026-05-13T12:18:22Z",
+      "url": "https://github.com/cli/cli/pull/13348"
+    },
+    {
+      "author": "itxaiohanglover",
+      "ci": {
+        "commit": "327fcc6d8d79b72d8066c265844f41fc5396d372",
+        "contexts": [
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "check-requirements / check-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "check-requirements / close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-from-default-branch / close-from-default-branch",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-no-help-wanted",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "label-external / label_issues",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "ready-for-review",
+            "status": "completed"
+          }
+        ],
+        "contexts_complete": true,
+        "fetch_error": false,
+        "rollup": "success"
+      },
+      "created_at": "2026-06-20T16:35:28Z",
+      "fetch_errors": [],
+      "head_oid": "327fcc6d8d79b72d8066c265844f41fc5396d372",
+      "merge_commit_oid": null,
+      "merged": false,
+      "merged_at": null,
+      "number": 13693,
+      "repository": "cli/cli",
+      "reviews": [],
+      "state": "closed",
+      "title": "Add --json and --jq flags to gh pr create",
+      "updated_at": "2026-06-20T16:44:47Z",
+      "url": "https://github.com/cli/cli/pull/13693"
+    },
+    {
+      "author": "platinummonkey",
+      "ci": {
+        "commit": "2071526f740ff790c11f84d97e6fcad9e6db3451",
+        "contexts": [],
+        "contexts_complete": true,
+        "fetch_error": false,
+        "rollup": null
+      },
+      "created_at": "2026-07-02T14:40:03Z",
+      "fetch_errors": [],
+      "head_oid": "2071526f740ff790c11f84d97e6fcad9e6db3451",
+      "merge_commit_oid": null,
+      "merged": false,
+      "merged_at": null,
+      "number": 13781,
+      "repository": "cli/cli",
+      "reviews": [],
+      "state": "open",
+      "title": "feat(auth): Better multi-account `gh` account usage #13768",
+      "updated_at": "2026-07-31T13:53:31Z",
+      "url": "https://github.com/cli/cli/pull/13781"
+    },
+    {
+      "author": "natsu0529",
+      "ci": {
+        "commit": "71a6960b240de0550584ad60f27d26df59ddb3cf",
+        "contexts": [],
+        "contexts_complete": true,
+        "fetch_error": false,
+        "rollup": null
+      },
+      "created_at": "2026-07-06T09:38:35Z",
+      "fetch_errors": [],
+      "head_oid": "71a6960b240de0550584ad60f27d26df59ddb3cf",
+      "merge_commit_oid": null,
+      "merged": false,
+      "merged_at": null,
+      "number": 13798,
+      "repository": "cli/cli",
+      "reviews": [
+        {
+          "author": "copilot-pull-request-reviewer",
+          "commit": "1c777e883e71740b5edbc0d7df814d806266de57",
+          "state": "commented",
+          "submitted_at": "2026-07-06T12:32:28Z"
+        }
+      ],
+      "state": "open",
+      "title": "Add JSON output support to pr create",
+      "updated_at": "2026-09-03T15:21:05Z",
+      "url": "https://github.com/cli/cli/pull/13798"
+    },
+    {
+      "author": "AdarshJ173",
+      "ci": {
+        "commit": "d88a32edaa9662bfaa76b671fe085084bb7b0f14",
+        "contexts": [
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "check-requirements / check-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "check-requirements / close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-from-default-branch / close-from-default-branch",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-no-help-wanted",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "label-external / label_issues",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "ready-for-review",
+            "status": "completed"
+          }
+        ],
+        "contexts_complete": true,
+        "fetch_error": false,
+        "rollup": "success"
+      },
+      "created_at": "2026-07-18T15:00:17Z",
+      "fetch_errors": [],
+      "head_oid": "d88a32edaa9662bfaa76b671fe085084bb7b0f14",
+      "merge_commit_oid": null,
+      "merged": false,
+      "merged_at": null,
+      "number": 13918,
+      "repository": "cli/cli",
+      "reviews": [
+        {
+          "author": "Sanjays2402",
+          "commit": "d88a32edaa9662bfaa76b671fe085084bb7b0f14",
+          "state": "commented",
+          "submitted_at": "2026-07-21T12:08:26Z"
+        }
+      ],
+      "state": "closed",
+      "title": "feat(pr create): add --json and --jq flags for machine-readable output",
+      "updated_at": "2026-07-21T17:56:34Z",
+      "url": "https://github.com/cli/cli/pull/13918"
+    },
+    {
+      "author": "dhaneshdutta",
+      "ci": {
+        "commit": "329a8143547e2fe37b128e1c5a2b05884d834f9e",
+        "contexts": [
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "check-requirements / check-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "check-requirements / close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-from-default-branch / close-from-default-branch",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-no-help-wanted",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "label-external / label_issues",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "ready-for-review",
+            "status": "completed"
+          }
+        ],
+        "contexts_complete": true,
+        "fetch_error": false,
+        "rollup": "success"
+      },
+      "created_at": "2026-07-23T19:51:39Z",
+      "fetch_errors": [],
+      "head_oid": "329a8143547e2fe37b128e1c5a2b05884d834f9e",
+      "merge_commit_oid": null,
+      "merged": false,
+      "merged_at": null,
+      "number": 13954,
+      "repository": "cli/cli",
+      "reviews": [],
+      "state": "closed",
+      "title": "feat(pr create): add --json and --jq flag support (#11247)",
+      "updated_at": "2026-07-23T19:55:23Z",
+      "url": "https://github.com/cli/cli/pull/13954"
+    },
+    {
+      "author": "heaths",
+      "ci": {
+        "commit": "350fa040f8a13c272a552ae8926dffc38a5a94bf",
+        "contexts": [
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "CodeQL",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "CodeQL-Build (actions, none, security-and-quality)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "CodeQL-Build (go, manual, ./.github/codeql/codeql-config.yml)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "build (macos-latest)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "build (ubuntu-latest)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "build (windows-latest)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "govulncheck",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "integration-tests (macos-latest)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "integration-tests (ubuntu-latest)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "integration-tests (windows-latest)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "lint",
+            "status": "completed"
+          }
+        ],
+        "contexts_complete": true,
+        "fetch_error": false,
+        "rollup": "success"
+      },
+      "created_at": "2026-08-15T00:09:53Z",
+      "fetch_errors": [],
+      "head_oid": "350fa040f8a13c272a552ae8926dffc38a5a94bf",
+      "merge_commit_oid": "1531837d8578fecd64eb8050d44a3665d85f9219",
+      "merged": true,
+      "merged_at": "2026-10-21T08:50:05Z",
+      "number": 14148,
+      "repository": "cli/cli",
+      "reviews": [
+        {
+          "author": "copilot-pull-request-reviewer",
+          "commit": "aeabf14462b27c6a361428aa94e12f254bc56676",
+          "state": "commented",
+          "submitted_at": "2026-08-15T00:12:35Z"
+        },
+        {
+          "author": "heaths",
+          "commit": "aeabf14462b27c6a361428aa94e12f254bc56676",
+          "state": "commented",
+          "submitted_at": "2026-08-15T04:58:36Z"
+        },
+        {
+          "author": "babakks",
+          "commit": "350fa040f8a13c272a552ae8926dffc38a5a94bf",
+          "state": "approved",
+          "submitted_at": "2026-10-21T08:47:13Z"
+        }
+      ],
+      "state": "merged",
+      "title": "Update glamour to v2",
+      "updated_at": "2026-10-21T08:50:05Z",
+      "url": "https://github.com/cli/cli/pull/14148"
+    },
+    {
+      "author": "arsalanyavari",
+      "ci": {
+        "commit": "78ef751c3eb5a266e4eb236be7d2e86fa21a9a41",
+        "contexts": [
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "check-requirements / check-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "check-requirements / close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-from-default-branch / close-from-default-branch",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-no-help-wanted",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "label-external / label_issues",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "ready-for-review",
+            "status": "completed"
+          }
+        ],
+        "contexts_complete": true,
+        "fetch_error": false,
+        "rollup": "success"
+      },
+      "created_at": "2026-10-15T23:41:36Z",
+      "fetch_errors": [],
+      "head_oid": "78ef751c3eb5a266e4eb236be7d2e86fa21a9a41",
+      "merge_commit_oid": null,
+      "merged": false,
+      "merged_at": null,
+      "number": 14710,
+      "repository": "cli/cli",
+      "reviews": [
+        {
+          "author": "copilot-pull-request-reviewer",
+          "commit": "78ef751c3eb5a266e4eb236be7d2e86fa21a9a41",
+          "state": "commented",
+          "submitted_at": "2026-10-15T23:41:42Z"
+        }
+      ],
+      "state": "closed",
+      "title": "Fix omitting body and metadata with --comments in non-TTY mode",
+      "updated_at": "2026-10-16T11:35:01Z",
+      "url": "https://github.com/cli/cli/pull/14710"
+    },
+    {
+      "author": "manish-9245",
+      "ci": {
+        "commit": "e96173899973c129b6927cbf4ba0995665b35c9c",
+        "contexts": [
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "check-requirements / check-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "check-requirements / close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-from-default-branch / close-from-default-branch",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-no-help-wanted",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "label-external / label_issues",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "ready-for-review",
+            "status": "completed"
+          }
+        ],
+        "contexts_complete": true,
+        "fetch_error": false,
+        "rollup": "success"
+      },
+      "created_at": "2026-10-16T07:14:07Z",
+      "fetch_errors": [],
+      "head_oid": "e96173899973c129b6927cbf4ba0995665b35c9c",
+      "merge_commit_oid": null,
+      "merged": false,
+      "merged_at": null,
+      "number": 14713,
+      "repository": "cli/cli",
+      "reviews": [
+        {
+          "author": "copilot-pull-request-reviewer",
+          "commit": "e96173899973c129b6927cbf4ba0995665b35c9c",
+          "state": "commented",
+          "submitted_at": "2026-10-16T07:14:14Z"
+        }
+      ],
+      "state": "closed",
+      "title": "feat: add --json and --jq to gh pr create (#11247)",
+      "updated_at": "2026-10-16T07:39:53Z",
+      "url": "https://github.com/cli/cli/pull/14713"
+    },
+    {
+      "author": "BagToad",
+      "ci": {
+        "commit": "f3e2147f249b228e8a2cbca68c47fc6ef99d3747",
+        "contexts": [
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "CodeQL",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "CodeQL-Build (actions, none, security-and-quality)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "CodeQL-Build (go, manual, ./.github/codeql/codeql-config.yml)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "build (macos-latest)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "build (ubuntu-latest)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "build (windows-latest)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "check-requirements / check-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "check-requirements / close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-from-default-branch / close-from-default-branch",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-no-help-wanted",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "govulncheck",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "integration-tests (macos-latest)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "integration-tests (ubuntu-latest)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "integration-tests (windows-latest)",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "label-external / label_issues",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "lint",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "ready-for-review",
+            "status": "completed"
+          }
+        ],
+        "contexts_complete": true,
+        "fetch_error": false,
+        "rollup": "success"
+      },
+      "created_at": "2026-10-16T18:10:58Z",
+      "fetch_errors": [],
+      "head_oid": "f3e2147f249b228e8a2cbca68c47fc6ef99d3747",
+      "merge_commit_oid": "ed40e856ffecd31286733876c613a2d3745e12bd",
+      "merged": true,
+      "merged_at": "2026-10-19T18:28:36Z",
+      "number": 14719,
+      "repository": "cli/cli",
+      "reviews": [
+        {
+          "author": "copilot-pull-request-reviewer",
+          "commit": "f3e2147f249b228e8a2cbca68c47fc6ef99d3747",
+          "state": "commented",
+          "submitted_at": "2026-10-16T18:12:55Z"
+        },
+        {
+          "author": "tidy-dev",
+          "commit": "f3e2147f249b228e8a2cbca68c47fc6ef99d3747",
+          "state": "approved",
+          "submitted_at": "2026-10-19T18:19:11Z"
+        }
+      ],
+      "state": "merged",
+      "title": "Fix help text that references nonexistent flags",
+      "updated_at": "2026-10-21T01:22:49Z",
+      "url": "https://github.com/cli/cli/pull/14719"
+    },
+    {
+      "author": "umairnaeem0309",
+      "ci": {
+        "commit": "1156f977ff6d12d592bc152987b9d9b378f6718d",
+        "contexts": [
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "check-requirements / check-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "check-requirements / check-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "check-requirements / close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "check-requirements / close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-from-default-branch",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-from-default-branch / close-from-default-branch",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-no-help-wanted",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-no-help-wanted",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "label-external",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "label-external / label_issues",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "ready-for-review",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "ready-for-review",
+            "status": "completed"
+          }
+        ],
+        "contexts_complete": true,
+        "fetch_error": false,
+        "rollup": "success"
+      },
+      "created_at": "2026-10-17T15:21:58Z",
+      "fetch_errors": [],
+      "head_oid": "1156f977ff6d12d592bc152987b9d9b378f6718d",
+      "merge_commit_oid": null,
+      "merged": false,
+      "merged_at": null,
+      "number": 14727,
+      "repository": "cli/cli",
+      "reviews": [],
+      "state": "open",
+      "title": "fix(issue create): resolve --type before creating the issue",
+      "updated_at": "2026-10-17T15:26:56Z",
+      "url": "https://github.com/cli/cli/pull/14727"
+    },
+    {
+      "author": "MauroDruwel",
+      "ci": {
+        "commit": "7d2349336a68a876a546b8417d459b1087fb9698",
+        "contexts": [
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "check-requirements / check-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "check-requirements / close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-from-default-branch / close-from-default-branch",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-no-help-wanted",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "close-unmet-requirements",
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "kind": "check_run",
+            "name": "label-external / label_issues",
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "kind": "check_run",
+            "name": "ready-for-review",
+            "status": "completed"
+          }
+        ],
+        "contexts_complete": true,
+        "fetch_error": false,
+        "rollup": "success"
+      },
+      "created_at": "2026-10-20T14:01:51Z",
+      "fetch_errors": [],
+      "head_oid": "7d2349336a68a876a546b8417d459b1087fb9698",
+      "merge_commit_oid": null,
+      "merged": false,
+      "merged_at": null,
+      "number": 14765,
+      "repository": "cli/cli",
+      "reviews": [],
+      "state": "closed",
+      "title": "Add --json and --jq flags to pr create (#11247)",
+      "updated_at": "2026-10-20T16:45:49Z",
+      "url": "https://github.com/cli/cli/pull/14765"
+    }
+  ],
+  "repository": {
+    "is_private": false,
+    "label_exists": false,
+    "name_with_owner": "cli/cli",
+    "visibility": "public"
+  },
+  "schema": "gitmaps.snapshot/v1",
+  "source": {
+    "api": "github-graphql",
+    "selection": {
+      "mode": "numbers",
+      "numbers": [
+        3718,
+        11247,
+        13768,
+        14692,
+        14703,
+        14711,
+        14718,
+        14755,
+        14780
+      ]
+    }
+  }
+}

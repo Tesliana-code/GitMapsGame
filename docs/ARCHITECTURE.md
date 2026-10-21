@@ -1,6 +1,33 @@
 # GitMapsGame architecture
 
-This prototype is static and intentionally cannot operate infrastructure.
+GitMapsGame has a **synthetic mode** (a static demo that cannot operate infrastructure) and a **real mode** (a read-only map of a GitHub repository). They share the visual design and nothing else.
+
+## Real mode
+
+```mermaid
+flowchart LR
+  EV[Issue / PR / review / CI events] -->|trigger only| WF[GitMaps map workflow]
+  SCH[Schedule every 6h] --> WF
+  WF -->|read-only GITHUB_TOKEN| API[(GitHub GraphQL API)]
+  API --> SNAP[snapshot.json]
+  SNAP -->|pure derive| MAP[map.json]
+  MAP --> HTML[index.html with inlined map]
+  HTML --> PAGES[GitHub Pages]
+```
+
+1. **Authority:** the GitHub API snapshot is the only input. Event payloads are never read. An unchanged repository yields a byte-identical snapshot, because no fetch time is stored.
+2. **Ingestion** (`gitmaps/fetch.py`): crossing issues (paginated, at most 200), `Requires:` lines, assignees, linked PRs (paginated), the latest close event and its closer, PR reviews (paginated), and the head-commit CI rollup. Any list the API truncates is reported as an evidence gap.
+3. **Derivation** (`gitmaps/derive.py`): a pure function with the precedence INVALID > LOCKED > PROVEN > CLOSED_UNPROVEN > CLAIMED > DISCOVERED. Non-canonical snapshots are rejected.
+4. **Rendering** (`gitmaps/render.py`): the map is inlined into `index.html` with `<`, `>` and `&` escaped. The CSP allows exactly the one shipped script (sha256) and no network access. `map.json`, `snapshot.json` and `SHA256SUMS` are published next to it.
+5. **Workflows:**
+   - `gitmaps-trigger.yml` has no permissions and runs for PRs and reviews, including forks.
+   - `gitmaps.yml` runs on the default branch:
+     - the build job has read-only permissions;
+     - the deploy job alone has `pages: write` and `id-token: write`.
+   - No `pull_request_target`. PR code is never checked out. Actions are pinned by SHA.
+6. **Publication guard:** private and internal repositories are refused unless explicitly overridden.
+
+## Synthetic mode
 
 ```mermaid
 flowchart TB
@@ -21,9 +48,9 @@ flowchart TB
 4. **Release:** in-browser “approval” is a teaching device, not real founder authorization, a signature or a security boundary.
 5. **Data:** invented names/IDs only; no customer information, internal TriageAI source, production URLs, tokens, secrets or configuration.
 
-## Future architecture — proposal, not implemented
+## Not implemented
 
-A hardened implementation could use a trusted GitHub App for PR/event ingestion; a server-side policy engine to evaluate the signed, reviewed provenance of a crossing; protected branches and independent release-authority verification; audit records; and explicit deployment attestation. **None of these exists in GitMapsGame V1.** A real system must address replay, TOCTOU, RBAC, impersonation, event authenticity and durable history before accepting external claims.
+Real mode V1 is a read-only view. It has no GitHub App, no server-side policy engine, no signed provenance, no release-authority verification and no deployment attestation. A real system must address replay, TOCTOU, RBAC, impersonation, event authenticity and durable history before accepting external claims.
 
 ## Distinguishing two kinds of progression
 

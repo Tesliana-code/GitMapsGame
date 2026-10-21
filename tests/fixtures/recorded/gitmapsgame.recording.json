@@ -1,0 +1,26 @@
+{
+  "body_redacted": false,
+  "exchanges": [
+    {
+      "name": "repository",
+      "response": {
+        "data": {
+          "repository": {
+            "isPrivate": false,
+            "label": null,
+            "nameWithOwner": "Tesliana-code/GitMapsGame",
+            "visibility": "PUBLIC"
+          }
+        }
+      },
+      "variables": {
+        "label": "gitmaps:crossing",
+        "name": "GitMapsGame",
+        "owner": "Tesliana-code"
+      }
+    }
+  ],
+  "label": "gitmaps:crossing",
+  "numbers": null,
+  "repo": "Tesliana-code/GitMapsGame"
+}

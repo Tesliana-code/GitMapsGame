@@ -12,7 +12,22 @@ The playground begins with four **DISCOVERED or LOCKED** fictional crossings. Cl
 
 Players may be humans or AI agents; both submit evidence. Identity, permissions and production authority are **never** inferred from participation. The browser demonstration has no backend and is not an access-control system.
 
-## Win condition
+## Real mode
+
+On a real repository, the same vocabulary is derived from GitHub data only:
+
+| State | Condition |
+|---|---|
+| `INVALID` | missing dependency, unresolved reference, or a dependency cycle |
+| `LOCKED` | a required crossing is not PROVEN (overrides CLAIMED and a merged closure) |
+| `PROVEN` | closed as completed by a merged pull request in the same repository |
+| `CLOSED_UNPROVEN` | closed without that evidence |
+| `CLAIMED` | open, with an assignee or an open linked pull request |
+| `DISCOVERED` | open, all requirements PROVEN, unclaimed |
+
+CI (`success`, `failure`, `pending`, `absent`, `unknown`) and review (`approved`, `changes_requested`, `absent`, `unknown`) are shown as separate facts. Cross-repository closing PRs do not satisfy PROVEN in V1. See [INSTALL.md](INSTALL.md).
+
+## Win condition (synthetic mode)
 
 The browser shows all four crossings proven and an independently approved **mock** release. The latter intentionally requires separate checks. Winning doesn't confer production permissions.
 

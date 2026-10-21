@@ -1,0 +1,19 @@
+name: GitMaps trigger
+
+# Pull request and review events (including from forks) only signal "rebuild".
+# This job has no permissions, no checkout and no outputs; the map workflow
+# re-reads GitHub itself and never consumes anything from this run.
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize, closed, ready_for_review]
+  pull_request_review:
+    types: [submitted, edited, dismissed]
+
+permissions: {}
+
+jobs:
+  signal:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request map rebuild
+        run: echo "Map rebuild requested. The map is derived from the GitHub API, not from this event."

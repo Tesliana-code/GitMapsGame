@@ -1,0 +1,22 @@
+{
+  "as_of": null,
+  "contributors": [],
+  "counts": {},
+  "crossings": [],
+  "mode": "real",
+  "repository": {
+    "is_private": false,
+    "label_exists": false,
+    "name_with_owner": "Tesliana-code/GitMapsGame",
+    "visibility": "public"
+  },
+  "schema": "gitmaps.map/v1",
+  "source": {
+    "api": "github-graphql",
+    "selection": {
+      "label": "gitmaps:crossing",
+      "mode": "label"
+    },
+    "snapshot_sha256": "46bdec12a5750b567d5b6acb2e599e0fb8dfd1117a47ac49ff1c265429e9eaff"
+  }
+}

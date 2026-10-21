@@ -1,0 +1,18 @@
+{
+  "issues": [],
+  "pull_requests": [],
+  "repository": {
+    "is_private": false,
+    "label_exists": false,
+    "name_with_owner": "Tesliana-code/GitMapsGame",
+    "visibility": "public"
+  },
+  "schema": "gitmaps.snapshot/v1",
+  "source": {
+    "api": "github-graphql",
+    "selection": {
+      "label": "gitmaps:crossing",
+      "mode": "label"
+    }
+  }
+}

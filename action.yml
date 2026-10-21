@@ -1,0 +1,53 @@
+name: GitMapsGame map
+description: Build a read-only GitMapsGame crossing map from this repository's GitHub issues and pull requests.
+author: GitMapsGame contributors
+branding:
+  icon: map
+  color: green
+
+inputs:
+  label:
+    description: Issue label that marks a crossing.
+    default: gitmaps:crossing
+  out:
+    description: Directory to write the static site into.
+    default: _site
+  allow-private:
+    description: Set to "true" only if you accept that the rendered map exposes a non-public repository's issue titles, logins and PR data.
+    default: "false"
+  repository:
+    description: owner/name of the repository to map.
+    default: ${{ github.repository }}
+  token:
+    description: Token with read access to issues, pull requests and checks.
+    default: ${{ github.token }}
+
+outputs:
+  snapshot-sha256:
+    description: sha256 of snapshot.json
+    value: ${{ steps.build.outputs.snapshot-sha256 }}
+  map-sha256:
+    description: sha256 of map.json
+    value: ${{ steps.build.outputs.map-sha256 }}
+
+runs:
+  using: composite
+  steps:
+    - name: Build map from the GitHub API
+      id: build
+      shell: bash
+      # Inputs reach the script only through environment variables, never by template expansion.
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+        GITMAPS_REPO: ${{ inputs.repository }}
+        GITMAPS_LABEL: ${{ inputs.label }}
+        GITMAPS_OUT: ${{ inputs.out }}
+        GITMAPS_ALLOW_PRIVATE: ${{ inputs.allow-private }}
+      run: |
+        set -euo pipefail
+        out="$(realpath -m "$GITMAPS_OUT")"
+        args=(build --repo "$GITMAPS_REPO" --label "$GITMAPS_LABEL" --out "$out")
+        if [ "$GITMAPS_ALLOW_PRIVATE" = "true" ]; then args+=(--allow-private); fi
+        # Run from the action's own directory so no checked-out repository code can shadow the package.
+        cd "$GITHUB_ACTION_PATH"
+        python3 -E -s -m gitmaps "${args[@]}"
