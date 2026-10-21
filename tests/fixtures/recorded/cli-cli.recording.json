@@ -1,0 +1,2145 @@
+{
+  "body_redacted": true,
+  "exchanges": [
+    {
+      "name": "repository",
+      "response": {
+        "data": {
+          "repository": {
+            "isPrivate": false,
+            "label": null,
+            "nameWithOwner": "cli/cli",
+            "visibility": "PUBLIC"
+          }
+        }
+      },
+      "variables": {
+        "label": "gitmaps:crossing",
+        "name": "cli",
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "issue_by_number",
+      "response": {
+        "data": {
+          "repository": {
+            "issue": {
+              "assignees": {
+                "nodes": [],
+                "totalCount": 0
+              },
+              "body": "",
+              "closedAt": "2026-10-21T08:50:06Z",
+              "closedByPullRequestsReferences": {
+                "nodes": [
+                  {
+                    "number": 14148,
+                    "repository": {
+                      "nameWithOwner": "cli/cli"
+                    }
+                  }
+                ],
+                "pageInfo": {
+                  "endCursor": "MQ",
+                  "hasNextPage": false
+                },
+                "totalCount": 1
+              },
+              "createdAt": "2021-05-25T21:32:51Z",
+              "number": 3718,
+              "state": "CLOSED",
+              "stateReason": "COMPLETED",
+              "timelineItems": {
+                "nodes": [
+                  {
+                    "actor": {
+                      "login": "babakks"
+                    },
+                    "closer": {
+                      "__typename": "PullRequest",
+                      "number": 14148,
+                      "repository": {
+                        "nameWithOwner": "cli/cli"
+                      }
+                    },
+                    "createdAt": "2026-10-21T08:50:06Z",
+                    "stateReason": "COMPLETED"
+                  }
+                ]
+              },
+              "title": "Auto-detected links with new lines result in 404s when clicked",
+              "updatedAt": "2026-10-21T08:50:06Z",
+              "url": "https://github.com/cli/cli/issues/3718"
+            }
+          }
+        }
+      },
+      "variables": {
+        "name": "cli",
+        "number": 3718,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "issue_by_number",
+      "response": {
+        "data": {
+          "repository": {
+            "issue": {
+              "assignees": {
+                "nodes": [],
+                "totalCount": 0
+              },
+              "body": "",
+              "closedAt": null,
+              "closedByPullRequestsReferences": {
+                "nodes": [
+                  {
+                    "number": 12622,
+                    "repository": {
+                      "nameWithOwner": "cli/cli"
+                    }
+                  },
+                  {
+                    "number": 12728,
+                    "repository": {
+                      "nameWithOwner": "cli/cli"
+                    }
+                  },
+                  {
+                    "number": 13348,
+                    "repository": {
+                      "nameWithOwner": "cli/cli"
+                    }
+                  },
+                  {
+                    "number": 13693,
+                    "repository": {
+                      "nameWithOwner": "cli/cli"
+                    }
+                  },
+                  {
+                    "number": 13798,
+                    "repository": {
+                      "nameWithOwner": "cli/cli"
+                    }
+                  },
+                  {
+                    "number": 13918,
+                    "repository": {
+                      "nameWithOwner": "cli/cli"
+                    }
+                  },
+                  {
+                    "number": 13954,
+                    "repository": {
+                      "nameWithOwner": "cli/cli"
+                    }
+                  },
+                  {
+                    "number": 14713,
+                    "repository": {
+                      "nameWithOwner": "cli/cli"
+                    }
+                  },
+                  {
+                    "number": 14765,
+                    "repository": {
+                      "nameWithOwner": "cli/cli"
+                    }
+                  }
+                ],
+                "pageInfo": {
+                  "endCursor": "OQ",
+                  "hasNextPage": false
+                },
+                "totalCount": 9
+              },
+              "createdAt": "2025-07-08T04:44:15Z",
+              "number": 11247,
+              "state": "OPEN",
+              "stateReason": null,
+              "timelineItems": {
+                "nodes": []
+              },
+              "title": "Add `--json` and `--jq` to `gh pr create`",
+              "updatedAt": "2026-09-01T10:33:17Z",
+              "url": "https://github.com/cli/cli/issues/11247"
+            }
+          }
+        }
+      },
+      "variables": {
+        "name": "cli",
+        "number": 11247,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "issue_by_number",
+      "response": {
+        "data": {
+          "repository": {
+            "issue": {
+              "assignees": {
+                "nodes": [],
+                "totalCount": 0
+              },
+              "body": "",
+              "closedAt": null,
+              "closedByPullRequestsReferences": {
+                "nodes": [
+                  {
+                    "number": 13781,
+                    "repository": {
+                      "nameWithOwner": "cli/cli"
+                    }
+                  }
+                ],
+                "pageInfo": {
+                  "endCursor": "MQ",
+                  "hasNextPage": false
+                },
+                "totalCount": 1
+              },
+              "createdAt": "2026-07-01T20:23:46Z",
+              "number": 13768,
+              "state": "OPEN",
+              "stateReason": null,
+              "timelineItems": {
+                "nodes": []
+              },
+              "title": "Better multi-account `gh` account usage",
+              "updatedAt": "2026-10-15T21:18:07Z",
+              "url": "https://github.com/cli/cli/issues/13768"
+            }
+          }
+        }
+      },
+      "variables": {
+        "name": "cli",
+        "number": 13768,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "issue_by_number",
+      "response": {
+        "data": {
+          "repository": {
+            "issue": {
+              "assignees": {
+                "nodes": [],
+                "totalCount": 0
+              },
+              "body": "",
+              "closedAt": "2026-10-16T12:23:49Z",
+              "closedByPullRequestsReferences": {
+                "nodes": [
+                  {
+                    "number": 14710,
+                    "repository": {
+                      "nameWithOwner": "cli/cli"
+                    }
+                  }
+                ],
+                "pageInfo": {
+                  "endCursor": "MQ",
+                  "hasNextPage": false
+                },
+                "totalCount": 1
+              },
+              "createdAt": "2026-10-14T16:25:21Z",
+              "number": 14692,
+              "state": "CLOSED",
+              "stateReason": "COMPLETED",
+              "timelineItems": {
+                "nodes": [
+                  {
+                    "actor": {
+                      "login": "williammartin"
+                    },
+                    "closer": null,
+                    "createdAt": "2026-10-16T12:23:49Z",
+                    "stateReason": "COMPLETED"
+                  }
+                ]
+              },
+              "title": "gh issue view --comments omits the issue body when stdout is not a TTY",
+              "updatedAt": "2026-10-16T12:23:49Z",
+              "url": "https://github.com/cli/cli/issues/14692"
+            }
+          }
+        }
+      },
+      "variables": {
+        "name": "cli",
+        "number": 14692,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "issue_by_number",
+      "response": {
+        "data": {
+          "repository": {
+            "issue": {
+              "assignees": {
+                "nodes": [],
+                "totalCount": 0
+              },
+              "body": "",
+              "closedAt": null,
+              "closedByPullRequestsReferences": {
+                "nodes": [
+                  {
+                    "number": 14727,
+                    "repository": {
+                      "nameWithOwner": "cli/cli"
+                    }
+                  }
+                ],
+                "pageInfo": {
+                  "endCursor": "MQ",
+                  "hasNextPage": false
+                },
+                "totalCount": 1
+              },
+              "createdAt": "2026-10-15T13:31:49Z",
+              "number": 14703,
+              "state": "OPEN",
+              "stateReason": null,
+              "timelineItems": {
+                "nodes": []
+              },
+              "title": "`gh issue create --type` creates the issue, then exits 1 with `type \"X\" not found` without printing its URL (causes duplicates on retry)",
+              "updatedAt": "2026-10-17T22:37:25Z",
+              "url": "https://github.com/cli/cli/issues/14703"
+            }
+          }
+        }
+      },
+      "variables": {
+        "name": "cli",
+        "number": 14703,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "issue_by_number",
+      "response": {
+        "data": {
+          "repository": {
+            "issue": {
+              "assignees": {
+                "nodes": [],
+                "totalCount": 0
+              },
+              "body": "",
+              "closedAt": "2026-10-20T10:37:08Z",
+              "closedByPullRequestsReferences": {
+                "nodes": [],
+                "pageInfo": {
+                  "endCursor": null,
+                  "hasNextPage": false
+                },
+                "totalCount": 0
+              },
+              "createdAt": "2026-10-16T01:11:44Z",
+              "number": 14711,
+              "state": "CLOSED",
+              "stateReason": "COMPLETED",
+              "timelineItems": {
+                "nodes": [
+                  {
+                    "actor": {
+                      "login": "williammartin"
+                    },
+                    "closer": null,
+                    "createdAt": "2026-10-20T10:37:08Z",
+                    "stateReason": "COMPLETED"
+                  }
+                ]
+              },
+              "title": "gh pr merge reports a bogus \"invalid email address\"",
+              "updatedAt": "2026-10-21T07:43:16Z",
+              "url": "https://github.com/cli/cli/issues/14711"
+            }
+          }
+        }
+      },
+      "variables": {
+        "name": "cli",
+        "number": 14711,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "issue_by_number",
+      "response": {
+        "data": {
+          "repository": {
+            "issue": {
+              "assignees": {
+                "nodes": [],
+                "totalCount": 0
+              },
+              "body": "",
+              "closedAt": "2026-10-19T18:28:47Z",
+              "closedByPullRequestsReferences": {
+                "nodes": [
+                  {
+                    "number": 14719,
+                    "repository": {
+                      "nameWithOwner": "cli/cli"
+                    }
+                  }
+                ],
+                "pageInfo": {
+                  "endCursor": "MQ",
+                  "hasNextPage": false
+                },
+                "totalCount": 1
+              },
+              "createdAt": "2026-10-16T15:54:05Z",
+              "number": 14718,
+              "state": "CLOSED",
+              "stateReason": "COMPLETED",
+              "timelineItems": {
+                "nodes": [
+                  {
+                    "actor": {
+                      "login": "BagToad"
+                    },
+                    "closer": {
+                      "__typename": "PullRequest",
+                      "number": 14719,
+                      "repository": {
+                        "nameWithOwner": "cli/cli"
+                      }
+                    },
+                    "createdAt": "2026-10-19T18:28:47Z",
+                    "stateReason": "COMPLETED"
+                  }
+                ]
+              },
+              "title": "Help text for `gh ruleset view` and `gh search issues`/`prs` refers to flags these commands do not have",
+              "updatedAt": "2026-10-21T01:21:21Z",
+              "url": "https://github.com/cli/cli/issues/14718"
+            }
+          }
+        }
+      },
+      "variables": {
+        "name": "cli",
+        "number": 14718,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "issue_by_number",
+      "response": {
+        "data": {
+          "repository": {
+            "issue": {
+              "assignees": {
+                "nodes": [],
+                "totalCount": 0
+              },
+              "body": "",
+              "closedAt": null,
+              "closedByPullRequestsReferences": {
+                "nodes": [],
+                "pageInfo": {
+                  "endCursor": null,
+                  "hasNextPage": false
+                },
+                "totalCount": 0
+              },
+              "createdAt": "2026-10-19T21:56:16Z",
+              "number": 14755,
+              "state": "OPEN",
+              "stateReason": null,
+              "timelineItems": {
+                "nodes": []
+              },
+              "title": "Support persistent command defaults without requiring custom aliases",
+              "updatedAt": "2026-10-19T22:07:47Z",
+              "url": "https://github.com/cli/cli/issues/14755"
+            }
+          }
+        }
+      },
+      "variables": {
+        "name": "cli",
+        "number": 14755,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "issue_by_number",
+      "response": {
+        "data": {
+          "repository": {
+            "issue": {
+              "assignees": {
+                "nodes": [],
+                "totalCount": 0
+              },
+              "body": "",
+              "closedAt": "2026-10-21T00:36:00Z",
+              "closedByPullRequestsReferences": {
+                "nodes": [],
+                "pageInfo": {
+                  "endCursor": null,
+                  "hasNextPage": false
+                },
+                "totalCount": 0
+              },
+              "createdAt": "2026-10-21T00:30:43Z",
+              "number": 14780,
+              "state": "CLOSED",
+              "stateReason": "NOT_PLANNED",
+              "timelineItems": {
+                "nodes": [
+                  {
+                    "actor": {
+                      "login": "github-actions"
+                    },
+                    "closer": null,
+                    "createdAt": "2026-10-21T00:36:00Z",
+                    "stateReason": "NOT_PLANNED"
+                  }
+                ]
+              },
+              "title": "gh issue view --comments returns empty output for an existing issue",
+              "updatedAt": "2026-10-21T00:36:00Z",
+              "url": "https://github.com/cli/cli/issues/14780"
+            }
+          }
+        }
+      },
+      "variables": {
+        "name": "cli",
+        "number": 14780,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "pull_request",
+      "response": {
+        "data": {
+          "repository": {
+            "pullRequest": {
+              "author": {
+                "login": "LouisLau-art"
+              },
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "oid": "42ed61f9c6fb0555086768588a1b267ac7da9b66",
+                      "statusCheckRollup": {
+                        "contexts": {
+                          "nodes": [
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "CodeQL-Build (go)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "lint",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "build (ubuntu-latest)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "CodeQL-Build (actions)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "build (windows-latest)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "build (macos-latest)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "govulncheck",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "integration-tests (ubuntu-latest)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "integration-tests (windows-latest)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "integration-tests (macos-latest)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "CodeQL",
+                              "status": "COMPLETED"
+                            }
+                          ],
+                          "totalCount": 11
+                        },
+                        "state": "SUCCESS"
+                      }
+                    }
+                  }
+                ]
+              },
+              "createdAt": "2026-02-06T02:28:44Z",
+              "headRefOid": "42ed61f9c6fb0555086768588a1b267ac7da9b66",
+              "mergeCommit": null,
+              "merged": false,
+              "mergedAt": null,
+              "number": 12622,
+              "repository": {
+                "nameWithOwner": "cli/cli"
+              },
+              "reviews": {
+                "nodes": [
+                  {
+                    "author": {
+                      "login": "babakks"
+                    },
+                    "commit": {
+                      "oid": "42ed61f9c6fb0555086768588a1b267ac7da9b66"
+                    },
+                    "state": "CHANGES_REQUESTED",
+                    "submittedAt": "2026-03-04T15:40:09Z"
+                  }
+                ],
+                "pageInfo": {
+                  "endCursor": "Y3Vyc29yOnYyOpO0MjAyNi0wMy0wNFQxNTo0MDowOVq0MjAyNi0wMy0wNFQxNDo1NjowMVrO59wBYA==",
+                  "hasNextPage": false
+                }
+              },
+              "state": "CLOSED",
+              "title": "feat(pr create): add --json and --jq output",
+              "updatedAt": "2026-05-13T12:19:00Z",
+              "url": "https://github.com/cli/cli/pull/12622"
+            }
+          }
+        }
+      },
+      "variables": {
+        "after": null,
+        "name": "cli",
+        "number": 12622,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "pull_request",
+      "response": {
+        "data": {
+          "repository": {
+            "pullRequest": {
+              "author": {
+                "login": "yuvrajangadsingh"
+              },
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "oid": "9d38b5de87a2bf883826d99ca43e51e611a710d0",
+                      "statusCheckRollup": {
+                        "contexts": {
+                          "nodes": [
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "label-external",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "label-external / label_issues",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-from-default-branch",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-from-default-branch / close-from-default-branch",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "check-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "check-requirements / check-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "check-requirements / close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-no-help-wanted",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-no-help-wanted",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "ready-for-review",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "ready-for-review",
+                              "status": "COMPLETED"
+                            }
+                          ],
+                          "totalCount": 13
+                        },
+                        "state": "SUCCESS"
+                      }
+                    }
+                  }
+                ]
+              },
+              "createdAt": "2026-02-20T08:36:47Z",
+              "headRefOid": "9d38b5de87a2bf883826d99ca43e51e611a710d0",
+              "mergeCommit": null,
+              "merged": false,
+              "mergedAt": null,
+              "number": 12728,
+              "repository": {
+                "nameWithOwner": "cli/cli"
+              },
+              "reviews": {
+                "nodes": [],
+                "pageInfo": {
+                  "endCursor": null,
+                  "hasNextPage": false
+                }
+              },
+              "state": "CLOSED",
+              "title": "feat(pr create): add --json and --jq flags for structured output",
+              "updatedAt": "2026-02-20T08:40:48Z",
+              "url": "https://github.com/cli/cli/pull/12728"
+            }
+          }
+        }
+      },
+      "variables": {
+        "after": null,
+        "name": "cli",
+        "number": 12728,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "pull_request",
+      "response": {
+        "data": {
+          "repository": {
+            "pullRequest": {
+              "author": {
+                "login": "SebTardif"
+              },
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "oid": "2cd48dc3741585389ca1a788cb5969720ce2d2a7",
+                      "statusCheckRollup": {
+                        "contexts": {
+                          "nodes": [
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "label-external",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "discuss",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-from-default-branch",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "check-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-no-help-wanted / close-no-help-wanted",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "ready-for-review / ready-for-review",
+                              "status": "COMPLETED"
+                            }
+                          ],
+                          "totalCount": 7
+                        },
+                        "state": "SUCCESS"
+                      }
+                    }
+                  }
+                ]
+              },
+              "createdAt": "2026-05-04T20:11:52Z",
+              "headRefOid": "2cd48dc3741585389ca1a788cb5969720ce2d2a7",
+              "mergeCommit": null,
+              "merged": false,
+              "mergedAt": null,
+              "number": 13348,
+              "repository": {
+                "nameWithOwner": "cli/cli"
+              },
+              "reviews": {
+                "nodes": [
+                  {
+                    "author": {
+                      "login": "copilot-pull-request-reviewer"
+                    },
+                    "commit": {
+                      "oid": "1df86edefca0aa6116e3d36d31a80e2e2194e369"
+                    },
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-05-04T20:17:47Z"
+                  }
+                ],
+                "pageInfo": {
+                  "endCursor": "Y3Vyc29yOnYyOpO0MjAyNi0wNS0wNFQyMDoxNzo0N1q0MjAyNi0wNS0wNFQyMDoxNzo0NlrO-7jopw==",
+                  "hasNextPage": false
+                }
+              },
+              "state": "OPEN",
+              "title": "Add `--json` and `--jq` flags to `gh pr create`",
+              "updatedAt": "2026-05-13T12:18:22Z",
+              "url": "https://github.com/cli/cli/pull/13348"
+            }
+          }
+        }
+      },
+      "variables": {
+        "after": null,
+        "name": "cli",
+        "number": 13348,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "pull_request",
+      "response": {
+        "data": {
+          "repository": {
+            "pullRequest": {
+              "author": {
+                "login": "itxaiohanglover"
+              },
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "oid": "327fcc6d8d79b72d8066c265844f41fc5396d372",
+                      "statusCheckRollup": {
+                        "contexts": {
+                          "nodes": [
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "label-external / label_issues",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-from-default-branch / close-from-default-branch",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "check-requirements / check-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "check-requirements / close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-no-help-wanted",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "ready-for-review",
+                              "status": "COMPLETED"
+                            }
+                          ],
+                          "totalCount": 7
+                        },
+                        "state": "SUCCESS"
+                      }
+                    }
+                  }
+                ]
+              },
+              "createdAt": "2026-06-20T16:35:28Z",
+              "headRefOid": "327fcc6d8d79b72d8066c265844f41fc5396d372",
+              "mergeCommit": null,
+              "merged": false,
+              "mergedAt": null,
+              "number": 13693,
+              "repository": {
+                "nameWithOwner": "cli/cli"
+              },
+              "reviews": {
+                "nodes": [],
+                "pageInfo": {
+                  "endCursor": null,
+                  "hasNextPage": false
+                }
+              },
+              "state": "CLOSED",
+              "title": "Add --json and --jq flags to gh pr create",
+              "updatedAt": "2026-06-20T16:44:47Z",
+              "url": "https://github.com/cli/cli/pull/13693"
+            }
+          }
+        }
+      },
+      "variables": {
+        "after": null,
+        "name": "cli",
+        "number": 13693,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "pull_request",
+      "response": {
+        "data": {
+          "repository": {
+            "pullRequest": {
+              "author": {
+                "login": "platinummonkey"
+              },
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "oid": "2071526f740ff790c11f84d97e6fcad9e6db3451",
+                      "statusCheckRollup": null
+                    }
+                  }
+                ]
+              },
+              "createdAt": "2026-07-02T14:40:03Z",
+              "headRefOid": "2071526f740ff790c11f84d97e6fcad9e6db3451",
+              "mergeCommit": null,
+              "merged": false,
+              "mergedAt": null,
+              "number": 13781,
+              "repository": {
+                "nameWithOwner": "cli/cli"
+              },
+              "reviews": {
+                "nodes": [],
+                "pageInfo": {
+                  "endCursor": null,
+                  "hasNextPage": false
+                }
+              },
+              "state": "OPEN",
+              "title": "feat(auth): Better multi-account `gh` account usage #13768",
+              "updatedAt": "2026-07-31T13:53:31Z",
+              "url": "https://github.com/cli/cli/pull/13781"
+            }
+          }
+        }
+      },
+      "variables": {
+        "after": null,
+        "name": "cli",
+        "number": 13781,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "pull_request",
+      "response": {
+        "data": {
+          "repository": {
+            "pullRequest": {
+              "author": {
+                "login": "natsu0529"
+              },
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "oid": "71a6960b240de0550584ad60f27d26df59ddb3cf",
+                      "statusCheckRollup": null
+                    }
+                  }
+                ]
+              },
+              "createdAt": "2026-07-06T09:38:35Z",
+              "headRefOid": "71a6960b240de0550584ad60f27d26df59ddb3cf",
+              "mergeCommit": null,
+              "merged": false,
+              "mergedAt": null,
+              "number": 13798,
+              "repository": {
+                "nameWithOwner": "cli/cli"
+              },
+              "reviews": {
+                "nodes": [
+                  {
+                    "author": {
+                      "login": "copilot-pull-request-reviewer"
+                    },
+                    "commit": {
+                      "oid": "1c777e883e71740b5edbc0d7df814d806266de57"
+                    },
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-07-06T12:32:28Z"
+                  }
+                ],
+                "pageInfo": {
+                  "endCursor": "Y3Vyc29yOnYyOpO0MjAyNi0wNy0wNlQxMjozMjoyOFq0MjAyNi0wNy0wNlQxMjozMjoyOFrPAAAAARRRgTM=",
+                  "hasNextPage": false
+                }
+              },
+              "state": "OPEN",
+              "title": "Add JSON output support to pr create",
+              "updatedAt": "2026-09-03T15:21:05Z",
+              "url": "https://github.com/cli/cli/pull/13798"
+            }
+          }
+        }
+      },
+      "variables": {
+        "after": null,
+        "name": "cli",
+        "number": 13798,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "pull_request",
+      "response": {
+        "data": {
+          "repository": {
+            "pullRequest": {
+              "author": {
+                "login": "AdarshJ173"
+              },
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "oid": "d88a32edaa9662bfaa76b671fe085084bb7b0f14",
+                      "statusCheckRollup": {
+                        "contexts": {
+                          "nodes": [
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "label-external / label_issues",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-from-default-branch / close-from-default-branch",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "check-requirements / check-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "check-requirements / close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-no-help-wanted",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "ready-for-review",
+                              "status": "COMPLETED"
+                            }
+                          ],
+                          "totalCount": 7
+                        },
+                        "state": "SUCCESS"
+                      }
+                    }
+                  }
+                ]
+              },
+              "createdAt": "2026-07-18T15:00:17Z",
+              "headRefOid": "d88a32edaa9662bfaa76b671fe085084bb7b0f14",
+              "mergeCommit": null,
+              "merged": false,
+              "mergedAt": null,
+              "number": 13918,
+              "repository": {
+                "nameWithOwner": "cli/cli"
+              },
+              "reviews": {
+                "nodes": [
+                  {
+                    "author": {
+                      "login": "Sanjays2402"
+                    },
+                    "commit": {
+                      "oid": "d88a32edaa9662bfaa76b671fe085084bb7b0f14"
+                    },
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-07-21T12:08:26Z"
+                  }
+                ],
+                "pageInfo": {
+                  "endCursor": "Y3Vyc29yOnYyOpO0MjAyNi0wNy0yMVQxMjowODoyNlq0MjAyNi0wNy0yMVQxMjowODoyNlrPAAAAARrJFvg=",
+                  "hasNextPage": false
+                }
+              },
+              "state": "CLOSED",
+              "title": "feat(pr create): add --json and --jq flags for machine-readable output",
+              "updatedAt": "2026-07-21T17:56:34Z",
+              "url": "https://github.com/cli/cli/pull/13918"
+            }
+          }
+        }
+      },
+      "variables": {
+        "after": null,
+        "name": "cli",
+        "number": 13918,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "pull_request",
+      "response": {
+        "data": {
+          "repository": {
+            "pullRequest": {
+              "author": {
+                "login": "dhaneshdutta"
+              },
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "oid": "329a8143547e2fe37b128e1c5a2b05884d834f9e",
+                      "statusCheckRollup": {
+                        "contexts": {
+                          "nodes": [
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "label-external / label_issues",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-from-default-branch / close-from-default-branch",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "check-requirements / check-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "check-requirements / close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-no-help-wanted",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "ready-for-review",
+                              "status": "COMPLETED"
+                            }
+                          ],
+                          "totalCount": 7
+                        },
+                        "state": "SUCCESS"
+                      }
+                    }
+                  }
+                ]
+              },
+              "createdAt": "2026-07-23T19:51:39Z",
+              "headRefOid": "329a8143547e2fe37b128e1c5a2b05884d834f9e",
+              "mergeCommit": null,
+              "merged": false,
+              "mergedAt": null,
+              "number": 13954,
+              "repository": {
+                "nameWithOwner": "cli/cli"
+              },
+              "reviews": {
+                "nodes": [],
+                "pageInfo": {
+                  "endCursor": null,
+                  "hasNextPage": false
+                }
+              },
+              "state": "CLOSED",
+              "title": "feat(pr create): add --json and --jq flag support (#11247)",
+              "updatedAt": "2026-07-23T19:55:23Z",
+              "url": "https://github.com/cli/cli/pull/13954"
+            }
+          }
+        }
+      },
+      "variables": {
+        "after": null,
+        "name": "cli",
+        "number": 13954,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "pull_request",
+      "response": {
+        "data": {
+          "repository": {
+            "pullRequest": {
+              "author": {
+                "login": "heaths"
+              },
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "oid": "350fa040f8a13c272a552ae8926dffc38a5a94bf",
+                      "statusCheckRollup": {
+                        "contexts": {
+                          "nodes": [
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "CodeQL-Build (go, manual, ./.github/codeql/codeql-config.yml)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "lint",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "build (ubuntu-latest)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "CodeQL-Build (actions, none, security-and-quality)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "build (windows-latest)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "build (macos-latest)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "govulncheck",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "integration-tests (ubuntu-latest)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "integration-tests (windows-latest)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "integration-tests (macos-latest)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "CodeQL",
+                              "status": "COMPLETED"
+                            }
+                          ],
+                          "totalCount": 11
+                        },
+                        "state": "SUCCESS"
+                      }
+                    }
+                  }
+                ]
+              },
+              "createdAt": "2026-08-15T00:09:53Z",
+              "headRefOid": "350fa040f8a13c272a552ae8926dffc38a5a94bf",
+              "mergeCommit": {
+                "oid": "1531837d8578fecd64eb8050d44a3665d85f9219"
+              },
+              "merged": true,
+              "mergedAt": "2026-10-21T08:50:05Z",
+              "number": 14148,
+              "repository": {
+                "nameWithOwner": "cli/cli"
+              },
+              "reviews": {
+                "nodes": [
+                  {
+                    "author": {
+                      "login": "copilot-pull-request-reviewer"
+                    },
+                    "commit": {
+                      "oid": "aeabf14462b27c6a361428aa94e12f254bc56676"
+                    },
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-08-15T00:12:35Z"
+                  },
+                  {
+                    "author": {
+                      "login": "heaths"
+                    },
+                    "commit": {
+                      "oid": "aeabf14462b27c6a361428aa94e12f254bc56676"
+                    },
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-08-15T04:58:36Z"
+                  },
+                  {
+                    "author": {
+                      "login": "babakks"
+                    },
+                    "commit": {
+                      "oid": "350fa040f8a13c272a552ae8926dffc38a5a94bf"
+                    },
+                    "state": "APPROVED",
+                    "submittedAt": "2026-10-21T08:47:13Z"
+                  }
+                ],
+                "pageInfo": {
+                  "endCursor": "Y3Vyc29yOnYyOpO0MjAyNi0xMC0yMVQwODo0NzoxM1q0MjAyNi0xMC0yMVQwODo0NzoxM1rPAAAAAU2dt8Q=",
+                  "hasNextPage": false
+                }
+              },
+              "state": "MERGED",
+              "title": "Update glamour to v2",
+              "updatedAt": "2026-10-21T08:50:05Z",
+              "url": "https://github.com/cli/cli/pull/14148"
+            }
+          }
+        }
+      },
+      "variables": {
+        "after": null,
+        "name": "cli",
+        "number": 14148,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "pull_request",
+      "response": {
+        "data": {
+          "repository": {
+            "pullRequest": {
+              "author": {
+                "login": "arsalanyavari"
+              },
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "oid": "78ef751c3eb5a266e4eb236be7d2e86fa21a9a41",
+                      "statusCheckRollup": {
+                        "contexts": {
+                          "nodes": [
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "label-external / label_issues",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-from-default-branch / close-from-default-branch",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "check-requirements / check-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "check-requirements / close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-no-help-wanted",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "ready-for-review",
+                              "status": "COMPLETED"
+                            }
+                          ],
+                          "totalCount": 7
+                        },
+                        "state": "SUCCESS"
+                      }
+                    }
+                  }
+                ]
+              },
+              "createdAt": "2026-10-15T23:41:36Z",
+              "headRefOid": "78ef751c3eb5a266e4eb236be7d2e86fa21a9a41",
+              "mergeCommit": null,
+              "merged": false,
+              "mergedAt": null,
+              "number": 14710,
+              "repository": {
+                "nameWithOwner": "cli/cli"
+              },
+              "reviews": {
+                "nodes": [
+                  {
+                    "author": {
+                      "login": "copilot-pull-request-reviewer"
+                    },
+                    "commit": {
+                      "oid": "78ef751c3eb5a266e4eb236be7d2e86fa21a9a41"
+                    },
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-10-15T23:41:42Z"
+                  }
+                ],
+                "pageInfo": {
+                  "endCursor": "Y3Vyc29yOnYyOpO0MjAyNi0xMC0xNVQyMzo0MTo0Mlq0MjAyNi0xMC0xNVQyMzo0MTo0MlrPAAAAAUpId0I=",
+                  "hasNextPage": false
+                }
+              },
+              "state": "CLOSED",
+              "title": "Fix omitting body and metadata with --comments in non-TTY mode",
+              "updatedAt": "2026-10-16T11:35:01Z",
+              "url": "https://github.com/cli/cli/pull/14710"
+            }
+          }
+        }
+      },
+      "variables": {
+        "after": null,
+        "name": "cli",
+        "number": 14710,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "pull_request",
+      "response": {
+        "data": {
+          "repository": {
+            "pullRequest": {
+              "author": {
+                "login": "manish-9245"
+              },
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "oid": "e96173899973c129b6927cbf4ba0995665b35c9c",
+                      "statusCheckRollup": {
+                        "contexts": {
+                          "nodes": [
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "label-external / label_issues",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-from-default-branch / close-from-default-branch",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "check-requirements / check-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "check-requirements / close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-no-help-wanted",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "ready-for-review",
+                              "status": "COMPLETED"
+                            }
+                          ],
+                          "totalCount": 7
+                        },
+                        "state": "SUCCESS"
+                      }
+                    }
+                  }
+                ]
+              },
+              "createdAt": "2026-10-16T07:14:07Z",
+              "headRefOid": "e96173899973c129b6927cbf4ba0995665b35c9c",
+              "mergeCommit": null,
+              "merged": false,
+              "mergedAt": null,
+              "number": 14713,
+              "repository": {
+                "nameWithOwner": "cli/cli"
+              },
+              "reviews": {
+                "nodes": [
+                  {
+                    "author": {
+                      "login": "copilot-pull-request-reviewer"
+                    },
+                    "commit": {
+                      "oid": "e96173899973c129b6927cbf4ba0995665b35c9c"
+                    },
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-10-16T07:14:14Z"
+                  }
+                ],
+                "pageInfo": {
+                  "endCursor": "Y3Vyc29yOnYyOpO0MjAyNi0xMC0xNlQwNzoxNDoxNFq0MjAyNi0xMC0xNlQwNzoxNDoxNFrPAAAAAUp2eH8=",
+                  "hasNextPage": false
+                }
+              },
+              "state": "CLOSED",
+              "title": "feat: add --json and --jq to gh pr create (#11247)",
+              "updatedAt": "2026-10-16T07:39:53Z",
+              "url": "https://github.com/cli/cli/pull/14713"
+            }
+          }
+        }
+      },
+      "variables": {
+        "after": null,
+        "name": "cli",
+        "number": 14713,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "pull_request",
+      "response": {
+        "data": {
+          "repository": {
+            "pullRequest": {
+              "author": {
+                "login": "BagToad"
+              },
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "oid": "f3e2147f249b228e8a2cbca68c47fc6ef99d3747",
+                      "statusCheckRollup": {
+                        "contexts": {
+                          "nodes": [
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "CodeQL-Build (go, manual, ./.github/codeql/codeql-config.yml)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "lint",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "label-external / label_issues",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "build (ubuntu-latest)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "CodeQL-Build (actions, none, security-and-quality)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "build (windows-latest)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "build (macos-latest)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-from-default-branch / close-from-default-branch",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "govulncheck",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "integration-tests (ubuntu-latest)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "integration-tests (windows-latest)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "integration-tests (macos-latest)",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "check-requirements / check-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "check-requirements / close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-no-help-wanted",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "ready-for-review",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "CodeQL",
+                              "status": "COMPLETED"
+                            }
+                          ],
+                          "totalCount": 18
+                        },
+                        "state": "SUCCESS"
+                      }
+                    }
+                  }
+                ]
+              },
+              "createdAt": "2026-10-16T18:10:58Z",
+              "headRefOid": "f3e2147f249b228e8a2cbca68c47fc6ef99d3747",
+              "mergeCommit": {
+                "oid": "ed40e856ffecd31286733876c613a2d3745e12bd"
+              },
+              "merged": true,
+              "mergedAt": "2026-10-19T18:28:36Z",
+              "number": 14719,
+              "repository": {
+                "nameWithOwner": "cli/cli"
+              },
+              "reviews": {
+                "nodes": [
+                  {
+                    "author": {
+                      "login": "copilot-pull-request-reviewer"
+                    },
+                    "commit": {
+                      "oid": "f3e2147f249b228e8a2cbca68c47fc6ef99d3747"
+                    },
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-10-16T18:12:55Z"
+                  },
+                  {
+                    "author": {
+                      "login": "tidy-dev"
+                    },
+                    "commit": {
+                      "oid": "f3e2147f249b228e8a2cbca68c47fc6ef99d3747"
+                    },
+                    "state": "APPROVED",
+                    "submittedAt": "2026-10-19T18:19:11Z"
+                  }
+                ],
+                "pageInfo": {
+                  "endCursor": "Y3Vyc29yOnYyOpO0MjAyNi0xMC0xOVQxODoxOToxMVq0MjAyNi0xMC0xOVQxODoxOToxMVrPAAAAAUxYdns=",
+                  "hasNextPage": false
+                }
+              },
+              "state": "MERGED",
+              "title": "Fix help text that references nonexistent flags",
+              "updatedAt": "2026-10-21T01:22:49Z",
+              "url": "https://github.com/cli/cli/pull/14719"
+            }
+          }
+        }
+      },
+      "variables": {
+        "after": null,
+        "name": "cli",
+        "number": 14719,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "pull_request",
+      "response": {
+        "data": {
+          "repository": {
+            "pullRequest": {
+              "author": {
+                "login": "umairnaeem0309"
+              },
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "oid": "1156f977ff6d12d592bc152987b9d9b378f6718d",
+                      "statusCheckRollup": {
+                        "contexts": {
+                          "nodes": [
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "label-external",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "label-external / label_issues",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-from-default-branch",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-from-default-branch / close-from-default-branch",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "check-requirements / check-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "check-requirements / check-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "check-requirements / close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "check-requirements / close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-no-help-wanted",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-no-help-wanted",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "ready-for-review",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "ready-for-review",
+                              "status": "COMPLETED"
+                            }
+                          ],
+                          "totalCount": 14
+                        },
+                        "state": "SUCCESS"
+                      }
+                    }
+                  }
+                ]
+              },
+              "createdAt": "2026-10-17T15:21:58Z",
+              "headRefOid": "1156f977ff6d12d592bc152987b9d9b378f6718d",
+              "mergeCommit": null,
+              "merged": false,
+              "mergedAt": null,
+              "number": 14727,
+              "repository": {
+                "nameWithOwner": "cli/cli"
+              },
+              "reviews": {
+                "nodes": [],
+                "pageInfo": {
+                  "endCursor": null,
+                  "hasNextPage": false
+                }
+              },
+              "state": "OPEN",
+              "title": "fix(issue create): resolve --type before creating the issue",
+              "updatedAt": "2026-10-17T15:26:56Z",
+              "url": "https://github.com/cli/cli/pull/14727"
+            }
+          }
+        }
+      },
+      "variables": {
+        "after": null,
+        "name": "cli",
+        "number": 14727,
+        "owner": "cli"
+      }
+    },
+    {
+      "name": "pull_request",
+      "response": {
+        "data": {
+          "repository": {
+            "pullRequest": {
+              "author": {
+                "login": "MauroDruwel"
+              },
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "oid": "7d2349336a68a876a546b8417d459b1087fb9698",
+                      "statusCheckRollup": {
+                        "contexts": {
+                          "nodes": [
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "label-external / label_issues",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-from-default-branch / close-from-default-branch",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SUCCESS",
+                              "name": "check-requirements / check-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "check-requirements / close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-unmet-requirements",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "close-no-help-wanted",
+                              "status": "COMPLETED"
+                            },
+                            {
+                              "__typename": "CheckRun",
+                              "conclusion": "SKIPPED",
+                              "name": "ready-for-review",
+                              "status": "COMPLETED"
+                            }
+                          ],
+                          "totalCount": 7
+                        },
+                        "state": "SUCCESS"
+                      }
+                    }
+                  }
+                ]
+              },
+              "createdAt": "2026-10-20T14:01:51Z",
+              "headRefOid": "7d2349336a68a876a546b8417d459b1087fb9698",
+              "mergeCommit": null,
+              "merged": false,
+              "mergedAt": null,
+              "number": 14765,
+              "repository": {
+                "nameWithOwner": "cli/cli"
+              },
+              "reviews": {
+                "nodes": [],
+                "pageInfo": {
+                  "endCursor": null,
+                  "hasNextPage": false
+                }
+              },
+              "state": "CLOSED",
+              "title": "Add --json and --jq flags to pr create (#11247)",
+              "updatedAt": "2026-10-20T16:45:49Z",
+              "url": "https://github.com/cli/cli/pull/14765"
+            }
+          }
+        }
+      },
+      "variables": {
+        "after": null,
+        "name": "cli",
+        "number": 14765,
+        "owner": "cli"
+      }
+    }
+  ],
+  "label": "gitmaps:crossing",
+  "numbers": [
+    3718,
+    14711,
+    14718,
+    14780,
+    14692,
+    13768,
+    14703,
+    11247,
+    14755
+  ],
+  "repo": "cli/cli"
+}

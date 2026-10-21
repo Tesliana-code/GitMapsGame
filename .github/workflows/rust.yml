@@ -1,0 +1,76 @@
+name: Rust CLI checks
+
+# Offline checks of the native Rust CLI. No job uses tokens beyond read-only checkout,
+# contacts the GitHub API, or deploys anything.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions: {}
+
+jobs:
+  lint-and-test:
+    name: fmt, clippy, test, release build (Rust 1.92.0, locally verified)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      RUSTUP_TOOLCHAIN: "1.92.0"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install pinned toolchain with clippy and rustfmt
+        run: rustup toolchain install 1.92.0 --profile minimal --component clippy,rustfmt
+      - run: cargo fmt --check
+      - run: cargo clippy --locked --all-targets -- -D warnings
+      - run: cargo test --locked
+      - run: cargo build --release --locked
+
+  runner-default-toolchain:
+    name: test and release build (runner's default Rust, as used by action.yml)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: cargo --version
+      - run: cargo test --locked
+      - run: cargo build --release --locked
+
+  msrv:
+    name: test on minimum supported Rust (1.85.0)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      RUSTUP_TOOLCHAIN: "1.85.0"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: rustup toolchain install 1.85.0 --profile minimal
+      - run: cargo test --locked
+
+  oracle-vectors:
+    name: parity vectors match the Python reference oracle
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Require the oracle's Python version (repr table is Unicode-version specific)
+        run: python3 -c 'import sys; assert sys.version_info[:2] == (3, 12), sys.version'
+      - name: Regenerate vectors and require no change
+        run: |
+          python3 scripts/generate_parity_vectors.py
+          git diff --exit-code -- tests/fixtures/parity src/pyrepr_table.rs src/queries.rs

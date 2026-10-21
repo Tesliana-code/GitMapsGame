@@ -1,0 +1,1151 @@
+{
+  "as_of": "2026-10-21T08:50:06Z",
+  "contributors": [
+    {
+      "login": "AdarshJ173",
+      "roles": [
+        "author"
+      ]
+    },
+    {
+      "login": "BagToad",
+      "roles": [
+        "author"
+      ]
+    },
+    {
+      "login": "LouisLau-art",
+      "roles": [
+        "author"
+      ]
+    },
+    {
+      "login": "MauroDruwel",
+      "roles": [
+        "author"
+      ]
+    },
+    {
+      "login": "Sanjays2402",
+      "roles": [
+        "reviewer"
+      ]
+    },
+    {
+      "login": "SebTardif",
+      "roles": [
+        "author"
+      ]
+    },
+    {
+      "login": "arsalanyavari",
+      "roles": [
+        "author"
+      ]
+    },
+    {
+      "login": "babakks",
+      "roles": [
+        "reviewer"
+      ]
+    },
+    {
+      "login": "copilot-pull-request-reviewer",
+      "roles": [
+        "reviewer"
+      ]
+    },
+    {
+      "login": "dhaneshdutta",
+      "roles": [
+        "author"
+      ]
+    },
+    {
+      "login": "heaths",
+      "roles": [
+        "author",
+        "reviewer"
+      ]
+    },
+    {
+      "login": "itxaiohanglover",
+      "roles": [
+        "author"
+      ]
+    },
+    {
+      "login": "manish-9245",
+      "roles": [
+        "author"
+      ]
+    },
+    {
+      "login": "natsu0529",
+      "roles": [
+        "author"
+      ]
+    },
+    {
+      "login": "platinummonkey",
+      "roles": [
+        "author"
+      ]
+    },
+    {
+      "login": "tidy-dev",
+      "roles": [
+        "reviewer"
+      ]
+    },
+    {
+      "login": "umairnaeem0309",
+      "roles": [
+        "author"
+      ]
+    },
+    {
+      "login": "yuvrajangadsingh",
+      "roles": [
+        "author"
+      ]
+    }
+  ],
+  "counts": {
+    "CLAIMED": 3,
+    "CLOSED_UNPROVEN": 3,
+    "DISCOVERED": 1,
+    "PROVEN": 2
+  },
+  "crossings": [
+    {
+      "assignees": [],
+      "closed_by": {
+        "number": 14148,
+        "repository": "cli/cli",
+        "type": "pull_request"
+      },
+      "dependents": [],
+      "evidence_complete": true,
+      "evidence_gaps": [],
+      "github_state": "closed",
+      "github_state_reason": "completed",
+      "number": 3718,
+      "pull_requests": [
+        {
+          "author": "heaths",
+          "ci": {
+            "checks": [
+              {
+                "conclusion": "success",
+                "name": "CodeQL"
+              },
+              {
+                "conclusion": "success",
+                "name": "CodeQL-Build (actions, none, security-and-quality)"
+              },
+              {
+                "conclusion": "success",
+                "name": "CodeQL-Build (go, manual, ./.github/codeql/codeql-config.yml)"
+              },
+              {
+                "conclusion": "success",
+                "name": "build (macos-latest)"
+              },
+              {
+                "conclusion": "success",
+                "name": "build (ubuntu-latest)"
+              },
+              {
+                "conclusion": "success",
+                "name": "build (windows-latest)"
+              },
+              {
+                "conclusion": "success",
+                "name": "govulncheck"
+              },
+              {
+                "conclusion": "success",
+                "name": "integration-tests (macos-latest)"
+              },
+              {
+                "conclusion": "success",
+                "name": "integration-tests (ubuntu-latest)"
+              },
+              {
+                "conclusion": "success",
+                "name": "integration-tests (windows-latest)"
+              },
+              {
+                "conclusion": "success",
+                "name": "lint"
+              }
+            ],
+            "checks_complete": true,
+            "commit": "350fa040f8a13c272a552ae8926dffc38a5a94bf",
+            "detail": "rollup success",
+            "status": "success"
+          },
+          "head_oid": "350fa040f8a13c272a552ae8926dffc38a5a94bf",
+          "merge_commit_oid": "1531837d8578fecd64eb8050d44a3665d85f9219",
+          "merged": true,
+          "number": 14148,
+          "repository": "cli/cli",
+          "review": {
+            "approved_by": [
+              "babakks"
+            ],
+            "approved_on_head": [
+              "babakks"
+            ],
+            "changes_requested_by": [],
+            "status": "approved"
+          },
+          "state": "merged",
+          "title": "Update glamour to v2",
+          "url": "https://github.com/cli/cli/pull/14148"
+        }
+      ],
+      "reasons": [
+        "closed by merged pull request #14148"
+      ],
+      "requires": [],
+      "state": "PROVEN",
+      "title": "Auto-detected links with new lines result in 404s when clicked",
+      "unresolved_requires": [],
+      "url": "https://github.com/cli/cli/issues/3718"
+    },
+    {
+      "assignees": [],
+      "closed_by": null,
+      "dependents": [],
+      "evidence_complete": true,
+      "evidence_gaps": [],
+      "github_state": "open",
+      "github_state_reason": null,
+      "number": 11247,
+      "pull_requests": [
+        {
+          "author": "LouisLau-art",
+          "ci": {
+            "checks": [
+              {
+                "conclusion": "success",
+                "name": "CodeQL"
+              },
+              {
+                "conclusion": "success",
+                "name": "CodeQL-Build (actions)"
+              },
+              {
+                "conclusion": "success",
+                "name": "CodeQL-Build (go)"
+              },
+              {
+                "conclusion": "success",
+                "name": "build (macos-latest)"
+              },
+              {
+                "conclusion": "success",
+                "name": "build (ubuntu-latest)"
+              },
+              {
+                "conclusion": "success",
+                "name": "build (windows-latest)"
+              },
+              {
+                "conclusion": "success",
+                "name": "govulncheck"
+              },
+              {
+                "conclusion": "success",
+                "name": "integration-tests (macos-latest)"
+              },
+              {
+                "conclusion": "success",
+                "name": "integration-tests (ubuntu-latest)"
+              },
+              {
+                "conclusion": "success",
+                "name": "integration-tests (windows-latest)"
+              },
+              {
+                "conclusion": "success",
+                "name": "lint"
+              }
+            ],
+            "checks_complete": true,
+            "commit": "42ed61f9c6fb0555086768588a1b267ac7da9b66",
+            "detail": "rollup success",
+            "status": "success"
+          },
+          "head_oid": "42ed61f9c6fb0555086768588a1b267ac7da9b66",
+          "merge_commit_oid": null,
+          "merged": false,
+          "number": 12622,
+          "repository": "cli/cli",
+          "review": {
+            "approved_by": [],
+            "approved_on_head": [],
+            "changes_requested_by": [
+              "babakks"
+            ],
+            "status": "changes_requested"
+          },
+          "state": "closed",
+          "title": "feat(pr create): add --json and --jq output",
+          "url": "https://github.com/cli/cli/pull/12622"
+        },
+        {
+          "author": "yuvrajangadsingh",
+          "ci": {
+            "checks": [
+              {
+                "conclusion": "skipped",
+                "name": "check-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "check-requirements / check-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "check-requirements / close-unmet-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-from-default-branch"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-from-default-branch / close-from-default-branch"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-no-help-wanted"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-no-help-wanted"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-unmet-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-unmet-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "label-external"
+              },
+              {
+                "conclusion": "success",
+                "name": "label-external / label_issues"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "ready-for-review"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "ready-for-review"
+              }
+            ],
+            "checks_complete": true,
+            "commit": "9d38b5de87a2bf883826d99ca43e51e611a710d0",
+            "detail": "rollup success",
+            "status": "success"
+          },
+          "head_oid": "9d38b5de87a2bf883826d99ca43e51e611a710d0",
+          "merge_commit_oid": null,
+          "merged": false,
+          "number": 12728,
+          "repository": "cli/cli",
+          "review": {
+            "approved_by": [],
+            "approved_on_head": [],
+            "changes_requested_by": [],
+            "status": "absent"
+          },
+          "state": "closed",
+          "title": "feat(pr create): add --json and --jq flags for structured output",
+          "url": "https://github.com/cli/cli/pull/12728"
+        },
+        {
+          "author": "SebTardif",
+          "ci": {
+            "checks": [
+              {
+                "conclusion": "skipped",
+                "name": "check-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-from-default-branch"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-no-help-wanted / close-no-help-wanted"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-unmet-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "discuss"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "label-external"
+              },
+              {
+                "conclusion": "success",
+                "name": "ready-for-review / ready-for-review"
+              }
+            ],
+            "checks_complete": true,
+            "commit": "2cd48dc3741585389ca1a788cb5969720ce2d2a7",
+            "detail": "rollup success",
+            "status": "success"
+          },
+          "head_oid": "2cd48dc3741585389ca1a788cb5969720ce2d2a7",
+          "merge_commit_oid": null,
+          "merged": false,
+          "number": 13348,
+          "repository": "cli/cli",
+          "review": {
+            "approved_by": [],
+            "approved_on_head": [],
+            "changes_requested_by": [],
+            "status": "absent"
+          },
+          "state": "open",
+          "title": "Add `--json` and `--jq` flags to `gh pr create`",
+          "url": "https://github.com/cli/cli/pull/13348"
+        },
+        {
+          "author": "itxaiohanglover",
+          "ci": {
+            "checks": [
+              {
+                "conclusion": "success",
+                "name": "check-requirements / check-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "check-requirements / close-unmet-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-from-default-branch / close-from-default-branch"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-no-help-wanted"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-unmet-requirements"
+              },
+              {
+                "conclusion": "success",
+                "name": "label-external / label_issues"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "ready-for-review"
+              }
+            ],
+            "checks_complete": true,
+            "commit": "327fcc6d8d79b72d8066c265844f41fc5396d372",
+            "detail": "rollup success",
+            "status": "success"
+          },
+          "head_oid": "327fcc6d8d79b72d8066c265844f41fc5396d372",
+          "merge_commit_oid": null,
+          "merged": false,
+          "number": 13693,
+          "repository": "cli/cli",
+          "review": {
+            "approved_by": [],
+            "approved_on_head": [],
+            "changes_requested_by": [],
+            "status": "absent"
+          },
+          "state": "closed",
+          "title": "Add --json and --jq flags to gh pr create",
+          "url": "https://github.com/cli/cli/pull/13693"
+        },
+        {
+          "author": "natsu0529",
+          "ci": {
+            "commit": "71a6960b240de0550584ad60f27d26df59ddb3cf",
+            "detail": "no checks reported for head commit",
+            "status": "absent"
+          },
+          "head_oid": "71a6960b240de0550584ad60f27d26df59ddb3cf",
+          "merge_commit_oid": null,
+          "merged": false,
+          "number": 13798,
+          "repository": "cli/cli",
+          "review": {
+            "approved_by": [],
+            "approved_on_head": [],
+            "changes_requested_by": [],
+            "status": "absent"
+          },
+          "state": "open",
+          "title": "Add JSON output support to pr create",
+          "url": "https://github.com/cli/cli/pull/13798"
+        },
+        {
+          "author": "AdarshJ173",
+          "ci": {
+            "checks": [
+              {
+                "conclusion": "success",
+                "name": "check-requirements / check-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "check-requirements / close-unmet-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-from-default-branch / close-from-default-branch"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-no-help-wanted"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-unmet-requirements"
+              },
+              {
+                "conclusion": "success",
+                "name": "label-external / label_issues"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "ready-for-review"
+              }
+            ],
+            "checks_complete": true,
+            "commit": "d88a32edaa9662bfaa76b671fe085084bb7b0f14",
+            "detail": "rollup success",
+            "status": "success"
+          },
+          "head_oid": "d88a32edaa9662bfaa76b671fe085084bb7b0f14",
+          "merge_commit_oid": null,
+          "merged": false,
+          "number": 13918,
+          "repository": "cli/cli",
+          "review": {
+            "approved_by": [],
+            "approved_on_head": [],
+            "changes_requested_by": [],
+            "status": "absent"
+          },
+          "state": "closed",
+          "title": "feat(pr create): add --json and --jq flags for machine-readable output",
+          "url": "https://github.com/cli/cli/pull/13918"
+        },
+        {
+          "author": "dhaneshdutta",
+          "ci": {
+            "checks": [
+              {
+                "conclusion": "success",
+                "name": "check-requirements / check-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "check-requirements / close-unmet-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-from-default-branch / close-from-default-branch"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-no-help-wanted"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-unmet-requirements"
+              },
+              {
+                "conclusion": "success",
+                "name": "label-external / label_issues"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "ready-for-review"
+              }
+            ],
+            "checks_complete": true,
+            "commit": "329a8143547e2fe37b128e1c5a2b05884d834f9e",
+            "detail": "rollup success",
+            "status": "success"
+          },
+          "head_oid": "329a8143547e2fe37b128e1c5a2b05884d834f9e",
+          "merge_commit_oid": null,
+          "merged": false,
+          "number": 13954,
+          "repository": "cli/cli",
+          "review": {
+            "approved_by": [],
+            "approved_on_head": [],
+            "changes_requested_by": [],
+            "status": "absent"
+          },
+          "state": "closed",
+          "title": "feat(pr create): add --json and --jq flag support (#11247)",
+          "url": "https://github.com/cli/cli/pull/13954"
+        },
+        {
+          "author": "manish-9245",
+          "ci": {
+            "checks": [
+              {
+                "conclusion": "success",
+                "name": "check-requirements / check-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "check-requirements / close-unmet-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-from-default-branch / close-from-default-branch"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-no-help-wanted"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-unmet-requirements"
+              },
+              {
+                "conclusion": "success",
+                "name": "label-external / label_issues"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "ready-for-review"
+              }
+            ],
+            "checks_complete": true,
+            "commit": "e96173899973c129b6927cbf4ba0995665b35c9c",
+            "detail": "rollup success",
+            "status": "success"
+          },
+          "head_oid": "e96173899973c129b6927cbf4ba0995665b35c9c",
+          "merge_commit_oid": null,
+          "merged": false,
+          "number": 14713,
+          "repository": "cli/cli",
+          "review": {
+            "approved_by": [],
+            "approved_on_head": [],
+            "changes_requested_by": [],
+            "status": "absent"
+          },
+          "state": "closed",
+          "title": "feat: add --json and --jq to gh pr create (#11247)",
+          "url": "https://github.com/cli/cli/pull/14713"
+        },
+        {
+          "author": "MauroDruwel",
+          "ci": {
+            "checks": [
+              {
+                "conclusion": "success",
+                "name": "check-requirements / check-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "check-requirements / close-unmet-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-from-default-branch / close-from-default-branch"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-no-help-wanted"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-unmet-requirements"
+              },
+              {
+                "conclusion": "success",
+                "name": "label-external / label_issues"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "ready-for-review"
+              }
+            ],
+            "checks_complete": true,
+            "commit": "7d2349336a68a876a546b8417d459b1087fb9698",
+            "detail": "rollup success",
+            "status": "success"
+          },
+          "head_oid": "7d2349336a68a876a546b8417d459b1087fb9698",
+          "merge_commit_oid": null,
+          "merged": false,
+          "number": 14765,
+          "repository": "cli/cli",
+          "review": {
+            "approved_by": [],
+            "approved_on_head": [],
+            "changes_requested_by": [],
+            "status": "absent"
+          },
+          "state": "closed",
+          "title": "Add --json and --jq flags to pr create (#11247)",
+          "url": "https://github.com/cli/cli/pull/14765"
+        }
+      ],
+      "reasons": [
+        "assigned or has an open linked pull request"
+      ],
+      "requires": [],
+      "state": "CLAIMED",
+      "title": "Add `--json` and `--jq` to `gh pr create`",
+      "unresolved_requires": [],
+      "url": "https://github.com/cli/cli/issues/11247"
+    },
+    {
+      "assignees": [],
+      "closed_by": null,
+      "dependents": [],
+      "evidence_complete": true,
+      "evidence_gaps": [],
+      "github_state": "open",
+      "github_state_reason": null,
+      "number": 13768,
+      "pull_requests": [
+        {
+          "author": "platinummonkey",
+          "ci": {
+            "commit": "2071526f740ff790c11f84d97e6fcad9e6db3451",
+            "detail": "no checks reported for head commit",
+            "status": "absent"
+          },
+          "head_oid": "2071526f740ff790c11f84d97e6fcad9e6db3451",
+          "merge_commit_oid": null,
+          "merged": false,
+          "number": 13781,
+          "repository": "cli/cli",
+          "review": {
+            "approved_by": [],
+            "approved_on_head": [],
+            "changes_requested_by": [],
+            "status": "absent"
+          },
+          "state": "open",
+          "title": "feat(auth): Better multi-account `gh` account usage #13768",
+          "url": "https://github.com/cli/cli/pull/13781"
+        }
+      ],
+      "reasons": [
+        "assigned or has an open linked pull request"
+      ],
+      "requires": [],
+      "state": "CLAIMED",
+      "title": "Better multi-account `gh` account usage",
+      "unresolved_requires": [],
+      "url": "https://github.com/cli/cli/issues/13768"
+    },
+    {
+      "assignees": [],
+      "closed_by": null,
+      "dependents": [],
+      "evidence_complete": true,
+      "evidence_gaps": [],
+      "github_state": "closed",
+      "github_state_reason": "completed",
+      "number": 14692,
+      "pull_requests": [
+        {
+          "author": "arsalanyavari",
+          "ci": {
+            "checks": [
+              {
+                "conclusion": "success",
+                "name": "check-requirements / check-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "check-requirements / close-unmet-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-from-default-branch / close-from-default-branch"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-no-help-wanted"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-unmet-requirements"
+              },
+              {
+                "conclusion": "success",
+                "name": "label-external / label_issues"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "ready-for-review"
+              }
+            ],
+            "checks_complete": true,
+            "commit": "78ef751c3eb5a266e4eb236be7d2e86fa21a9a41",
+            "detail": "rollup success",
+            "status": "success"
+          },
+          "head_oid": "78ef751c3eb5a266e4eb236be7d2e86fa21a9a41",
+          "merge_commit_oid": null,
+          "merged": false,
+          "number": 14710,
+          "repository": "cli/cli",
+          "review": {
+            "approved_by": [],
+            "approved_on_head": [],
+            "changes_requested_by": [],
+            "status": "absent"
+          },
+          "state": "closed",
+          "title": "Fix omitting body and metadata with --comments in non-TTY mode",
+          "url": "https://github.com/cli/cli/pull/14710"
+        }
+      ],
+      "reasons": [
+        "closed manually, not by a pull request"
+      ],
+      "requires": [],
+      "state": "CLOSED_UNPROVEN",
+      "title": "gh issue view --comments omits the issue body when stdout is not a TTY",
+      "unresolved_requires": [],
+      "url": "https://github.com/cli/cli/issues/14692"
+    },
+    {
+      "assignees": [],
+      "closed_by": null,
+      "dependents": [],
+      "evidence_complete": true,
+      "evidence_gaps": [],
+      "github_state": "open",
+      "github_state_reason": null,
+      "number": 14703,
+      "pull_requests": [
+        {
+          "author": "umairnaeem0309",
+          "ci": {
+            "checks": [
+              {
+                "conclusion": "skipped",
+                "name": "check-requirements / check-requirements"
+              },
+              {
+                "conclusion": "success",
+                "name": "check-requirements / check-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "check-requirements / close-unmet-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "check-requirements / close-unmet-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-from-default-branch"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-from-default-branch / close-from-default-branch"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-no-help-wanted"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-no-help-wanted"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-unmet-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-unmet-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "label-external"
+              },
+              {
+                "conclusion": "success",
+                "name": "label-external / label_issues"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "ready-for-review"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "ready-for-review"
+              }
+            ],
+            "checks_complete": true,
+            "commit": "1156f977ff6d12d592bc152987b9d9b378f6718d",
+            "detail": "rollup success",
+            "status": "success"
+          },
+          "head_oid": "1156f977ff6d12d592bc152987b9d9b378f6718d",
+          "merge_commit_oid": null,
+          "merged": false,
+          "number": 14727,
+          "repository": "cli/cli",
+          "review": {
+            "approved_by": [],
+            "approved_on_head": [],
+            "changes_requested_by": [],
+            "status": "absent"
+          },
+          "state": "open",
+          "title": "fix(issue create): resolve --type before creating the issue",
+          "url": "https://github.com/cli/cli/pull/14727"
+        }
+      ],
+      "reasons": [
+        "assigned or has an open linked pull request"
+      ],
+      "requires": [],
+      "state": "CLAIMED",
+      "title": "`gh issue create --type` creates the issue, then exits 1 with `type \"X\" not found` without printing its URL (causes duplicates on retry)",
+      "unresolved_requires": [],
+      "url": "https://github.com/cli/cli/issues/14703"
+    },
+    {
+      "assignees": [],
+      "closed_by": null,
+      "dependents": [],
+      "evidence_complete": true,
+      "evidence_gaps": [],
+      "github_state": "closed",
+      "github_state_reason": "completed",
+      "number": 14711,
+      "pull_requests": [],
+      "reasons": [
+        "closed manually, not by a pull request"
+      ],
+      "requires": [],
+      "state": "CLOSED_UNPROVEN",
+      "title": "gh pr merge reports a bogus \"invalid email address\"",
+      "unresolved_requires": [],
+      "url": "https://github.com/cli/cli/issues/14711"
+    },
+    {
+      "assignees": [],
+      "closed_by": {
+        "number": 14719,
+        "repository": "cli/cli",
+        "type": "pull_request"
+      },
+      "dependents": [],
+      "evidence_complete": true,
+      "evidence_gaps": [],
+      "github_state": "closed",
+      "github_state_reason": "completed",
+      "number": 14718,
+      "pull_requests": [
+        {
+          "author": "BagToad",
+          "ci": {
+            "checks": [
+              {
+                "conclusion": "success",
+                "name": "CodeQL"
+              },
+              {
+                "conclusion": "success",
+                "name": "CodeQL-Build (actions, none, security-and-quality)"
+              },
+              {
+                "conclusion": "success",
+                "name": "CodeQL-Build (go, manual, ./.github/codeql/codeql-config.yml)"
+              },
+              {
+                "conclusion": "success",
+                "name": "build (macos-latest)"
+              },
+              {
+                "conclusion": "success",
+                "name": "build (ubuntu-latest)"
+              },
+              {
+                "conclusion": "success",
+                "name": "build (windows-latest)"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "check-requirements / check-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "check-requirements / close-unmet-requirements"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-from-default-branch / close-from-default-branch"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-no-help-wanted"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "close-unmet-requirements"
+              },
+              {
+                "conclusion": "success",
+                "name": "govulncheck"
+              },
+              {
+                "conclusion": "success",
+                "name": "integration-tests (macos-latest)"
+              },
+              {
+                "conclusion": "success",
+                "name": "integration-tests (ubuntu-latest)"
+              },
+              {
+                "conclusion": "success",
+                "name": "integration-tests (windows-latest)"
+              },
+              {
+                "conclusion": "success",
+                "name": "label-external / label_issues"
+              },
+              {
+                "conclusion": "success",
+                "name": "lint"
+              },
+              {
+                "conclusion": "skipped",
+                "name": "ready-for-review"
+              }
+            ],
+            "checks_complete": true,
+            "commit": "f3e2147f249b228e8a2cbca68c47fc6ef99d3747",
+            "detail": "rollup success",
+            "status": "success"
+          },
+          "head_oid": "f3e2147f249b228e8a2cbca68c47fc6ef99d3747",
+          "merge_commit_oid": "ed40e856ffecd31286733876c613a2d3745e12bd",
+          "merged": true,
+          "number": 14719,
+          "repository": "cli/cli",
+          "review": {
+            "approved_by": [
+              "tidy-dev"
+            ],
+            "approved_on_head": [
+              "tidy-dev"
+            ],
+            "changes_requested_by": [],
+            "status": "approved"
+          },
+          "state": "merged",
+          "title": "Fix help text that references nonexistent flags",
+          "url": "https://github.com/cli/cli/pull/14719"
+        }
+      ],
+      "reasons": [
+        "closed by merged pull request #14719"
+      ],
+      "requires": [],
+      "state": "PROVEN",
+      "title": "Help text for `gh ruleset view` and `gh search issues`/`prs` refers to flags these commands do not have",
+      "unresolved_requires": [],
+      "url": "https://github.com/cli/cli/issues/14718"
+    },
+    {
+      "assignees": [],
+      "closed_by": null,
+      "dependents": [],
+      "evidence_complete": true,
+      "evidence_gaps": [],
+      "github_state": "open",
+      "github_state_reason": null,
+      "number": 14755,
+      "pull_requests": [],
+      "reasons": [
+        "no unproven dependencies; unclaimed"
+      ],
+      "requires": [],
+      "state": "DISCOVERED",
+      "title": "Support persistent command defaults without requiring custom aliases",
+      "unresolved_requires": [],
+      "url": "https://github.com/cli/cli/issues/14755"
+    },
+    {
+      "assignees": [],
+      "closed_by": null,
+      "dependents": [],
+      "evidence_complete": true,
+      "evidence_gaps": [],
+      "github_state": "closed",
+      "github_state_reason": "not_planned",
+      "number": 14780,
+      "pull_requests": [],
+      "reasons": [
+        "closed as not_planned"
+      ],
+      "requires": [],
+      "state": "CLOSED_UNPROVEN",
+      "title": "gh issue view --comments returns empty output for an existing issue",
+      "unresolved_requires": [],
+      "url": "https://github.com/cli/cli/issues/14780"
+    }
+  ],
+  "mode": "real",
+  "repository": {
+    "is_private": false,
+    "label_exists": false,
+    "name_with_owner": "cli/cli",
+    "visibility": "public"
+  },
+  "schema": "gitmaps.map/v1",
+  "source": {
+    "api": "github-graphql",
+    "selection": {
+      "mode": "numbers",
+      "numbers": [
+        3718,
+        11247,
+        13768,
+        14692,
+        14703,
+        14711,
+        14718,
+        14755,
+        14780
+      ]
+    },
+    "snapshot_sha256": "660930e2cd8531af1858e4ab9517b8f29d72e1ab49c12e9cef027c32e1dc28d3"
+  }
+}

@@ -1,0 +1,82 @@
+name: GitMaps map
+
+# Every trigger runs in the default-branch context. No trigger checks out or runs pull request code.
+# This repository publishes its own world to Cloudflare Pages. Third-party installs use GitHub
+# Pages instead (examples/workflows/gitmaps.yml, docs/INSTALL.md).
+on:
+  issues:
+    types: [opened, edited, deleted, transferred, closed, reopened, assigned, unassigned, labeled, unlabeled]
+  workflow_run:
+    workflows: ["GitMaps trigger", "Synthetic playground checks"]
+    types: [completed]
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: gitmaps-publish
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: read
+      pull-requests: read
+      checks: read
+      statuses: read
+    steps:
+      - name: Check out GitMapsGame action code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Build map
+        id: map
+        uses: ./
+        with:
+          out: _site
+      - name: Upload site
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: gitmaps-site
+          path: _site
+          if-no-files-found: error
+          retention-days: 1
+
+  publish:
+    needs: build
+    # Only the default branch publishes; a manual run on another branch builds but never publishes.
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    # No GitHub token scopes: the job only downloads this run's artifact and uploads it to Cloudflare.
+    permissions: {}
+    environment:
+      name: cloudflare-pages
+      url: https://${{ vars.CLOUDFLARE_PAGES_PROJECT }}.pages.dev/#play
+    steps:
+      - name: Download site
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: gitmaps-site
+          path: _site
+      - name: Verify checksums before publishing
+        working-directory: _site
+        run: sha256sum -c SHA256SUMS
+      - name: Publish to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_PAGES_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT }}
+        run: |
+          set -euo pipefail
+          : "${CLOUDFLARE_API_TOKEN:?secret CLOUDFLARE_API_TOKEN is not set}"
+          : "${CLOUDFLARE_ACCOUNT_ID:?secret CLOUDFLARE_ACCOUNT_ID is not set}"
+          : "${CF_PAGES_PROJECT:?variable CLOUDFLARE_PAGES_PROJECT is not set}"
+          node -e 'process.exit(Number(process.versions.node.split(".")[0]) >= 22 ? 0 : 1)' \
+            || { echo "::error::wrangler 4.148.0 needs Node.js 22 or newer (runner has $(node --version))"; exit 1; }
+          npx --yes wrangler@4.148.0 pages deploy _site --project-name "$CF_PAGES_PROJECT" --branch main --commit-dirty=true

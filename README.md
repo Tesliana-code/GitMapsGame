@@ -2,13 +2,35 @@
 
 **The repository is private. The adventure is multiplayer.**
 
-GitMapsGame is an **open, synthetic, runnable reference project** for cooperative software engineering: explore a map of dependencies, claim a crossing, prove the change, and watch the next terrain unlock. A separate, explicitly approved *mock release* demonstrates the boundary between accepted engineering work and production authorization.
+GitMapsGame is an **open, runnable project** for cooperative software engineering, with a synthetic playground and a real-repository mode: explore a map of dependencies, claim a crossing, prove the change, and watch the next terrain unlock. A separate, explicitly approved *mock release* demonstrates the boundary between accepted engineering work and production authorization.
 
-> **This is a public educational prototype, not the private TriageAI Maps repository, and not TriageAI production infrastructure.** All storylines, contributors, tasks, evidence, checks and deployment results are fictional. No real deployment occurs.
+> **This is a public educational project, not the private TriageAI Maps repository, and not TriageAI production infrastructure.** It has two clearly labelled modes:
+>
+> - **Synthetic mode:** every storyline, contributor, task, check and deployment result is fictional. No real deployment occurs.
+> - **Real mode:** a read-only map of *your* GitHub repository, derived only from GitHub API data and published as a static site: GitHub Pages for installs, Cloudflare Pages for this project's own world. Nothing is invented. Nothing is deployed except the map itself.
 
-## Quick start
+## Run it on your repository
 
-Open [`index.html`](index.html) in a browser after cloning the repository. It is a standalone, dependency-free interactive playground; no login, backend or build step is required.
+Follow [docs/INSTALL.md](docs/INSTALL.md):
+
+1. Enable Pages (source: GitHub Actions).
+2. Copy two workflow files.
+3. Create the `gitmaps:crossing` label.
+4. Write `Requires: #N` in issue bodies.
+
+Assign, open PRs with `Closes #N`, and merge: the map updates from GitHub itself.
+
+**Pre-release:** the `v1` action tag is not published yet, and the Rust CLI is not yet on any public branch. Today the commands below work only in a local checkout that contains `Cargo.toml`.
+
+To preview any public repository locally with the native Rust CLI (Rust 1.85 or newer; no other system dependencies):
+
+```bash
+GH_TOKEN="$(gh auth token)" cargo run --release -- build --repo OWNER/REPO --out site   # then open site/index.html
+```
+
+## Synthetic quick start
+
+Open [`index.html`](index.html) in a browser after cloning the repository. Without a real map embedded it runs as a standalone, dependency-free **synthetic** playground; no login, backend or build step is required.
 
 For a deterministic terminal simulation, use Python 3:
 
@@ -42,6 +64,9 @@ flowchart LR
 ## Explore
 
 - [Play the interactive map](index.html)
+- [Install real mode on your repository](docs/INSTALL.md)
+- [Real-repository E2E manifest](docs/E2E_MANIFEST.md)
+- [V1 release runbook](docs/RELEASE.md)
 - [Game rules and progression](docs/GAME_RULES.md)
 - [Architecture and trust boundaries](docs/ARCHITECTURE.md)
 - [Diagram gallery](docs/DIAGRAMS.md)
@@ -52,13 +77,36 @@ flowchart LR
 
 ## Public storytelling, private engineering
 
-The public model intentionally illustrates principles, not proprietary implementation: explicit dependencies; isolated working surfaces; human/agent collaboration; evidence-based progression; fail-closed release checks. The sample GitHub workflow under `.github/workflows/` **only runs local tests** and cannot trigger a real deployment.
+The public model intentionally illustrates principles, not proprietary implementation: explicit dependencies; isolated working surfaces; human/agent collaboration; evidence-based progression; fail-closed release checks. `synthetic-validation.yml` **only runs local tests**. The real-mode workflows (`gitmaps.yml`, `gitmaps-trigger.yml`) can publish only the map's static files; they hold no deployment authority over any software.
 
 **State labels:** `UNKNOWN → DISCOVERED → CLAIMED → PROVEN → UNLOCKED` describe terrain progress. `CI passed`, `review accepted`, `release authorized` and `production verified` are **separate facts**.
 
 ## Status
 
-Concept prototype for an upcoming technical article. **Not a production delivery platform.** The workflow and examples are demonstrative; any later real integration needs independent engineering and security review.
+**Not released.**
+
+- **Locally tested:** the native Rust CLI.
+  - Byte-identical to the Python reference implementation on recorded and live read-only GitHub data.
+  - Covered by offline parity, security and mutation tests.
+- **Pending:**
+  - running the GitHub Action on GitHub-hosted runners;
+  - Pages publication;
+  - a third-party installation;
+  - the live gameplay end-to-end run ([docs/E2E_MANIFEST.md](docs/E2E_MANIFEST.md)).
+
+**Not a production delivery platform.**
+
+## Development
+
+```bash
+cargo fmt --check
+cargo clippy --locked --all-targets -- -D warnings
+cargo test --locked
+cargo build --release --locked
+python3 -m unittest discover -s tests   # synthetic simulator + Python reference oracle
+```
+
+The Python package in `gitmaps/` is the **reference oracle** for the Rust port: the Rust output must match it byte for byte. It stays runnable as `python3 -m gitmaps` until it is relocated to `reference/python/`. See [docs/engineering/RUST_MIGRATION.md](docs/engineering/RUST_MIGRATION.md).
 
 ## License
 
