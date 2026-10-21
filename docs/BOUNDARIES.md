@@ -2,8 +2,8 @@
 
 GitMapsGame has two strictly separated modes:
 
-- **Synthetic mode** (`index.html` opened directly, `scripts/mock_pipeline.py`) is a **standalone fictional environment**, created to illustrate reusable software-engineering ideas. It is labelled *SYNTHETIC DEMO* on screen.
-- **Real mode** (`gitmaps/`, `action.yml`, `.github/workflows/gitmaps*.yml`) reads a public repository through the read-only GitHub API and publishes a derived map. It is labelled *REAL DATA* and never shows invented activity.
+- **Synthetic mode** (`index.html` opened directly, `scripts/mock_pipeline.py`) is a **standalone fictional environment**, created to illustrate reusable software-engineering ideas. On screen it is the tutorial world, labelled *TUTORIAL WORLD · FICTIONAL* and footnoted *NO GITHUB CHANGES*.
+- **Real mode** (the Rust CLI in `src/`, `action.yml`, `.github/workflows/gitmaps*.yml`, with the Python reference oracle in `gitmaps/`) reads a public repository through the read-only GitHub API and publishes a derived map. It is labelled *REAL DATA* and never shows invented activity.
 
 ## Not copied from private TriageAI
 
@@ -11,7 +11,7 @@ GitMapsGame has two strictly separated modes:
 - No private credentials, customer identities, account information, server addresses, webhook URLs or deployment keys.
 - No real contributor records or operational incident evidence in synthetic mode. Real mode shows only GitHub logins returned by the API for the mapped repository.
 - No integration with TriageAI production hosting or private repositories. Real mode publishes nothing from non-public repositories unless explicitly overridden, and never touches `triageai-maps`.
-- Recorded test fixtures under `tests/fixtures/recorded/` are unmodified read-only GitHub API responses from public repositories. The `cli/cli` recording has issue bodies blanked.
+- Recorded test fixtures under `tests/fixtures/recorded/` are unmodified read-only GitHub API responses from public repositories. The `cli/cli` recording has issue bodies blanked. It still contains public GitHub logins and issue and PR titles. **Whether to publish that fixture as-is is an open decision pending publication review.**
 
 The principles of Git branching, code review, testing, dependency graphs and approval gates are general concepts. Examples are authored from scratch.
 

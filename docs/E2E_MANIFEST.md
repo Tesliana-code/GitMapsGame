@@ -4,32 +4,48 @@
 
 The repository currently has one PR (#1) and no issues, so new numbers start at **#2**. Before each step, the operator confirms that the expected number is still correct. If it is not, every later `#N` in this manifest shifts by the same amount.
 
-## Phase 0: Local readiness (done, no external effect)
+## Phase 0: Local readiness (done locally, no external effect)
 
-- `python3 -m unittest discover -s tests`: all tests pass with the network disabled.
-- `python3 -m gitmaps check-template`: the CSP hash matches the shipped script.
+Run on the founder's WSL checkout of `feat/real-mode-rust`; each must pass with the network disabled:
 
-## Phase 1: Push the feature branch (GO 1)
+- `cargo fmt --check`
+- `cargo clippy --locked --all-targets -- -D warnings`
+- `cargo test --locked`
+- `cargo build --release --locked`
+- `cargo run -- check-template` (the CSP hash matches the shipped script)
+- `python3 -m unittest discover -s tests` (synthetic simulator and the Python reference oracle)
+
+## Phase 1: Publish the reviewed branch (GO 1)
+
+The local branch `feat/real-mode-rust` is built on the preservation commit `c31a97e`, which in turn builds on PR #1's head `6b91e9f`. The founder decides whether it updates PR #1 or opens a separate PR. The founder performs every Git operation.
 
 | # | Mutation | Command |
 |---|---|---|
-| 1.1 | Commit the real-mode work on `feat/synthetic-playground-v1` | `git add -A && git commit` (message reviewed by the founder) |
-| 1.2 | Push, which updates PR #1 | `git push origin feat/synthetic-playground-v1` |
+| 1.1 | Commit the reviewed work on `feat/real-mode-rust` | founder, in WSL |
+| 1.2 | Push the branch and open or update the PR | founder, in WSL |
 
-Expected:
+Expected on the PR:
 
-- `Synthetic playground checks` runs all offline tests on PR #1.
-- `GitMaps trigger` runs from the PR branch, has no permissions and prints one line.
+- `Rust CLI checks`:
+  - fmt, clippy, test and release build on Rust 1.92.0;
+  - test and release build on the runner's default Rust;
+  - MSRV 1.85.0;
+  - oracle-vector sync.
+- `Synthetic playground checks` runs the Python suite.
+- `GitMaps trigger` runs with no permissions and prints one line.
 - `GitMaps map` does **not** run, because it is not on `main` yet.
 
 ## Phase 2: Real issues, evidence recorded locally (GO 2)
 
-No workflow or Pages involvement. After each step, record the evidence:
+No workflow or Pages involvement. After each step, record the evidence into a new directory. The six frozen fixtures in `tests/fixtures/recorded/` are never touched:
 
 ```bash
-GH_TOKEN="$(gh auth token)" python3 -m gitmaps snapshot --repo Tesliana-code/GitMapsGame \
-  --record tests/fixtures/recorded/e2e-STEP.recording.json -o tests/fixtures/recorded/e2e-STEP.snapshot.json
-python3 -m gitmaps derive tests/fixtures/recorded/e2e-STEP.snapshot.json -o tests/fixtures/recorded/e2e-STEP.map.json
+mkdir -p tests/fixtures/e2e
+GH_TOKEN="$(gh auth token)" cargo run --release --locked -- snapshot --repo Tesliana-code/GitMapsGame \
+  --record tests/fixtures/e2e/STEP.recording.json -o tests/fixtures/e2e/STEP.snapshot.json
+cargo run --release --locked -- derive tests/fixtures/e2e/STEP.snapshot.json -o tests/fixtures/e2e/STEP.map.json
+python3 -m gitmaps derive tests/fixtures/e2e/STEP.snapshot.json -o /tmp/STEP.reference.map.json   # oracle cross-check
+cmp tests/fixtures/e2e/STEP.map.json /tmp/STEP.reference.map.json
 ```
 
 | Step | Mutation (exact) | Expected map |
@@ -60,16 +76,17 @@ After each step, cross-check:
 
 | # | Mutation | Command |
 |---|---|---|
-| 3.1 | Founder review, then merge PR #1 into `main` | via the GitHub UI |
-| 3.2 | Enable Pages with the Actions source | `gh api -X POST repos/Tesliana-code/GitMapsGame/pages -f build_type=workflow` |
+| 3.1 | Cloudflare Pages project, API token, `cloudflare-pages` environment, secrets and variable | [RELEASE.md](RELEASE.md) §3 |
+| 3.2 | Founder review, then merge the release PR into `main` | via the GitHub UI or `gh pr merge` |
 | 3.3 | First publish | `gh workflow run gitmaps.yml --ref main` |
-| 3.4 | Verify | `curl -fsSL https://tesliana-code.github.io/GitMapsGame/map.json \| sha256sum` matches `SHA256SUMS` and a local `render` of the published `snapshot.json` |
+| 3.4 | Verify | [RELEASE.md](RELEASE.md) §4: `sha256sum -c` on the live files at `https://gitmapsgame.pages.dev/`, plus a local re-render that matches `map.json` and `index.html` |
 
 Expected:
 
-- The `build` job runs with read-only permissions.
-- The `deploy` job runs in the `github-pages` environment with only `pages: write` and `id-token: write`.
-- Changing an issue (for example assigning one) re-publishes within one workflow run, and the change is visible on the page.
+- The `build` job runs with read-only permissions. It compiles the CLI with `cargo build --release --locked` (about 1 minute) in a step that has no token.
+- `cargo --version` in the log shows the runner's preinstalled toolchain.
+- The `publish` job runs in the `cloudflare-pages` environment, with no GitHub token scopes, only on `main`.
+- Changing an issue (for example assigning one) triggers a rebuild and re-publish, and the change is visible on the page. **This is the gate for any claim of automatic updates.**
 
 ## Phase 4: Release and third-party install (GO 4)
 
@@ -85,12 +102,13 @@ Expected:
 
 | Actor | Scope |
 |---|---|
-| Founder `gh` login | issues and PRs (Phases 2, 4); repository admin for Pages (3.2); push (1.2, 4.1) |
+| Founder `gh` login | issues and PRs (Phases 2, 4); repository admin for the environment, secrets and variable (3.1); push (1.2, 4.1) |
+| Founder Cloudflare account | create the Pages project and API token (3.1) |
 | Workflow `build` job | `contents, issues, pull-requests, checks, statuses: read` |
-| Workflow `deploy` job | `pages: write`, `id-token: write` |
+| Workflow `publish` job | no GitHub scopes; Cloudflare API token (Account · Cloudflare Pages · Edit) from the `cloudflare-pages` environment |
 | Trigger workflow | none |
 
-No personal access tokens, repository secrets or TriageAI systems are involved. `triageai-maps` is out of scope.
+No personal access tokens or TriageAI systems are involved. The only secrets are the two Cloudflare environment secrets, which only the `publish` job can read. `triageai-maps` is out of scope.
 
 ## Clean-up options (founder decision)
 

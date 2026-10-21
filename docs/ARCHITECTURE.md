@@ -12,20 +12,24 @@ flowchart LR
   API --> SNAP[snapshot.json]
   SNAP -->|pure derive| MAP[map.json]
   MAP --> HTML[index.html with inlined map]
-  HTML --> PAGES[GitHub Pages]
+  HTML --> PAGES[Static host: Cloudflare Pages here, GitHub Pages for installs]
 ```
 
 1. **Authority:** the GitHub API snapshot is the only input. Event payloads are never read. An unchanged repository yields a byte-identical snapshot, because no fetch time is stored.
-2. **Ingestion** (`gitmaps/fetch.py`): crossing issues (paginated, at most 200), `Requires:` lines, assignees, linked PRs (paginated), the latest close event and its closer, PR reviews (paginated), and the head-commit CI rollup. Any list the API truncates is reported as an evidence gap.
-3. **Derivation** (`gitmaps/derive.py`): a pure function with the precedence INVALID > LOCKED > PROVEN > CLOSED_UNPROVEN > CLAIMED > DISCOVERED. Non-canonical snapshots are rejected.
-4. **Rendering** (`gitmaps/render.py`): the map is inlined into `index.html` with `<`, `>` and `&` escaped. The CSP allows exactly the one shipped script (sha256) and no network access. `map.json`, `snapshot.json` and `SHA256SUMS` are published next to it.
+2. **Ingestion** (`src/fetch.rs`): crossing issues (paginated, at most 200), `Requires:` lines, assignees, linked PRs (paginated), the latest close event and its closer, PR reviews (paginated), and the head-commit CI rollup. Any list the API truncates is reported as an evidence gap.
+3. **Derivation** (`src/derive.rs`): a pure function with the precedence INVALID > LOCKED > PROVEN > CLOSED_UNPROVEN > CLAIMED > DISCOVERED. Non-canonical snapshots are rejected.
+4. **Rendering** (`src/render.rs`; `index.html` is compiled into the binary): the map is inlined into `index.html` with `<`, `>` and `&` escaped. The CSP allows exactly the one shipped script (sha256) and no network access. `map.json`, `snapshot.json` and `SHA256SUMS` are published next to it.
 5. **Workflows:**
    - `gitmaps-trigger.yml` has no permissions and runs for PRs and reviews, including forks.
    - `gitmaps.yml` runs on the default branch:
-     - the build job has read-only permissions;
-     - the deploy job alone has `pages: write` and `id-token: write`.
+     - the build job has read-only permissions and compiles the CLI with `cargo build --release --locked` in a step that has no token, from the action's own directory;
+     - this repository's `publish` job has no GitHub token scopes, runs only on `main`, verifies `SHA256SUMS` and uploads to Cloudflare Pages with credentials held in the `cloudflare-pages` environment;
+     - in the install example, the deploy job alone has `pages: write` and `id-token: write`.
    - No `pull_request_target`. PR code is never checked out. Actions are pinned by SHA.
 6. **Publication guard:** private and internal repositories are refused unless explicitly overridden.
+7. **Reference oracle:** the Python package `gitmaps/` implements the same pipeline. The Rust CLI must reproduce its output byte for byte (`tests/parity.rs`, `tests/site.rs`). It stays runnable until it is relocated to `reference/python/`.
+
+Status: release candidate, locally tested. GitHub-hosted runs, Cloudflare publication and live gameplay are pending; see [RELEASE.md](RELEASE.md).
 
 ## Synthetic mode
 

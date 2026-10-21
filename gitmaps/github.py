@@ -1,4 +1,5 @@
 """Minimal GitHub GraphQL client with live, recording and replay transports (stdlib only)."""
+import copy
 import json
 import os
 import urllib.error
@@ -49,7 +50,9 @@ class RecordingTransport:
         response = self._inner(name, query, variables)
         if self._redact:
             response = self._redact(name, response)
-        self.exchanges.append({"name": name, "variables": variables, "response": response})
+        # Store a private copy: callers may modify the returned object (fetch merges linked-PR pages
+        # into it), and the recording must keep the response exactly as GitHub sent it.
+        self.exchanges.append({"name": name, "variables": copy.deepcopy(variables), "response": copy.deepcopy(response)})
         return response
 
 

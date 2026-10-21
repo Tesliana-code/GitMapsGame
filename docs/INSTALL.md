@@ -10,12 +10,11 @@ Time needed: about 10 minutes.
 > - the `raw.githubusercontent.com/.../v1/...` downloads
 > - `git clone --branch v1`
 >
-> Check with `gh api repos/Tesliana-code/GitMapsGame/git/ref/tags/v1`; a 404 means it is not released. Until then, only the local preview works, from a clone of the development branch:
+> Check with `gh api repos/Tesliana-code/GitMapsGame/git/ref/tags/v1`; a 404 means it is not released.
 >
-> ```bash
-> git clone --branch feat/synthetic-playground-v1 https://github.com/Tesliana-code/GitMapsGame.git
-> cd GitMapsGame && GH_TOKEN="$(gh auth token)" python3 -m gitmaps build --repo OWNER/REPO --out site
-> ```
+> The native Rust CLI is also not yet on any public branch. Until it is, only the [local preview](#preview-locally) works, and only from a local checkout that contains `Cargo.toml`.
+>
+> The GitHub Action, Pages publication and this guide's third-party steps have not yet been run end to end.
 >
 > This notice is removed in the release commit that receives the `v1` tag.
 
@@ -23,6 +22,7 @@ Time needed: about 10 minutes.
 
 - A **public** GitHub repository where you can change Settings (admin role). Private repositories are refused by default; see [Private repositories](#private-repositories).
 - GitHub Actions enabled for the repository.
+- A GitHub-hosted Linux runner (`ubuntu-latest`). The action compiles the GitMapsGame Rust CLI from source with the runner's preinstalled Rust toolchain. On self-hosted runners, install Rust 1.85 or newer.
 - Optional: the [GitHub CLI](https://cli.github.com/) (`gh`). Every step below also has a web UI path.
 
 ## 1. Turn on GitHub Pages from Actions
@@ -54,7 +54,7 @@ Read both files before you commit them. They are short:
 | File | Runs on | Permissions | Does |
 |---|---|---|---|
 | `gitmaps-trigger.yml` | pull requests and reviews, including from forks | none | prints one line, which signals the map workflow |
-| `gitmaps.yml` | issue changes, trigger completion, pushes to the default branch, every 6 h, manual | build: read-only; deploy: `pages: write`, `id-token: write` | queries the GitHub API, renders the map, deploys it to Pages |
+| `gitmaps.yml` | issue changes, trigger completion, pushes to the default branch, every 6 h, manual | build: read-only; deploy: `pages: write`, `id-token: write` | compiles the GitMapsGame CLI (`cargo build --release --locked`), queries the GitHub API, renders the map, deploys it to Pages |
 
 Optional: so CI results refresh the map as soon as they finish, add the `name:` of each CI workflow to the `workflow_run.workflows` list in `gitmaps.yml`. Otherwise CI results appear at the next trigger or scheduled run.
 
@@ -155,16 +155,27 @@ git clone --depth 1 --branch v1 https://github.com/Tesliana-code/GitMapsGame.git
 cd GitMapsGame
 curl -fsSLO https://OWNER.github.io/REPO/snapshot.json
 curl -fsSLO https://OWNER.github.io/REPO/map.json
-python3 -m gitmaps render snapshot.json --out rebuilt
+cargo run --release --locked -- render snapshot.json --out rebuilt
 cmp map.json rebuilt/map.json && echo "map reproduced byte for byte"
 ```
 
-To preview your repository's current state locally without publishing anything (Python 3 standard library only; tested with 3.12):
+## Preview locally
+
+You need Rust 1.85 or newer ([rustup.rs](https://rustup.rs/)). There are no other system dependencies: TLS is built in, with no OpenSSL. From a checkout of GitMapsGame, preview any public repository without publishing anything:
 
 ```bash
-GH_TOKEN="$(gh auth token)" python3 -m gitmaps build --repo OWNER/REPO --out site
+GH_TOKEN="$(gh auth token)" cargo run --release --locked -- build --repo OWNER/REPO --out site
 # then open site/index.html in a browser
 ```
+
+The first run compiles the CLI and its locked dependencies, which takes about a minute. Any token with read access works; `gh auth token` is one way to get one. To keep a `gitmaps` binary on your `PATH` instead:
+
+```bash
+cargo install --locked --path .
+GH_TOKEN="$(gh auth token)" gitmaps build --repo OWNER/REPO --out site
+```
+
+Run `gitmaps --help` to list every command: `snapshot`, `replay`, `derive`, `render`, `build` and `check-template`.
 
 ## Security model
 
@@ -172,6 +183,11 @@ GH_TOKEN="$(gh auth token)" python3 -m gitmaps build --repo OWNER/REPO --out sit
 - **No pull request code runs with privileges.** No workflow uses `pull_request_target` or checks out PR code. Fork PRs run only the permission-less trigger.
 - **Least privilege.** The build job has read-only permissions. Only the deploy job holds `pages: write`. No personal tokens or repository secrets are needed.
 - **Untrusted text stays text.** Issue and PR titles are rendered with `textContent`. Only `https://github.com/` links are clickable. A Content-Security-Policy allows exactly one script and no network access.
+- **The CLI is compiled without credentials.**
+  - The action compiles GitMapsGame in a step that has no token. It also unsets any job-level token and compiler-override variables (`RUSTFLAGS`, `RUSTC_WRAPPER`), so dependency build scripts never see credentials.
+  - It builds from the action's own directory, so a `.cargo/config.toml` in your repository cannot change the build.
+  - Dependencies are pinned by `Cargo.lock` (`--locked`).
+- The CLI talks only to `https://api.github.com/graphql` over HTTPS, never follows redirects, and never prints the token.
 - Third-party actions are pinned to full commit SHAs.
 
 ## Private repositories
@@ -181,7 +197,7 @@ A GitHub Pages site is usually **public, even when the repository is private**. 
 To view a private repository's map locally only:
 
 ```bash
-GH_TOKEN="$(gh auth token)" python3 -m gitmaps build --repo OWNER/PRIVATE --out site --allow-private
+GH_TOKEN="$(gh auth token)" cargo run --release --locked -- build --repo OWNER/PRIVATE --out site --allow-private
 ```
 
 Setting `allow-private: "true"` on the action publishes that data. Do it only if your Pages site's access control is restricted and you accept the exposure.
@@ -195,6 +211,7 @@ Setting `allow-private: "true"` on the action publishes that data. Do it only if
 | Page says *the crossing label does not exist* | Create `gitmaps:crossing` (step 3). |
 | `refusing to publish private repository` | See [Private repositories](#private-repositories). |
 | `N crossings exceed the limit of 200` | V1 maps at most 200 crossings. |
+| `cargo not found` in the action log | The runner has no Rust toolchain. Use `ubuntu-latest`, or install Rust 1.85 or newer on your self-hosted runner. |
 | Crossing shows evidence gaps | The API reported more items than it returned, or a linked PR could not be read. The state is computed fail-closed. |
 
 ## Uninstall

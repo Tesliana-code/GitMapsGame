@@ -3,6 +3,8 @@
 GraphQL responses here are constructed test inputs shaped like the recorded ones in
 tests/fixtures/recorded/; they exercise paths the live fixtures cannot reach on demand.
 """
+import copy
+import json
 import sys
 import unittest
 from pathlib import Path
@@ -12,7 +14,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from gitmaps import MAX_CROSSINGS  # noqa: E402
 from gitmaps.derive import derive  # noqa: E402
 from gitmaps.fetch import snapshot  # noqa: E402
-from gitmaps.github import GitHubError, ReplayTransport  # noqa: E402
+from gitmaps import canonical_bytes  # noqa: E402
+from gitmaps.github import GitHubError, RecordingTransport, ReplayTransport  # noqa: E402
 
 OWNER, NAME = "example", "constructed"
 REPO = OWNER + "/" + NAME
@@ -134,6 +137,27 @@ class Pagination(unittest.TestCase):
         result = run([exchange])
         self.assertEqual(result["issues"], [])
         self.assertFalse(result["repository"]["label_exists"])
+
+
+class Recording(unittest.TestCase):
+    def test_recording_with_linked_pr_pagination_replays(self):
+        """Regression: fetch merges linked-PR pages into the response; the recording must not change."""
+        exchanges = [
+            repo_exchange(),
+            issues_exchange([issue_node(1, linked=[10], linked_total=2, linked_next="L1")]),
+            {"name": "linked_pull_requests", "variables": dict(BASE, number=1, after="L1"),
+             "response": {"data": {"repository": {"issue": {"closedByPullRequestsReferences": {
+                 "totalCount": 2, "pageInfo": page(False),
+                 "nodes": [{"number": 11, "repository": {"nameWithOwner": REPO}}]}}}}}},
+            pr_exchange(10, pr_response(10)),
+            pr_exchange(11, pr_response(11)),
+        ]
+        recorder = RecordingTransport(ReplayTransport(copy.deepcopy(exchanges)))  # stands in for GitHub
+        live = snapshot(recorder, REPO)
+        written = json.loads(json.dumps(recorder.exchanges))  # as stored in a recording file
+        self.assertEqual(written, json.loads(json.dumps(exchanges)))
+        replayed = snapshot(ReplayTransport(written), REPO)
+        self.assertEqual(canonical_bytes(replayed), canonical_bytes(live))
 
 
 class UnknownEvidence(unittest.TestCase):

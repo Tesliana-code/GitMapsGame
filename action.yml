@@ -1,3 +1,5 @@
+# GitMapsGame map action: compiles the native Rust CLI from this action's own source
+# (cargo build --release --locked) and builds the read-only map from the GitHub API.
 name: GitMapsGame map
 description: Build a read-only GitMapsGame crossing map from this repository's GitHub issues and pull requests.
 author: GitMapsGame contributors
@@ -33,12 +35,33 @@ outputs:
 runs:
   using: composite
   steps:
+    # Compile with no token in the environment: dependency build scripts never see credentials.
+    - name: Compile gitmaps from source (cargo build --release --locked)
+      id: compile
+      shell: bash
+      run: |
+        set -euo pipefail
+        if ! command -v cargo >/dev/null; then
+          echo "::error::cargo not found. GitMapsGame compiles from source with the runner's Rust toolchain (preinstalled on GitHub-hosted runners)."
+          exit 1
+        fi
+        # Build from the action's own directory so no checked-out repository .cargo/config.toml applies,
+        # and drop compiler-injection variables a workflow may have set.
+        cd "$GITHUB_ACTION_PATH"
+        # Also drop any job-level token so dependency build scripts can never read it.
+        unset RUSTFLAGS CARGO_ENCODED_RUSTFLAGS CARGO_BUILD_RUSTFLAGS RUSTC_WRAPPER CARGO_BUILD_RUSTC_WRAPPER RUSTC \
+          GH_TOKEN GITHUB_TOKEN
+        export CARGO_TARGET_DIR="$RUNNER_TEMP/gitmaps-target"
+        cargo --version
+        cargo build --release --locked --quiet
+        echo "bin=$CARGO_TARGET_DIR/release/gitmaps" >> "$GITHUB_OUTPUT"
     - name: Build map from the GitHub API
       id: build
       shell: bash
       # Inputs reach the script only through environment variables, never by template expansion.
       env:
         GH_TOKEN: ${{ inputs.token }}
+        GITMAPS_BIN: ${{ steps.compile.outputs.bin }}
         GITMAPS_REPO: ${{ inputs.repository }}
         GITMAPS_LABEL: ${{ inputs.label }}
         GITMAPS_OUT: ${{ inputs.out }}
@@ -48,6 +71,4 @@ runs:
         out="$(realpath -m "$GITMAPS_OUT")"
         args=(build --repo "$GITMAPS_REPO" --label "$GITMAPS_LABEL" --out "$out")
         if [ "$GITMAPS_ALLOW_PRIVATE" = "true" ]; then args+=(--allow-private); fi
-        # Run from the action's own directory so no checked-out repository code can shadow the package.
-        cd "$GITHUB_ACTION_PATH"
-        python3 -E -s -m gitmaps "${args[@]}"
+        "$GITMAPS_BIN" "${args[@]}"

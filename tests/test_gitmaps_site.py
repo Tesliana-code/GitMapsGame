@@ -19,8 +19,9 @@ from gitmaps.derive import derive  # noqa: E402
 from gitmaps.render import DATA_SLOT, TEMPLATE, check_template, inline_json, render_html, write_site  # noqa: E402
 
 RECORDED = ROOT / "tests" / "fixtures" / "recorded"
-# sha256 of the two approved CSS lines from PR #1 (commit 6b91e9f, index.html lines 5-6).
-APPROVED_CSS_SHA256 = "152a06d9b2c245883604645d548fbfce8ae8d7a79f8abd7e72ff14d4bf4bb0ec"
+# sha256 of the founder-approved and frozen world-map <style> block (approved 2026-10-21,
+# promoted from prototypes/world-map). Changing the design requires founder approval.
+APPROVED_STYLE_SHA256 = "dee7ddce449ab5a19f44599789f4e583abbbc09e693585c2c0095ea1eea3c760"
 
 
 def recorded_snapshot(name="cli-cli"):
@@ -44,18 +45,18 @@ class Template(unittest.TestCase):
 
     def test_stale_csp_detected(self):
         with self.assertRaises(ValueError):
-            check_template(self.html.replace("World reset.", "World reset!"))
+            check_template(self.html.replace("TUTORIAL STARTED.", "TUTORIAL STARTED!"))
 
     def test_approved_css_preserved(self):
-        lines = self.html.split("\n")
-        start = lines.index("<style>") + 1
-        self.assertEqual(hashlib.sha256(("\n".join(lines[start:start + 2]) + "\n").encode()).hexdigest(),
-                         APPROVED_CSS_SHA256)
+        style = self.html[self.html.index("<style>") + len("<style>"):self.html.index("</style>")]
+        self.assertEqual(hashlib.sha256(style.encode("utf-8")).hexdigest(), APPROVED_STYLE_SHA256)
 
     def test_synthetic_mode_visibly_labelled(self):
         self.assertIn(DATA_SLOT, self.html)
-        self.assertIn("SYNTHETIC DEMO", self.html)
-        self.assertIn("every crossing, contributor, check and approval on this page is fictional", self.html)
+        # Opened without data, the page is the fictional tutorial: chip, status bar and footnote say so.
+        self.assertIn('<p class="badge" id="badge">TUTORIAL WORLD · FICTIONAL</p>', self.html)
+        self.assertIn('<footer id="foot">TUTORIAL WORLD · FICTIONAL · NO GITHUB CHANGES</footer>', self.html)
+        self.assertIn('"WORLD TUTORIAL (FICTIONAL)"', self.html)
 
     def test_no_external_resources(self):
         for match in re.findall(r'(?:src|href)="([^"]+)"', self.html):
@@ -134,8 +135,9 @@ class WorkflowHardening(unittest.TestCase):
             text = path.read_text()
             self.assertNotIn("pull_request_target", text, path)
             self.assertIn("\npermissions: {}\n", text, path)
-            self.assertNotIn("secrets.", text, path)
             self.assertNotIn("write-all", text, path)
+            if path != self.WORKFLOWS[0]:
+                self.assertNotIn("secrets.", text, path)
 
     def test_external_actions_pinned_to_commit(self):
         for path in sorted((ROOT / ".github/workflows").glob("*.yml")) + self.WORKFLOWS[2:] + [ROOT / "action.yml"]:
@@ -150,17 +152,55 @@ class WorkflowHardening(unittest.TestCase):
             self.assertNotIn("uses:", text)
             self.assertNotIn("${{", text)
 
-    def test_only_deploy_job_can_write_pages(self):
-        for path in (self.WORKFLOWS[0], self.WORKFLOWS[2]):
-            build, deploy = path.read_text().split("\n  deploy:\n")
-            self.assertNotIn("write", build.split("\njobs:\n")[1])
-            self.assertIn("pages: write", deploy)
-            self.assertIn("name: github-pages", deploy)
+    def test_example_only_deploy_job_can_write_pages(self):
+        build, deploy = self.WORKFLOWS[2].read_text().split("\n  deploy:\n")
+        self.assertNotIn("write", build.split("\njobs:\n")[1])
+        self.assertIn("pages: write", deploy)
+        self.assertIn("name: github-pages", deploy)
+
+    def test_cloudflare_publish_is_isolated(self):
+        text = self.WORKFLOWS[0].read_text()
+        build, publish = text.split("\n  publish:\n")
+        build_job = build.split("\njobs:\n")[1]
+        self.assertNotIn("write", build_job)
+        self.assertNotIn("secrets.", build_job)  # the build (which runs the API queries) never sees Cloudflare credentials
+        self.assertNotIn("pages: write", text)
+        self.assertIn("    permissions: {}\n", publish)  # no GitHub token scopes in the publishing job
+        self.assertIn("if: github.ref == 'refs/heads/main'", publish)
+        self.assertIn("name: cloudflare-pages", publish)
+        self.assertIn("sha256sum -c SHA256SUMS", publish)
+        self.assertRegex(publish, r"npx --yes wrangler@\d+\.\d+\.\d+ pages deploy _site")
+        self.assertEqual(sorted(set(re.findall(r"secrets\.(\w+)", text))), ["CLOUDFLARE_ACCOUNT_ID", "CLOUDFLARE_API_TOKEN"])
+        for line in publish.split("\n"):
+            if "secrets." in line:
+                self.assertRegex(line.strip(), r"^CLOUDFLARE_\w+: \$\{\{ secrets\.CLOUDFLARE_\w+ \}\}$")  # env only, never inline in run
 
     def test_action_inputs_never_expanded_in_shell(self):
-        run_block = (ROOT / "action.yml").read_text().split("run: |", 1)[1]
-        self.assertNotIn("${{", run_block)
+        for run_block in (ROOT / "action.yml").read_text().split("run: |")[1:]:
+            self.assertNotIn("${{", run_block.split("\n    - name:")[0])
 
+    def test_action_compiles_rust_without_credentials(self):
+        text = (ROOT / "action.yml").read_text()
+        self.assertNotIn("python", text.lower())
+        compile_step, build_step = text.split("\n    - name: Build map from the GitHub API\n")
+        compile_step = compile_step.split("id: compile", 1)[1]
+        self.assertNotIn("env:", compile_step)
+        self.assertNotIn("inputs.token", compile_step)
+        for needle in ('cd "$GITHUB_ACTION_PATH"', "cargo build --release --locked", "unset RUSTFLAGS",
+                       "RUSTC_WRAPPER", "GH_TOKEN GITHUB_TOKEN", 'CARGO_TARGET_DIR="$RUNNER_TEMP'):
+            self.assertIn(needle, compile_step)
+        self.assertIn("GH_TOKEN: ${{ inputs.token }}", build_step)
+        self.assertIn('"$GITMAPS_BIN" "${args[@]}"', build_step)
+
+    def test_rust_ci_is_read_only_and_runs_required_checks(self):
+        text = (ROOT / ".github/workflows/rust.yml").read_text()
+        self.assertIn("\npermissions: {}\n", text)
+        self.assertNotIn("pull_request_target", text)
+        self.assertNotIn("secrets.", text)
+        self.assertNotIn("write", text)
+        for check in ("cargo fmt --check", "cargo clippy --locked --all-targets -- -D warnings",
+                      "cargo test --locked", "cargo build --release --locked", "git diff --exit-code"):
+            self.assertIn(check, text)
 
 
 class PreRelease(unittest.TestCase):
