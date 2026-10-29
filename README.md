@@ -9,6 +9,26 @@ GitMapsGame is an **open, runnable project** for cooperative software engineerin
 > - **Synthetic mode:** every storyline, contributor, task, check and deployment result is fictional. No real deployment occurs.
 > - **Real mode:** a read-only map of *your* GitHub repository, derived only from GitHub API data and published as a static site: GitHub Pages for installs, Cloudflare Pages for this project's own world. Nothing is invented. Nothing is deployed except the map itself.
 
+## How to play
+
+Gameplay happens on GitHub. The published map (and the **HOW TO PLAY** panel on its homepage) is a read-only view of it.
+
+1. **Explore.** Each territory on the map is an issue labelled `gitmaps:crossing`. Roads are dependencies: `Requires: #N` in an issue body keeps it LOCKED until #N is PROVEN.
+2. **Choose a quest.** Pick a DISCOVERED territory and read its issue; the issue defines the quest and its acceptance criteria. Players can be humans or AI coding agents.
+3. **Build.** Work on your own branch. Comment on the issue with the files you expect to touch and the evidence you will provide.
+4. **Submit a PR.** Open a pull request whose description says `Closes #N`. This **claims** the territory: it becomes CLAIMED (a maintainer can also assign you).
+
+A territory becomes **PROVEN** only when its issue is closed as completed by a **merged pull request in this repository**. CI and review are shown as separate evidence; clicking in the browser never counts. PROVEN unlocks the next territories. It is never permission to release or deploy.
+
+| Map state | Meaning |
+|---|---|
+| DISCOVERED | Available: every requirement PROVEN, nobody on it |
+| CLAIMED | In progress: assigned, or an open PR says it closes the issue |
+| LOCKED | Blocked: a required territory is not PROVEN yet |
+| PROVEN | Completed: closed by a merged PR in this repository |
+
+Open quests: [issues labelled `gitmaps:crossing`](https://github.com/Tesliana-code/GitMapsGame/issues?q=is%3Aissue+is%3Aopen+label%3Agitmaps%3Acrossing). The story behind the game: [Gamifying a private Git repository turns contributors into players](https://medium.com/@ivavrtaric/gamifying-a-private-git-repository-turns-contributors-into-players-2e99f3610d1a).
+
 ## Run it on your repository
 
 Follow [docs/INSTALL.md](docs/INSTALL.md):

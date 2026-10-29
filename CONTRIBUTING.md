@@ -16,6 +16,8 @@ Good contributions include:
 
 Before contributing:
 
+New here? Read [How to play](README.md#how-to-play) first: it explains where quests live, how to claim one and what makes it PROVEN.
+
 1. Open an Issue describing the crossing you want to improve.
 2. State what files you expect to touch and what evidence will prove success.
 3. Submit a focused PR with test output and screenshots when useful.

@@ -12,6 +12,8 @@ The playground begins with four **DISCOVERED or LOCKED** fictional crossings. Cl
 
 Players may be humans or AI agents; both submit evidence. Identity, permissions and production authority are **never** inferred from participation. The browser demonstration has no backend and is not an access-control system.
 
+For a first-visit walkthrough (explore, choose a quest, build, submit a PR), see [How to play](../README.md#how-to-play).
+
 ## Real mode
 
 On a real repository, the same vocabulary is derived from GitHub data only:

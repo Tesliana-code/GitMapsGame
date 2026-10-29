@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GitMapsGame: World Map</title>
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-eNzrwtyvfptCH4lo1ZftrkPM07tQkrs64HgulQmwCMg='; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-klC0ZF5E81FxIvZ7tk9wx/JIykndFvO7ofbfQbanZGE='; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'%3E%3Crect width='16' height='16' fill='%230000aa'/%3E%3Cpath fill='%23ffff55' d='M1 4h6v1h-6zM9 4h6v1h-6zM1 5h6v1h-6zM9 5h6v1h-6zM1 6h2v1h-2zM9 6h2v1h-2zM1 7h2v1h-2zM4 7h3v1h-3zM9 7h2v1h-2zM12 7h3v1h-3zM1 8h2v1h-2zM4 8h3v1h-3zM9 8h2v1h-2zM12 8h3v1h-3zM1 9h2v1h-2zM5 9h2v1h-2zM9 9h2v1h-2zM13 9h2v1h-2zM1 10h6v1h-6zM9 10h6v1h-6zM1 11h6v1h-6zM9 11h6v1h-6z'/%3E%3C/svg%3E">
 <style>
 :root{--blue:#0000aa;--navy:#000055;--cyan:#55ffff;--teal:#00aaaa;--white:#ffffff;--gray:#aaaaaa;--dark:#555555;--yellow:#ffff55;--green:#55ff55;--red:#ff5555;--magenta:#ff55ff;--black:#000000;--brown:#aa5500;
@@ -83,12 +83,31 @@ footer{color:var(--gray);font-size:10px;line-height:1.4;letter-spacing:.04em;mar
 <button class="btn primary" id="start" type="button" data-px="3">START GAME</button>
 <button class="btn" id="track" type="button" data-px="2">TRACK YOUR PROGRESS</button>
 </div>
-<ol class="howto" aria-label="How to play">
-<li><b>①</b> CLAIM a crossing on GitHub</li>
-<li><b>②</b> PROVE it with a merged pull request</li>
-<li><b>③</b> NEW LAND unlocks</li>
+<ol class="howto" aria-label="How to play in four steps">
+<li><b>①</b> EXPLORE the map</li>
+<li><b>②</b> CHOOSE a quest</li>
+<li><b>③</b> BUILD on a branch</li>
+<li><b>④</b> SUBMIT a pull request</li>
 </ol>
 </header>
+<details class="window" id="how-to-play" open>
+<summary>HOW TO PLAY</summary>
+<div class="body">
+<p>GitMapsGame turns a GitHub repository into a world map. Every territory is a real engineering mission, and the map moves only when GitHub shows verified work. There is no completion button.</p>
+<div class="step"><h3>① EXPLORE</h3><p>Read the map below. Each territory is a GitHub issue labelled <code>gitmaps:crossing</code>. Roads are dependencies: an issue that says <code>Requires: #N</code> stays in the fog until #N is PROVEN.</p></div>
+<div class="step"><h3>② CHOOSE QUEST</h3><p>Pick open land (DISCOVERED) and open its issue. The issue defines the quest and its acceptance criteria. Players can be humans or AI coding agents; both play through GitHub.</p></div>
+<div class="step"><h3>③ BUILD</h3><p>Work on your own branch. Your branch and its commits are the expedition's trail of evidence.</p></div>
+<div class="step"><h3>④ SUBMIT PR</h3><p>Open a pull request whose description says <code>Closes #N</code>. The territory becomes CLAIMED. When a maintainer merges it, GitHub closes the issue and the territory becomes PROVEN; the roads it opens lead to new land.</p></div>
+<ul class="facts" aria-label="Territory states">
+<li><b>Available:</b> <span class="stateword ok">DISCOVERED</span>, open land, nobody on it yet</li>
+<li><b>In progress:</b> <span class="stateword ok">CLAIMED</span>, assigned or has an open pull request</li>
+<li><b>Blocked:</b> <span class="stateword none">LOCKED</span>, a required territory is not PROVEN yet</li>
+<li><b>Completed:</b> <span class="stateword wait">PROVEN</span>, closed by a merged pull request in this repository</li>
+</ul>
+<p>CI results and reviews are shown as separate evidence. Unlocking land is never permission to release or deploy.</p>
+<div class="actions" id="how-to-play-actions"><a class="btn small" href="#play">FIND AN AVAILABLE QUEST</a> <a class="btn small" href="https://medium.com/@ivavrtaric/gamifying-a-private-git-repository-turns-contributors-into-players-2e99f3610d1a" rel="noopener noreferrer">READ THE STORY ↗</a></div>
+</div>
+</details>
 <div class="layout">
 <section class="window" aria-labelledby="map-h">
 <h2 id="map-h" data-px="2">WORLD MAP</h2>
@@ -275,6 +294,7 @@ function step(title,text,actions){const box=el("div","step");box.append(el("h3",
   if(actions&&actions.length){const a=el("div","actions");a.append(...actions);box.append(a);}return box;}
 function repoName(){return REAL?DATA.repository.name_with_owner:null;}
 function prUrl(){const r=repoName();return r&&/^[A-Za-z0-9-]+\/[A-Za-z0-9._-]+$/.test(r)?"https://github.com/"+r+"/compare":null;}
+function questsUrl(){const r=repoName();return r&&/^[A-Za-z0-9-]+\/[A-Za-z0-9._-]+$/.test(r)?"https://github.com/"+r+"/issues?q=is%3Aissue+is%3Aopen+label%3Agitmaps%3Acrossing":null;}
 function evidenceFacts(c){const ul=el("ul","facts");
   const fact=(k,v,cls)=>{const li=el("li");li.append(el("b",null,k+": "),el("span",cls||null,v));ul.append(li);};
   fact("GitHub state",(c.github_state||"tutorial")+(c.github_state_reason?" ("+c.github_state_reason+")":""));
@@ -394,6 +414,7 @@ function setup(){
     $("tutorial-banner").hidden=true;
     $("badge").hidden=true;
     $("world-title").textContent=DATA.repository.name_with_owner;
+    if(questsUrl())$("how-to-play-actions").append(" ",link(questsUrl(),"ALL QUESTS ON GITHUB ↗"));
     $("pitch").textContent=DATA.crossings.length?"Every issue labelled gitmaps:crossing is a crossing. Claim one on GitHub, prove it with a merged pull request, and new paths open.":"This world has not been charted yet. Start the game to raise its first landmark.";
     $("foot").textContent=CONSTRUCTED?"TEST WORLD · CONSTRUCTED DATA · LOCAL PREVIEW":"LIVE REPOSITORY DATA · PLAY THROUGH GITHUB";
     document.title="GitMapsGame: "+DATA.repository.name_with_owner+(CONSTRUCTED?" (test world)":"");
