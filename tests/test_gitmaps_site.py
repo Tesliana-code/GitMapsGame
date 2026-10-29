@@ -22,6 +22,8 @@ RECORDED = ROOT / "tests" / "fixtures" / "recorded"
 # sha256 of the founder-approved and frozen world-map <style> block (approved 2026-10-21,
 # promoted from prototypes/world-map). Changing the design requires founder approval.
 APPROVED_STYLE_SHA256 = "dee7ddce449ab5a19f44599789f4e583abbbc09e693585c2c0095ea1eea3c760"
+# Founder-requested story link on the homepage (Quest #3, 2026-10-29).
+STORY_URL = "https://medium.com/@ivavrtaric/gamifying-a-private-git-repository-turns-contributors-into-players-2e99f3610d1a"
 
 
 def recorded_snapshot(name="cli-cli"):
@@ -59,8 +61,23 @@ class Template(unittest.TestCase):
         self.assertIn('"WORLD TUTORIAL (FICTIONAL)"', self.html)
 
     def test_no_external_resources(self):
-        for match in re.findall(r'(?:src|href)="([^"]+)"', self.html):
+        # Anchors are navigation, not resources; they are checked separately below.
+        for match in re.findall(r'(?:src|href)="([^"]+)"', re.sub(r"<a [^>]*>", "", self.html)):
             self.assertFalse(match.startswith(("http:", "https:", "//")), match)
+
+    def test_only_the_story_link_leaves_the_page(self):
+        # The founder-approved READ THE STORY link is the template's only static external anchor.
+        anchors = re.findall(r"<a [^>]*>", self.html)
+        external = [a for a in anchors if not re.search(r'href="#', a)]
+        self.assertEqual(len(external), 1, external)
+        self.assertIn('href="%s"' % STORY_URL, external[0])
+        self.assertIn('rel="noopener noreferrer"', external[0])
+
+    def test_how_to_play_visible_on_first_visit(self):
+        self.assertIn('<details class="window" id="how-to-play" open>', self.html)
+        for step in ("① EXPLORE", "② CHOOSE QUEST", "③ BUILD", "④ SUBMIT PR"):
+            self.assertIn("<h3>%s</h3>" % step, self.html)
+        self.assertIn('href="#play"', self.html)
 
 
 class Rendering(unittest.TestCase):
