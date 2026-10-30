@@ -1,0 +1,102 @@
+{
+  "expires_at": "2026-11-01T09:14:03Z",
+  "generated_at": "2026-10-30T09:14:03Z",
+  "key_id": "k-00000000000000a1",
+  "quests": [
+    {
+      "contributors": {
+        "count": 0,
+        "handles": []
+      },
+      "hidden_prerequisites": false,
+      "join_open": true,
+      "quest_id": "q-0000000000000001",
+      "requires": [],
+      "state": "DISCOVERED",
+      "state_since": "2026-10-29",
+      "summary": "Explain installation and the first command for a na\u00efve newcomer.",
+      "tags": [
+        "docs"
+      ],
+      "title": "Write a first-run guide for the sample tool"
+    },
+    {
+      "contributors": {
+        "count": 2,
+        "handles": [
+          "sample-player"
+        ]
+      },
+      "hidden_prerequisites": false,
+      "join_open": false,
+      "provenance": {
+        "commitment": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+      },
+      "quest_id": "q-0000000000000002",
+      "requires": [],
+      "state": "PROVEN",
+      "state_since": "2026-10-20",
+      "summary": "Wire the existing sample test suite into continuous integration.",
+      "tags": [
+        "ci",
+        "testing"
+      ],
+      "title": "Run the sample unit tests in CI"
+    },
+    {
+      "contributors": {
+        "count": 0,
+        "handles": []
+      },
+      "hidden_prerequisites": true,
+      "join_open": false,
+      "quest_id": "q-0000000000000003",
+      "requires": [
+        "q-0000000000000001",
+        "q-0000000000000002"
+      ],
+      "state": "LOCKED",
+      "state_since": "2026-10-29",
+      "summary": "Needs the guide and the CI job first.",
+      "title": "Publish the sample coverage report"
+    },
+    {
+      "contributors": {
+        "count": 1,
+        "handles": []
+      },
+      "hidden_prerequisites": false,
+      "join_open": false,
+      "quest_id": "q-0000000000000004",
+      "requires": [
+        "q-0000000000000002"
+      ],
+      "state": "CLAIMED",
+      "state_since": "2026-10-29",
+      "summary": "",
+      "title": "Add retry tests for the sample fetcher"
+    },
+    {
+      "contributors": {
+        "count": 0,
+        "handles": []
+      },
+      "hidden_prerequisites": false,
+      "join_open": false,
+      "quest_id": "q-0000000000000005",
+      "requires": [],
+      "state": "RETIRED",
+      "state_since": "2026-10-29",
+      "summary": "Superseded; kept so existing roads stay readable.",
+      "title": "Replace the sample legacy parser"
+    }
+  ],
+  "region": {
+    "display_name": "Sample Region (synthetic)",
+    "region_id": "r-5ca1ab1e0000a001"
+  },
+  "schema": "gitmaps.projection/v1",
+  "sequence": 1,
+  "sequence": 3,
+  "source_as_of": "2026-10-30T09:00:00Z"
+}

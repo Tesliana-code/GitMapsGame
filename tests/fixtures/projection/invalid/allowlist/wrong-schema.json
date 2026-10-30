@@ -1,0 +1,37 @@
+{
+  "quests": [
+    {
+      "join_open": true,
+      "quest_id": "q-0000000000000001",
+      "source_issue": 101,
+      "summary": "Explain installation and the first command for a na\u00efve newcomer.",
+      "tags": [
+        "docs"
+      ],
+      "title": "Write a first-run guide for the sample tool"
+    },
+    {
+      "join_open": false,
+      "quest_id": "q-0000000000000002",
+      "source_issue": 102,
+      "summary": "Wire the existing sample test suite into continuous integration.",
+      "tags": [
+        "ci",
+        "testing"
+      ],
+      "title": "Run the sample unit tests in CI"
+    },
+    {
+      "join_open": false,
+      "quest_id": "q-0000000000000003",
+      "source_issue": 103,
+      "summary": "",
+      "title": "Publish the sample coverage report"
+    }
+  ],
+  "region": {
+    "display_name": "Sample Region (synthetic)",
+    "region_id": "r-5ca1ab1e0000a001"
+  },
+  "schema": "gitmaps.projection/v1"
+}

@@ -1,0 +1,13 @@
+{
+  "contributors": [
+    {
+      "handle": "sample-player",
+      "login": "sample-user-1"
+    },
+    {
+      "handle": "SAMPLE-PLAYER",
+      "login": "SampleUser2"
+    }
+  ],
+  "schema": "gitmaps.projection-contributors/v1"
+}

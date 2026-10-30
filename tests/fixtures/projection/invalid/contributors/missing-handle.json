@@ -1,0 +1,12 @@
+{
+  "contributors": [
+    {
+      "login": "sample-user-1"
+    },
+    {
+      "handle": "second-sample",
+      "login": "SampleUser2"
+    }
+  ],
+  "schema": "gitmaps.projection-contributors/v1"
+}

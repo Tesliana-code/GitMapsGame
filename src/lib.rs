@@ -7,6 +7,7 @@ pub mod canonical;
 pub mod derive;
 pub mod fetch;
 pub mod github;
+pub mod projection;
 pub mod pyrepr;
 mod pyrepr_table;
 mod queries;
