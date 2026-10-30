@@ -56,17 +56,17 @@ fn gitmaps(args: &[&str], env: &[(&str, &str)]) -> Output {
 
 /// Reference outputs of `python3 -m gitmaps render` for the frozen recorded snapshots
 /// (approved world-map template with GG favicon, 2026-10-21, plus the HOW TO PLAY panel,
-/// 2026-10-29; map.json/snapshot.json unchanged).
+/// 2026-10-29, and the PLAYERS leaderboard and desktop layout fix, 2026-10-30; map.json/snapshot.json unchanged).
 const REFERENCE_SITES: [(&str, &str, &str); 2] = [
     (
         "gitmapsgame",
-        "dc8aa45bc725159d6b031975a3e9cd0ffe46da84c200ec1436782357dfdfe1e4",
-        "4f79a8973e649a81ddc8a8210318251a3238f3aa7aeda72db25f3cca2ac39368",
+        "bbd6f4f9ceb4d44229296d4d38c6bdd8981d54294f00230041d00c2d9b429f7d",
+        "fcc300d5d1ce88a34b87e3c16bf8a20ae3dd3e33d9bea30d02f8ceff3af15f34",
     ),
     (
         "cli-cli",
-        "9579b4c9ffc5e5d2bb65101290ae7a40b0376b0671f09ab8e33e571b4f6e60c6",
-        "12c596ee09340fa564f0e13971a5189eaf22ae6ed86260061a0cb823cc8a38ae",
+        "fb04a16c462dcca1574247a2cd39753510fc229a0dd70140cfec5c5a4f2aafbc",
+        "f8ed200ea55305440e557aa0dc52f080fde4192bfcc1682888c3e89516b463e7",
     ),
 ];
 

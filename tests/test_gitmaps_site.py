@@ -21,7 +21,22 @@ from gitmaps.render import DATA_SLOT, TEMPLATE, check_template, inline_json, ren
 RECORDED = ROOT / "tests" / "fixtures" / "recorded"
 # sha256 of the founder-approved and frozen world-map <style> block (approved 2026-10-21,
 # promoted from prototypes/world-map). Changing the design requires founder approval.
-APPROVED_STYLE_SHA256 = "dee7ddce449ab5a19f44599789f4e583abbbc09e693585c2c0095ea1eea3c760"
+# 2026-10-30, founder-authorized PLAYERS leaderboard: the only style change is five added lines after
+# `.login input{...}`, all using existing tokens (previous hash dee7ddce449ab5a1...):
+#   .board{width:100%;border-collapse:collapse;margin:0 0 10px}
+#   .board th,.board td{padding:6px;text-align:left;vertical-align:top;border-bottom:2px solid var(--navy)}
+#   .board th{color:var(--yellow);font-size:13px;letter-spacing:.06em;border-bottom-color:var(--teal)}
+#   .board .n{text-align:right;white-space:nowrap;font-weight:700}.board .pts{color:var(--yellow)}
+#   .board .who b{display:block;color:var(--cyan);overflow-wrap:anywhere}.board .who span{font-size:13px}
+# 2026-10-30, founder-requested desktop layout fix (map fills its column instead of leaving a void under it;
+# previous hash 25d05911dd3d4991...). Exact changes:
+#   main             max-width:1240px -> 1600px
+#   .layout          align-items:start removed (columns stretch to equal height)
+#   added            .layout>.window{display:flex;flex-direction:column}
+#   .viewport        max-height:720px;min-height:260px -> flex:1 1 0;min-height:702px (702 = 5 rows of 132px + 42)
+#   @media(max-width:900px) added .viewport{flex:none;min-height:260px;max-height:720px} (single column as before)
+#   .grid            added margin:0 auto (small worlds centred)
+APPROVED_STYLE_SHA256 = "a27a4a3886dad7577a84272a6a3f7bb4356fb3d3a9784b28681015b85f431996"
 # Founder-requested story link on the homepage (Quest #3, 2026-10-29).
 STORY_URL = "https://medium.com/@ivavrtaric/gamifying-a-private-git-repository-turns-contributors-into-players-2e99f3610d1a"
 

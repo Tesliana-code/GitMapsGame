@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GitMapsGame: World Map</title>
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-klC0ZF5E81FxIvZ7tk9wx/JIykndFvO7ofbfQbanZGE='; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-co9juEn4XPcmQqIK2e8oImT9xSaw0rOWU0vXNlMy5b0='; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'%3E%3Crect width='16' height='16' fill='%230000aa'/%3E%3Cpath fill='%23ffff55' d='M1 4h6v1h-6zM9 4h6v1h-6zM1 5h6v1h-6zM9 5h6v1h-6zM1 6h2v1h-2zM9 6h2v1h-2zM1 7h2v1h-2zM4 7h3v1h-3zM9 7h2v1h-2zM12 7h3v1h-3zM1 8h2v1h-2zM4 8h3v1h-3zM9 8h2v1h-2zM12 8h3v1h-3zM1 9h2v1h-2zM5 9h2v1h-2zM9 9h2v1h-2zM13 9h2v1h-2zM1 10h6v1h-6zM9 10h6v1h-6zM1 11h6v1h-6zM9 11h6v1h-6z'/%3E%3C/svg%3E">
 <style>
 :root{--blue:#0000aa;--navy:#000055;--cyan:#55ffff;--teal:#00aaaa;--white:#ffffff;--gray:#aaaaaa;--dark:#555555;--yellow:#ffff55;--green:#55ff55;--red:#ff5555;--magenta:#ff55ff;--black:#000000;--brown:#aa5500;
@@ -15,7 +15,7 @@ svg.px{display:inline-block;vertical-align:middle;shape-rendering:crispEdges;fil
 [hidden]{display:none!important}
 .statusbar{position:sticky;top:0;z-index:5;background:var(--teal);color:var(--black);padding:4px 16px;font-weight:700;letter-spacing:.04em;white-space:nowrap;overflow-x:auto}
 .statusbar span+span::before{content:" │ ";color:var(--navy)}
-main{max-width:1240px;margin:0 auto;padding:18px 16px 40px}
+main{max-width:1600px;margin:0 auto;padding:18px 16px 40px}
 .hero{background:var(--blue);border:4px double var(--white);box-shadow:8px 8px 0 var(--black),8px 8px 0 4px var(--dark);padding:18px 20px;margin-bottom:22px}
 .logo{color:var(--yellow);margin:0 0 6px}
 .badge{display:inline-block;margin:0 0 10px;padding:2px 10px;background:var(--black);color:var(--cyan);border:2px solid var(--cyan);font-weight:700;letter-spacing:.08em}
@@ -31,16 +31,17 @@ h1{margin:4px 0 6px;font-size:22px;color:var(--white);letter-spacing:.03em;overf
 .howto{list-style:none;display:flex;gap:10px;flex-wrap:wrap;padding:0;margin:0;color:var(--cyan)}
 .howto li{background:var(--navy);border:2px solid var(--teal);padding:4px 10px}
 .howto b{color:var(--yellow)}
-.layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(300px,1fr);gap:22px;align-items:start}
-@media(max-width:900px){.layout{grid-template-columns:1fr}}
+.layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(300px,1fr);gap:22px}
+.layout>.window{display:flex;flex-direction:column}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.viewport{flex:none;min-height:260px;max-height:720px}}
 .window{background:var(--blue);border:4px double var(--gray);box-shadow:6px 6px 0 var(--black);margin-bottom:18px}
 .window>h2,.window>summary{margin:0;padding:6px 12px;background:var(--gray);color:var(--blue);font-size:15px;letter-spacing:.06em;cursor:default;list-style:none}
 .window>summary{cursor:pointer}.window>summary::-webkit-details-marker{display:none}
 .window>summary::before{content:"▶ ";}.window[open]>summary::before{content:"▼ ";}
 .body{padding:12px 14px}
 .tools{display:flex;gap:8px;flex-wrap:wrap;padding:8px 12px;border-bottom:2px solid var(--navy)}
-.viewport{position:relative;overflow:auto;max-height:720px;min-height:260px;background-color:#0000aa;background-image:linear-gradient(90deg,rgba(85,85,255,.35) 2px,transparent 2px),linear-gradient(rgba(85,85,255,.18) 2px,transparent 2px);background-size:16px 16px,16px 12px}
-.grid{position:relative}
+.viewport{position:relative;overflow:auto;flex:1 1 0;min-height:702px;background-color:#0000aa;background-image:linear-gradient(90deg,rgba(85,85,255,.35) 2px,transparent 2px),linear-gradient(rgba(85,85,255,.18) 2px,transparent 2px);background-size:16px 16px,16px 12px}
+.grid{position:relative;margin:0 auto}
 .roads{position:absolute;left:0;top:0;overflow:visible;shape-rendering:crispEdges;pointer-events:none}
 .colhead{position:absolute;top:6px;height:22px;color:var(--yellow);font-weight:700;font-size:12px;letter-spacing:.06em;text-align:center;background:var(--navy);border:1px solid var(--teal);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .tile{position:absolute;width:120px;height:122px;padding:4px;margin:0;border:2px solid transparent;background:transparent;color:var(--white);font:inherit;font-size:12px;line-height:1.3;cursor:pointer;text-align:center}
@@ -68,6 +69,11 @@ code{color:var(--yellow);background:var(--black);padding:0 4px}
 .bar{display:flex;gap:2px;margin:6px 0 10px;flex-wrap:wrap}.bar i{display:block;width:12px;height:16px;background:var(--dark)}.bar i.on{background:var(--yellow)}
 .login{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}
 .login input{font:inherit;padding:6px 8px;background:var(--black);color:var(--white);border:2px solid var(--cyan);min-width:0;flex:1 1 160px}
+.board{width:100%;border-collapse:collapse;margin:0 0 10px}
+.board th,.board td{padding:6px;text-align:left;vertical-align:top;border-bottom:2px solid var(--navy)}
+.board th{color:var(--yellow);font-size:13px;letter-spacing:.06em;border-bottom-color:var(--teal)}
+.board .n{text-align:right;white-space:nowrap;font-weight:700}.board .pts{color:var(--yellow)}
+.board .who b{display:block;color:var(--cyan);overflow-wrap:anywhere}.board .who span{font-size:13px}
 footer{color:var(--gray);font-size:10px;line-height:1.4;letter-spacing:.04em;margin-top:10px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style></head><body>
@@ -123,6 +129,10 @@ footer{color:var(--gray);font-size:10px;line-height:1.4;letter-spacing:.04em;mar
 <section class="window" id="orders" aria-labelledby="orders-h">
 <h2 id="orders-h" tabindex="-1" data-px="2">ORDERS</h2>
 <div class="body" id="orders-body" aria-live="polite"></div>
+</section>
+<section class="window" id="players" aria-labelledby="players-h">
+<h2 id="players-h" tabindex="-1" data-px="2">PLAYERS</h2>
+<div class="body" id="players-body"></div>
 </section>
 <section class="window" id="quest" aria-labelledby="quest-h" hidden>
 <h2 id="quest-h" tabindex="-1" data-px="2">SETUP QUEST</h2>
@@ -244,37 +254,44 @@ function tutorialCrossings(){
 function crossings(){return REAL?DATA.crossings:tutorialCrossings();}
 let selected=null;
 
-/* Deterministic layout: column = dependency depth, INVALID crossings in BROKEN LANDS. */
-const ROWS=5,CW=132,CH=132,TOP=34,LEFT=8;
-function layout(list){
+/* Deterministic layout: column = dependency depth, INVALID crossings in BROKEN LANDS.
+   Cells grow (up to 2x) to fill the map viewport; a taller viewport adds rows before columns overflow. */
+const ROWS=5,CW=132,CH=132,TOP=34,LEFT=8,TW=120;
+function layout(list,rows){
   const by=new Map(list.map(c=>[c.number,c])),depth=new Map(),seen=new Set();
   function d(n){if(depth.has(n))return depth.get(n);const c=by.get(n);if(!c||c.state==="INVALID")return -1;if(seen.has(n))return 0;seen.add(n);
     let m=-1;for(const r of c.requires){const rc=by.get(r);m=Math.max(m,rc&&rc.state!=="INVALID"?d(r):0);}seen.delete(n);depth.set(n,m+1);return m+1;}
   const stages=new Map();for(const c of list){const key=c.state==="INVALID"?Infinity:d(c.number);if(!stages.has(key))stages.set(key,[]);stages.get(key).push(c);}
   const keys=[...stages.keys()].sort((a,b)=>a-b),cols=[],pos=new Map();
   for(const k of keys){const items=stages.get(k).slice().sort((a,b)=>a.number-b.number);
-    for(let i=0;i<items.length;i+=ROWS){const chunk=items.slice(i,i+ROWS);const label=i===0?(k===Infinity?"BROKEN LANDS":k===0?"STARTING LANDS":"STAGE "+(k+1)):"(CONTINUED)";
+    for(let i=0;i<items.length;i+=rows){const chunk=items.slice(i,i+rows);const label=i===0?(k===Infinity?"BROKEN LANDS":k===0?"STARTING LANDS":"STAGE "+(k+1)):"(CONTINUED)";
       cols.push({label:label,items:chunk});chunk.forEach((c,row)=>pos.set(c.number,{col:cols.length-1,row:row}));}}
   return {cols:cols,pos:pos};
 }
-function center(p){return {x:LEFT+p.col*CW+CW/2,y:TOP+p.row*CH+38};}
+function fit(list,vp){const W=vp.clientWidth-LEFT*2,H=vp.clientHeight-TOP-8;let rows=ROWS;
+  if(W>0&&H>0){const most=Math.max(ROWS,Math.floor(H/CH));while(rows<most&&layout(list,rows).cols.length*CW>W)rows++;}
+  const L=layout(list,rows),n=Math.max(...L.cols.map(c=>c.items.length));
+  L.cw=W>0?Math.max(CW,Math.min(2*CW,Math.floor(W/L.cols.length))):CW;L.ch=H>0?Math.max(CH,Math.min(2*CH,Math.floor(H/n))):CH;L.oy=Math.floor((L.ch-CH)/2);
+  return L;}
+function center(p,L){return {x:LEFT+p.col*L.cw+L.cw/2,y:TOP+p.row*L.ch+L.oy+38};}
+let mapBox="";
 function renderMap(){
-  const list=crossings(),grid=$("grid");grid.replaceChildren();
-  if(!list.length){const u=el("div","uncharted");u.setAttribute("aria-hidden","true");u.append(el("b",null,"UNCHARTED · NO CROSSINGS DEFINED YET"));grid.style.width="100%";grid.style.height="300px";grid.append(u);renderList(list);return;}
-  const L=layout(list),w=LEFT*2+L.cols.length*CW,h=TOP+Math.max(...L.cols.map(c=>c.items.length))*CH+8;
+  const list=crossings(),grid=$("grid"),vp=$("viewport");grid.replaceChildren();mapBox=vp.clientWidth+"x"+vp.clientHeight;
+  if(!list.length){const u=el("div","uncharted");u.setAttribute("aria-hidden","true");u.append(el("b",null,"UNCHARTED · NO CROSSINGS DEFINED YET"));grid.style.width="100%";grid.style.height=Math.max(300,vp.clientHeight)+"px";grid.append(u);renderList(list);return;}
+  const L=fit(list,vp),w=LEFT*2+L.cols.length*L.cw,h=TOP+Math.max(...L.cols.map(c=>c.items.length))*L.ch+8;
   grid.style.width=w+"px";grid.style.height=h+"px";
   const roads=svgEl("svg",{"class":"roads",width:String(w),height:String(h),viewBox:"0 0 "+w+" "+h,"aria-hidden":"true"});
   const by=new Map(list.map(c=>[c.number,c]));
   for(const c of list){const to=L.pos.get(c.number);for(const r of c.requires){const from=L.pos.get(r);if(!from)continue;
-    const a=center(from),b=center(to),paved=by.get(r).state==="PROVEN",broken=by.get(r).state==="INVALID"||c.state==="INVALID";
-    const mid=from.col<to.col?LEFT+to.col*CW-4:a.x+60;
+    const a=center(from,L),b=center(to,L),paved=by.get(r).state==="PROVEN",broken=by.get(r).state==="INVALID"||c.state==="INVALID";
+    const mid=from.col<to.col?LEFT+to.col*L.cw-4:a.x+TW/2;
     const pts=[[a.x+34,a.y],[mid,a.y],[mid,b.y],[b.x-34,b.y]].map(p=>p.join(",")).join(" ");
     roads.appendChild(svgEl("polyline",{points:pts,fill:"none",stroke:paved?"#aa5500":broken?"#ff5555":"#aaaaaa","stroke-width":paved?"6":"3","stroke-dasharray":paved?"":"4 4"}));
     if(paved)roads.appendChild(svgEl("polyline",{points:pts,fill:"none",stroke:"#ffff55","stroke-width":"2","stroke-dasharray":"2 6"}));}}
   grid.append(roads);
-  L.cols.forEach((col,i)=>{const hd=el("div","colhead",col.label);hd.style.left=(LEFT+i*CW+4)+"px";hd.style.width=(CW-8)+"px";hd.setAttribute("aria-hidden","true");grid.append(hd);});
+  L.cols.forEach((col,i)=>{const hd=el("div","colhead",col.label);hd.style.left=(LEFT+i*L.cw+4)+"px";hd.style.width=(L.cw-8)+"px";hd.setAttribute("aria-hidden","true");grid.append(hd);});
   for(const c of list){const p=L.pos.get(c.number),s=STATES[c.state]||STATES.LOCKED,b=el("button","tile");b.type="button";
-    b.style.left=(LEFT+p.col*CW+6)+"px";b.style.top=(TOP+p.row*CH)+"px";b.id="tile-"+c.number;
+    b.style.left=(LEFT+p.col*L.cw+(L.cw-TW)/2)+"px";b.style.top=(TOP+p.row*L.ch+L.oy)+"px";b.id="tile-"+c.number;
     b.setAttribute("aria-label","Crossing #"+c.number+": "+c.title+". State: "+s.word+", "+s.terrain+".");b.title="#"+c.number+" "+c.title;
     b.setAttribute("aria-current",String(selected===c.number));
     const st=el("span","st",s.glyph+" "+s.word);st.style.color=s.color;
@@ -373,6 +390,29 @@ function renderLedger(){
   body.append(el("p",null,"@"+player+" appears in "+mine.length+" crossing"+(mine.length===1?"":"s")+":"),ul);
 }
 
+/* PLAYERS: 10 points per PROVEN crossing (author of its merged closing pull request), 2 per CLAIMED crossing
+   (an assignee, or the author of an open linked pull request). A crossing scores once per player. */
+const SCORING="10 points per PROVEN crossing (author of its merged closing pull request), 2 per CLAIMED crossing (assignee or author of an open linked pull request). Scores grant no merge, deployment or release authority.";
+function claimants(c,repo){const who=new Map();const add=l=>{if(typeof l==="string"&&LOGIN.test(l)&&!who.has(l.toLowerCase()))who.set(l.toLowerCase(),l);};
+  const prs=(c.pull_requests||[]).filter(p=>p.repository===repo);
+  if(c.state==="PROVEN"){const cb=c.closed_by;if(cb&&cb.type==="pull_request"&&cb.repository===repo){const p=prs.find(x=>x.number===cb.number&&x.merged===true);if(p)add(p.author);}}
+  else if(c.state==="CLAIMED"){c.assignees.forEach(add);for(const p of prs)if(p.state==="open")add(p.author);}
+  return [...who.values()];}
+function scoreboard(){const repo=repoName(),by=new Map();
+  for(const c of crossings())for(const l of claimants(c,repo)){const k=l.toLowerCase();if(!by.has(k))by.set(k,{login:l,proven:0,claimed:0});by.get(k)[c.state==="PROVEN"?"proven":"claimed"]++;}
+  const key=s=>s.login.toLowerCase();
+  return [...by.values()].map(s=>Object.assign(s,{points:10*s.proven+2*s.claimed})).sort((a,b)=>b.points-a.points||b.proven-a.proven||(key(a)<key(b)?-1:1));}
+function renderPlayers(){const body=$("players-body");body.replaceChildren();
+  if(!REAL){body.append(el("p","none","In a live world, players are ranked here from GitHub evidence: "+SCORING));return;}
+  const rows=scoreboard();
+  if(!rows.length){body.append(el("p",null,"No scored players yet. Claim a crossing on GitHub to enter the board."),el("p","none",SCORING));return;}
+  const t=el("table","board");t.id="players-table";const head=el("tr");
+  for(const [h,cls] of [["#","n"],["PLAYER",null],["POINTS","n"]]){const th=el("th",cls,h);th.scope="col";head.append(th);}
+  const thead=el("thead"),tbody=el("tbody");thead.append(head);
+  rows.forEach((r,i)=>{const tr=el("tr"),who=el("td","who");who.append(el("b",null,"@"+r.login),el("span",null,r.proven+" PROVEN · "+r.claimed+" CLAIMED"));
+    tr.append(el("td","n",String(i+1)),who,el("td","n pts",String(r.points)));tbody.append(tr);});
+  t.append(el("caption","sr-only","Players ranked by points, then PROVEN crossings, then login"),thead,tbody);body.append(t,el("p","none",SCORING));}
+
 /* SETUP QUEST, mock release gate, evidence */
 function renderQuest(){const q=$("quest"),body=$("quest-body");const empty=REAL&&!DATA.crossings.length;q.hidden=!empty;if(!empty)return;body.replaceChildren();
   const repo=DATA.repository.name_with_owner,labelled=DATA.repository.label_exists;
@@ -423,6 +463,7 @@ function setup(){
   $("track").addEventListener("click",()=>{setHash(player?"#player="+encodeURIComponent(player):"#progress");trackProgress();});
   $("view-map").addEventListener("click",()=>setView(false));$("view-list").addEventListener("click",()=>setView(true));
   renderLegend();refresh(null);route();
+  if(typeof ResizeObserver==="function")new ResizeObserver(()=>{const vp=$("viewport");if(vp.clientWidth+"x"+vp.clientHeight!==mapBox)renderMap();}).observe($("viewport"));
   window.addEventListener("hashchange",route);
 }
 function enterTutorial(){
@@ -434,7 +475,7 @@ function enterTutorial(){
 function setView(asList){$("viewport").hidden=asList;$("list").hidden=!asList;$("view-map").setAttribute("aria-pressed",String(!asList));$("view-list").setAttribute("aria-pressed",String(asList));}
 function setHash(h){try{history.replaceState(null,"",h);}catch(_){}}
 function focus(id){const e=$(id);if(e&&e.focus)e.focus({preventScroll:true});const s=e&&e.closest?e.closest("section"):null;if(s&&s.scrollIntoView)s.scrollIntoView({behavior:REDUCED?"auto":"smooth",block:"nearest"});}
-function refresh(message){renderHeader();renderMap();renderOrders(message);renderLedger();renderQuest();renderMock();renderEvidence();}
+function refresh(message){renderHeader();renderOrders(message);renderPlayers();renderLedger();renderQuest();renderMock();renderEvidence();renderMap();}
 function select(n,message){selected=n;refresh(message);const t=$("tile-"+n);if(t&&t.scrollIntoView)t.scrollIntoView({behavior:REDUCED?"auto":"smooth",block:"nearest",inline:"nearest"});setHash("#crossing="+n);focus("orders-h");}
 function nextMove(){const list=crossings();const by=s=>list.filter(c=>c.state===s).sort((a,b)=>a.number-b.number)[0];
   if(!list.length)return {kind:"setup"};
