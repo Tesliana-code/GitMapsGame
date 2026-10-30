@@ -34,6 +34,25 @@ function expectedStart(m) {
   if (m.crossings.every(c => c.state === "PROVEN")) return "conquered";
   for (const s of ["INVALID", "CLOSED_UNPROVEN", "LOCKED"]) if (by(s)) return by(s).number;
 }
+// PLAYERS: PROVEN = author of the merged same-repository closing PR (10), CLAIMED = assignee or open
+// same-repository PR author (2). Generic roles (closed PR authors, reviewers) never score.
+function expectedBoard(m) {
+  const repo = m.repository.name_with_owner, pts = new Map();
+  const bump = (login, state) => { if (!login) return; const k = login.toLowerCase();
+    if (!pts.has(k)) pts.set(k, { login, proven: 0, claimed: 0 }); pts.get(k)[state === "PROVEN" ? "proven" : "claimed"]++; };
+  for (const c of m.crossings) {
+    const prs = c.pull_requests.filter(p => p.repository === repo), who = new Set();
+    if (c.state === "PROVEN" && c.closed_by && c.closed_by.repository === repo) {
+      const p = prs.find(p => p.number === c.closed_by.number && p.merged === true); if (p && p.author) who.add(p.author);
+    } else if (c.state === "CLAIMED") {
+      c.assignees.forEach(a => who.add(a)); prs.filter(p => p.state === "open" && p.author).forEach(p => who.add(p.author));
+    }
+    for (const l of new Set([...who].map(x => x.toLowerCase()))) bump([...who].find(x => x.toLowerCase() === l), c.state);
+  }
+  return [...pts.values()].map(s => ({ ...s, points: 10 * s.proven + 2 * s.claimed }))
+    .sort((a, b) => b.points - a.points || b.proven - a.proven || (a.login.toLowerCase() < b.login.toLowerCase() ? -1 : 1))
+    .map((s, i) => (i + 1) + " @" + s.login + " " + s.proven + " PROVEN · " + s.claimed + " CLAIMED " + s.points);
+}
 const WORDS = { DISCOVERED: "DISCOVERED", CLAIMED: "CLAIMED", PROVEN: "PROVEN", LOCKED: "LOCKED", CLOSED_UNPROVEN: "CLOSED, UNPROVEN", INVALID: "INVALID" };
 
 function common(name, t, m) {
@@ -91,6 +110,13 @@ function common(name, t, m) {
     check(name + ": invalid login rejected", text(d.getElementById("ledger-body")).includes("not a valid GitHub login")); }
   { d.getElementById("evidence").open = true; const ev = text(d.getElementById("evidence-body"));
     check(name + ": evidence keeps provenance and export files", ev.includes(m.source.snapshot_sha256) && ["map.json", "snapshot.json", "SHA256SUMS"].every(f => [...d.querySelectorAll("#evidence-body a")].some(a => a.getAttribute("href") === f))); }
+  const panel = d.getElementById("players"), pb = text(d.getElementById("players-body"));
+  check(name + ": PLAYERS panel is visible, follows ORDERS and states scores grant no authority", panel && !panel.hidden && panel.previousElementSibling.id === "orders" && pb.includes("grant no merge, deployment or release authority"));
+  check(name + ": PLAYERS panel has no nested scroll box", !/#players[^{]*\{[^}]*(overflow|max-height)/.test(d.querySelector("style").textContent));
+  if (m) {
+    const got = [...d.querySelectorAll("#players-table tbody tr")].map(tr => [...tr.querySelectorAll("td, td > *")].filter(e => !e.children.length).map(text).join(" ")), want = expectedBoard(m);
+    check(name + ": PLAYERS ranks exactly the verified claimants", JSON.stringify(got) === JSON.stringify(want), JSON.stringify(got) + " != " + JSON.stringify(want));
+  }
   const deep = load(name, "#player=babakks");
   check(name + ": #player= deep link fills the ledger", text(deep.d.getElementById("ledger-body")).includes("@babakks appears in"));
   const sel = load(name, "#crossing=3718");
@@ -162,6 +188,8 @@ function common(name, t, m) {
     const got = [...d.querySelectorAll("#player-results li")].map(li => text(li)), want = roles(login).map(c => c.number);
     check(name + ": ledger finds @" + login + " in exactly the right crossings", want.length > 0 && got.length === want.length && want.every(n => got.some(g => g.startsWith("#" + n + " "))), JSON.stringify(got));
   }
+  { const board = expectedBoard(m);
+    check(name + ": PLAYERS scores both PROVEN and CLAIMED crossings", board.some(r => / [1-9]\d* PROVEN/.test(r)) && board.some(r => / [1-9]\d* CLAIMED/.test(r)), JSON.stringify(board)); }
   check(name + ": an assignee-only player is found", roles("test-player-4").some(c => c.assignees.includes("test-player-4")));
 }
 

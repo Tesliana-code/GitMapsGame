@@ -27,6 +27,19 @@ On a real repository, the same vocabulary is derived from GitHub data only:
 | `CLAIMED` | open, with an assignee or an open linked pull request |
 | `DISCOVERED` | open, all requirements PROVEN, unclaimed |
 
+### PLAYERS leaderboard
+
+Scores are derived only from crossing evidence already in `map.json`; a crossing scores at most once per player.
+
+| Points | Condition | Attributed to |
+|---|---|---|
+| 10 | crossing is `PROVEN` | author of its merged closing pull request (`closed_by`, same repository) |
+| 2 | crossing is `CLAIMED` | each assignee, and each author of an open linked pull request in the same repository |
+
+A PROVEN crossing never also scores as CLAIMED. Other states score nothing. Generic contributor roles (reviewers, authors of closed or unmerged pull requests) never score. Players are ranked by points, then PROVEN count, then login (case-insensitive).
+
+**Scores confer no merge, review, deployment or release authority** and grant no repository permissions. They are a display of public GitHub facts, not an access-control or trust signal.
+
 CI (`success`, `failure`, `pending`, `absent`, `unknown`) and review (`approved`, `changes_requested`, `absent`, `unknown`) are shown as separate facts. Cross-repository closing PRs do not satisfy PROVEN in V1. See [INSTALL.md](INSTALL.md).
 
 ## Win condition (synthetic mode)
