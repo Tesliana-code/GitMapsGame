@@ -1,0 +1,13 @@
+{
+  "expires_at": "2026-11-01T09:14:03Z",
+  "generated_at": "2026-10-30T09:14:03Z",
+  "key_id": "k-00000000000000a1",
+  "quests": {},
+  "region": {
+    "display_name": "Sample Region (synthetic)",
+    "region_id": "r-5ca1ab1e0000a001"
+  },
+  "schema": "gitmaps.projection/v1",
+  "sequence": 3,
+  "source_as_of": "2026-10-30T09:00:00Z"
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:gitmaps:projection-allowlist:v1",
+  "title": "gitmaps.projection-allowlist/v1",
+  "description": "PRIVATE. Founder-approved quests that may be projected; kept in the source repository, never published. source_issue links a quest to its private issue and has no counterpart in gitmaps.projection/v1. src/projection/schema.rs additionally requires quest_id and source_issue to be unique.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "region", "quests"],
+  "properties": {
+    "schema": { "const": "gitmaps.projection-allowlist/v1" },
+    "region": { "$ref": "urn:gitmaps:projection:v1#/$defs/region" },
+    "quests": {
+      "type": "array",
+      "maxItems": 200,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["quest_id", "source_issue", "title", "summary", "join_open"],
+        "properties": {
+          "quest_id": { "$ref": "urn:gitmaps:projection:v1#/$defs/quest_id" },
+          "source_issue": { "type": "integer", "minimum": 1, "description": "Private-only." },
+          "title": { "$ref": "urn:gitmaps:projection:v1#/$defs/text", "maxLength": 80, "pattern": "\\S" },
+          "summary": { "$ref": "urn:gitmaps:projection:v1#/$defs/text", "maxLength": 400 },
+          "tags": { "$ref": "urn:gitmaps:projection:v1#/$defs/tags" },
+          "join_open": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

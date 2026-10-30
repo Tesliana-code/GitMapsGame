@@ -1,0 +1,101 @@
+{
+  "schema": "gitmaps.projection/v1",
+  "region": {
+    "region_id": "r-5ca1ab1e0000a001",
+    "display_name": "Sample Region (synthetic)"
+  },
+  "key_id": "k-00000000000000a1",
+  "sequence": 3,
+  "generated_at": "2026-10-30T09:14:03Z",
+  "source_as_of": "2026-10-30T09:00:00Z",
+  "expires_at": "2026-11-01T09:14:03Z",
+  "quests": [
+    {
+      "quest_id": "q-0000000000000001",
+      "title": "Write a first-run guide for the sample tool",
+      "summary": "Explain installation and the first command for a na\u00efve newcomer.",
+      "state": "DISCOVERED",
+      "state_since": "2026-10-29",
+      "requires": [],
+      "hidden_prerequisites": false,
+      "contributors": {
+        "count": 0,
+        "handles": []
+      },
+      "join_open": true,
+      "tags": [
+        "docs"
+      ]
+    },
+    {
+      "quest_id": "q-0000000000000002",
+      "title": "Run the sample unit tests in CI",
+      "summary": "Wire the existing sample test suite into continuous integration.",
+      "state": "PROVEN",
+      "state_since": "2026-10-20",
+      "requires": [],
+      "hidden_prerequisites": false,
+      "contributors": {
+        "count": 2,
+        "handles": [
+          "sample-player"
+        ]
+      },
+      "join_open": false,
+      "tags": [
+        "ci",
+        "testing"
+      ],
+      "provenance": {
+        "commitment": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+      }
+    },
+    {
+      "quest_id": "q-0000000000000003",
+      "title": "Publish the sample coverage report",
+      "summary": "Needs the guide and the CI job first.",
+      "state": "LOCKED",
+      "state_since": "2026-10-29",
+      "requires": [
+        "q-0000000000000001",
+        "q-0000000000000002"
+      ],
+      "hidden_prerequisites": true,
+      "contributors": {
+        "count": 0,
+        "handles": []
+      },
+      "join_open": false
+    },
+    {
+      "quest_id": "q-0000000000000004",
+      "title": "Add retry tests for the sample fetcher",
+      "summary": "",
+      "state": "CLAIMED",
+      "state_since": "2026-10-29",
+      "requires": [
+        "q-0000000000000002"
+      ],
+      "hidden_prerequisites": false,
+      "contributors": {
+        "count": 1,
+        "handles": []
+      },
+      "join_open": false
+    },
+    {
+      "quest_id": "q-0000000000000005",
+      "title": "Replace the sample legacy parser",
+      "summary": "Superseded; kept so existing roads stay readable.",
+      "state": "RETIRED",
+      "state_since": "2026-10-29",
+      "requires": [],
+      "hidden_prerequisites": false,
+      "contributors": {
+        "count": 0,
+        "handles": []
+      },
+      "join_open": false
+    }
+  ]
+}

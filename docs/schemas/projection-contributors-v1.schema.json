@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:gitmaps:projection-contributors:v1",
+  "title": "gitmaps.projection-contributors/v1",
+  "description": "Opt-in public handles. A login absent from this file is only ever counted, never named. src/projection/schema.rs additionally requires logins and handles to be unique ignoring case.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "contributors"],
+  "properties": {
+    "schema": { "const": "gitmaps.projection-contributors/v1" },
+    "contributors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["login", "handle"],
+        "properties": {
+          "login": { "type": "string", "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}$", "description": "GitHub login." },
+          "handle": { "type": "string", "pattern": "^[A-Za-z0-9-]{1,39}$", "description": "Public display handle." }
+        }
+      }
+    }
+  }
+}
