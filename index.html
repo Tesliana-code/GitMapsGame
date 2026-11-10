@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GitMapsGame: World Map</title>
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-co9juEn4XPcmQqIK2e8oImT9xSaw0rOWU0vXNlMy5b0='; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-nKWM3IXetprcgWRKkCqwIItTr4Ct1ksqtTGXI0a4sGU='; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'%3E%3Crect width='16' height='16' fill='%230000aa'/%3E%3Cpath fill='%23ffff55' d='M1 4h6v1h-6zM9 4h6v1h-6zM1 5h6v1h-6zM9 5h6v1h-6zM1 6h2v1h-2zM9 6h2v1h-2zM1 7h2v1h-2zM4 7h3v1h-3zM9 7h2v1h-2zM12 7h3v1h-3zM1 8h2v1h-2zM4 8h3v1h-3zM9 8h2v1h-2zM12 8h3v1h-3zM1 9h2v1h-2zM5 9h2v1h-2zM9 9h2v1h-2zM13 9h2v1h-2zM1 10h6v1h-6zM9 10h6v1h-6zM1 11h6v1h-6zM9 11h6v1h-6z'/%3E%3C/svg%3E">
 <style>
 :root{--blue:#0000aa;--navy:#000055;--cyan:#55ffff;--teal:#00aaaa;--white:#ffffff;--gray:#aaaaaa;--dark:#555555;--yellow:#ffff55;--green:#55ff55;--red:#ff5555;--magenta:#ff55ff;--black:#000000;--brown:#aa5500;
@@ -168,12 +168,15 @@ function slot(id){const e=$(id);if(!e)return null;try{return JSON.parse(e.textCo
 const DATA=slot("gitmaps-data"),PREVIEW=slot("gitmaps-preview");
 const CONSTRUCTED=!!(PREVIEW&&PREVIEW.kind==="constructed");
 let REAL=!!(DATA&&DATA.mode==="real");
+function privateWorld(){return REAL&&DATA&&DATA.repository&&(DATA.repository.is_private===true||DATA.repository.visibility!=="public");}
+const PUBLIC_QUESTS="https://github.com/Tesliana-code/GitMapsGame/issues?q=is%3Aissue+is%3Aopen+label%3Agitmaps%3Acrossing";
 const REDUCED=typeof matchMedia==="function"&&matchMedia("(prefers-reduced-motion: reduce)").matches;
 const SVGNS="http://www.w3.org/2000/svg";
 function el(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined&&text!==null)e.textContent=text;return e;}
 function svgEl(tag,attrs){const e=document.createElementNS(SVGNS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);return e;}
 function sr(text){return el("span","sr-only",text);}
-function link(url,text){if(!CONSTRUCTED&&typeof url==="string"&&url.indexOf("https://github.com/")===0){const a=el("a","btn small",text);a.href=url;a.rel="noopener noreferrer";return a;}return el("span","none",CONSTRUCTED?text+" (test world: no link)":text);}
+function link(url,text){if(privateWorld()&&typeof url==="string"&&url.indexOf("https://github.com/"+repoName()+"/")===0)return el("span","none","PRIVATE REPOSITORY · ACCESS REQUIRED");
+  if(!CONSTRUCTED&&typeof url==="string"&&url.indexOf("https://github.com/")===0){const a=el("a","btn small",text);a.href=url;a.rel="noopener noreferrer";return a;}return el("span","none",CONSTRUCTED?text+" (test world: no link)":text);}
 
 /* Original 5x7 bitmap lettering, drawn as SVG rectangles. */
 const FONT={
@@ -310,8 +313,8 @@ function renderLegend(){const ul=$("legend");ul.replaceChildren();for(const k of
 function step(title,text,actions){const box=el("div","step");box.append(el("h3",null,title));if(text)box.append(el("p",null,text));
   if(actions&&actions.length){const a=el("div","actions");a.append(...actions);box.append(a);}return box;}
 function repoName(){return REAL?DATA.repository.name_with_owner:null;}
-function prUrl(){const r=repoName();return r&&/^[A-Za-z0-9-]+\/[A-Za-z0-9._-]+$/.test(r)?"https://github.com/"+r+"/compare":null;}
-function questsUrl(){const r=repoName();return r&&/^[A-Za-z0-9-]+\/[A-Za-z0-9._-]+$/.test(r)?"https://github.com/"+r+"/issues?q=is%3Aissue+is%3Aopen+label%3Agitmaps%3Acrossing":null;}
+function prUrl(){if(privateWorld())return null;const r=repoName();return r&&/^[A-Za-z0-9-]+\/[A-Za-z0-9._-]+$/.test(r)?"https://github.com/"+r+"/compare":null;}
+function questsUrl(){if(privateWorld())return null;const r=repoName();return r&&/^[A-Za-z0-9-]+\/[A-Za-z0-9._-]+$/.test(r)?"https://github.com/"+r+"/issues?q=is%3Aissue+is%3Aopen+label%3Agitmaps%3Acrossing":null;}
 function evidenceFacts(c){const ul=el("ul","facts");
   const fact=(k,v,cls)=>{const li=el("li");li.append(el("b",null,k+": "),el("span",cls||null,v));ul.append(li);};
   fact("GitHub state",(c.github_state||"tutorial")+(c.github_state_reason?" ("+c.github_state_reason+")":""));
@@ -335,6 +338,7 @@ function renderOrders(message){
   const s=STATES[c.state]||STATES.LOCKED;
   body.append(el("h3",null,"#"+c.number+" "+c.title));const line=el("p");line.append(stateLabel(c.state),document.createTextNode(" · "+s.terrain));body.append(line);
   const issue=REAL?link(c.url,"VIEW ISSUE #"+c.number+" ON GITHUB ↗"):null;
+  if(privateWorld())body.append(step("PRIVATE WORLD — READ-ONLY PREVIEW","This crossing belongs to a private repository. The published map is readable, but the original issue requires access. To participate, choose a public GitMapsGame quest instead.",[link(PUBLIC_QUESTS,"EXPLORE PUBLIC QUESTS ↗")]));
   if(!REAL){
     if(c.state==="DISCOVERED"){const b=el("button","btn small primary","CLAIM (TUTORIAL)");b.type="button";b.addEventListener("click",()=>{tut.claimed.add(c.number);refresh("Claimed #"+c.number+". In a live world you claim by opening a pull request that says Closes #"+c.number+", or a maintainer assigns you.");});
       body.append(step("① CLAIM IT","In this tutorial, claiming is one click. On GitHub it is a real pull request or an assignment.",[b]));}
@@ -375,6 +379,7 @@ function renderLedger(){
   const bar=el("div","bar");bar.setAttribute("aria-hidden","true");for(let i=0;i<Math.min(total,40);i++){const on=total?i<Math.round(proven*Math.min(total,40)/total):false;bar.append(el("i",on?"on":null));}if(total)body.append(bar);
   const counts=el("ul","facts");for(const k of ORDER){const n=list.filter(c=>c.state===k).length;const li=el("li");li.append(stateLabel(k),document.createTextNode(": "+n));counts.append(li);}body.append(counts);
   if(!REAL){body.append(el("p","none","In a live world, enter your GitHub login here to find the crossings you are part of."));return;}
+  body.append(el("p","none",privateWorld()?"This private world shows only verified work in its source repository. Your work in other repositories is not counted here.":"Progress reflects only the repository shown in this world, not your entire GitHub profile."));
   body.append(el("p",null,"GitHub logins seen in this snapshot: "+DATA.contributors.length+"."));
   const row=el("div","login"),input=el("input");input.id="player-login";input.type="text";input.autocomplete="off";input.spellcheck=false;input.placeholder="your GitHub login";input.setAttribute("aria-label","Your GitHub login (optional)");if(player)input.value=player;
   const go=el("button","btn small","FIND MY CROSSINGS");go.type="button";go.id="player-go";
@@ -384,7 +389,7 @@ function renderLedger(){
   if(player===null)return;
   if(!LOGIN.test(player)){body.append(el("p","bad","That is not a valid GitHub login."));return;}
   const mine=list.map(c=>({c:c,roles:involvement(c,player)})).filter(x=>x.roles.length);
-  if(!mine.length){body.append(el("p","msg","No moves by @"+player+" in this snapshot."));return;}
+  if(!mine.length){body.append(el("p","msg","No verified work by @"+player+" in this world snapshot. Work in other repositories is not included."));if(privateWorld())body.append(link(PUBLIC_QUESTS,"EXPLORE PUBLIC QUESTS ↗"));return;}
   const ul=el("ul","facts");ul.id="player-results";for(const m of mine){const li=el("li"),b=el("button","btn small","#"+m.c.number);b.type="button";b.addEventListener("click",()=>select(m.c.number,null));
     li.append(b,document.createTextNode(" "),stateLabel(m.c.state),document.createTextNode(" · "+m.roles.join(", ")+" · "+m.c.title));ul.append(li);}
   body.append(el("p",null,"@"+player+" appears in "+mine.length+" crossing"+(mine.length===1?"":"s")+":"),ul);
@@ -404,6 +409,7 @@ function scoreboard(){const repo=repoName(),by=new Map();
   return [...by.values()].map(s=>Object.assign(s,{points:10*s.proven+2*s.claimed})).sort((a,b)=>b.points-a.points||b.proven-a.proven||(key(a)<key(b)?-1:1));}
 function renderPlayers(){const body=$("players-body");body.replaceChildren();
   if(!REAL){body.append(el("p","none","In a live world, players are ranked here from GitHub evidence: "+SCORING));return;}
+  body.append(el("p","none","Rankings are based on verified crossings in this world only, not GitHub-wide contributions."));
   const rows=scoreboard();
   if(!rows.length){body.append(el("p",null,"No scored players yet. Claim a crossing on GitHub to enter the board."),el("p","none",SCORING));return;}
   const t=el("table","board");t.id="players-table";const head=el("tr");
@@ -447,6 +453,7 @@ function renderHeader(){
   const parts=REAL?["WORLD "+DATA.repository.name_with_owner,"LAST MOVE "+(DATA.as_of||"—"),"CHARTED "+list.length,"PROVEN "+proven+"/"+list.length]
     :["WORLD TUTORIAL (FICTIONAL)","CHARTED "+list.length,"PROVEN "+proven+"/"+list.length];
   for(const p of parts)bar.append(el("span",null,p));
+  const banner=$("tutorial-banner");banner.hidden=!privateWorld();if(privateWorld())banner.textContent="PRIVATE REPOSITORY WORLD · PUBLIC PREVIEW. The underlying issues and PRs require separate access. Use public GitMapsGame quests to join the game.";
 }
 function setup(){
   for(const n of document.querySelectorAll("[data-px]"))pixelize(n);
@@ -455,7 +462,8 @@ function setup(){
     $("badge").hidden=true;
     $("world-title").textContent=DATA.repository.name_with_owner;
     if(questsUrl())$("how-to-play-actions").append(" ",link(questsUrl(),"ALL QUESTS ON GITHUB ↗"));
-    $("pitch").textContent=DATA.crossings.length?"Every issue labelled gitmaps:crossing is a crossing. Claim one on GitHub, prove it with a merged pull request, and new paths open.":"This world has not been charted yet. Start the game to raise its first landmark.";
+    if(privateWorld())$("how-to-play-actions").append(" ",link(PUBLIC_QUESTS,"PLAY PUBLIC QUESTS ↗"));
+    $("pitch").textContent=privateWorld()?"Explore a read-only map of private engineering work. To participate without private access, try public GitMapsGame quests.":DATA.crossings.length?"Every issue labelled gitmaps:crossing is a crossing. Claim one on GitHub, prove it with a merged pull request, and new paths open.":"This world has not been charted yet. Start the game to raise its first landmark.";
     $("foot").textContent=CONSTRUCTED?"TEST WORLD · CONSTRUCTED DATA · LOCAL PREVIEW":"LIVE REPOSITORY DATA · PLAY THROUGH GITHUB";
     document.title="GitMapsGame: "+DATA.repository.name_with_owner+(CONSTRUCTED?" (test world)":"");
   } else {$("badge").className="badge tutorial";}
