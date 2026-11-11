@@ -60,13 +60,13 @@ fn gitmaps(args: &[&str], env: &[(&str, &str)]) -> Output {
 const REFERENCE_SITES: [(&str, &str, &str); 2] = [
     (
         "gitmapsgame",
-        "bbd6f4f9ceb4d44229296d4d38c6bdd8981d54294f00230041d00c2d9b429f7d",
-        "fcc300d5d1ce88a34b87e3c16bf8a20ae3dd3e33d9bea30d02f8ceff3af15f34",
+        "b8525fa92fa51a90cbd934785bf710ccd8b5196ef84a24d827762beb07e3f47a",
+        "43ce16c50277a5e8f6d5faf2f5d85b614b02ca061f9356f751f785ad7c681dbe",
     ),
     (
         "cli-cli",
-        "fb04a16c462dcca1574247a2cd39753510fc229a0dd70140cfec5c5a4f2aafbc",
-        "f8ed200ea55305440e557aa0dc52f080fde4192bfcc1682888c3e89516b463e7",
+        "d6c023d0bca4a831be874da93bb0db9ede45093f1cc0491880ece1c602a4b16f",
+        "4ef6b8735dceed77c7fa26dff38cde71610e8d44ef5a32710a7d939aa2e39a3b",
     ),
 ];
 
