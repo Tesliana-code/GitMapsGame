@@ -71,25 +71,10 @@ jobs:
       - name: Install pinned Python 3.12 oracle
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
-          python-version: '3.12'
+          python-version: '3.12.3'
       - name: Require the oracle's Python version (repr table is Unicode-version specific)
         run: python3 -c 'import sys; assert sys.version_info[:2] == (3, 12), sys.version'
       - name: Regenerate vectors and require no change
         run: |
           python3 scripts/generate_parity_vectors.py
-          python3 - <<'PY'
-          import base64, hashlib, json, tempfile
-          from pathlib import Path
-          from gitmaps.derive import derive
-          from gitmaps.render import write_site
-          for name in ('render.json', 'template.json'):
-              file = Path('tests/fixtures/parity') / name
-              print('VECTOR_HANDOFF:'+name+':'+base64.b64encode(file.read_bytes()).decode('ascii'))
-          for name in ('gitmapsgame', 'cli-cli'):
-              snap = json.loads((Path('tests/fixtures/recorded') / (name+'.snapshot.json')).read_text())
-              with tempfile.TemporaryDirectory() as tmp:
-                  digests = write_site(tmp, snap, derive(snap))
-                  sums = hashlib.sha256((Path(tmp)/'SHA256SUMS').read_bytes()).hexdigest()
-                  print('SITE_HANDOFF:'+name+':'+digests['index.html']+':'+sums)
-          PY
           git diff --exit-code -- tests/fixtures/parity src/pyrepr_table.rs src/queries.rs
